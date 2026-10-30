@@ -7,7 +7,6 @@ Geo-BIM·GIS 기반 실내 공간 관계 분석과 유지관리 연구용 웹 �
 ## 화면
 - index.html: 2D·3D 경계상자 모델, 공간 관계, 점검 우선순위
 - management.html: 요청·시공·유지관리 및 입주자 역할 체험
-- indoor.html: 실내 환경·접근성 분석
 - guide.html: Duplex 샘플 사용 방법
 - cloud.html: Firebase 계정별 백업·복원
 

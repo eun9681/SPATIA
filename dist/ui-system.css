@@ -212,3 +212,24 @@ body[data-page=guide] .steps li,body[data-page=cloud] .steps li{padding:5px 0 9p
 
 /* Cross-service links live in the common service navigation. */
 body[data-page] .sidebar .link-nav,body[data-page] .sidebar .side-tool[href],body[data-page] .rail .old-link{display:none}
+
+/* Building identity must keep its content height inside the scrolling rail. */
+body[data-page] .project,body[data-page] .building-card{
+ display:grid;grid-template-columns:28px minmax(0,1fr) 12px;align-items:center;
+ gap:10px;width:100%;height:auto;min-height:90px;flex:0 0 auto;
+ padding:14px 12px;text-align:left;
+}
+body[data-page] .project>div,body[data-page] .building-card>div{
+ min-width:0;font-size:13px;font-weight:600;line-height:1.55;
+ white-space:normal;word-break:keep-all;overflow-wrap:anywhere;
+}
+body[data-page] .project small,body[data-page] .building-card small{
+ display:block;margin-top:5px;font-size:11px;font-weight:400;line-height:1.6;
+ white-space:normal;word-break:keep-all;overflow-wrap:anywhere;
+}
+body[data-page] .project>span,body[data-page] .building-card>span{
+ min-width:0;font-size:25px;line-height:1;
+}
+body[data-page] .project>span:last-child,body[data-page] .building-card>span:last-child{
+ margin:0;font-size:12px;justify-self:end;
+}
