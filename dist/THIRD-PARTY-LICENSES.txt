@@ -28,8 +28,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
 proj4 2.22.0
-## Proj4js -- Javascript reprojection library. 
- 
+## Proj4js -- Javascript reprojection library.
+
 Authors:
 - Mike Adair madairATdmsolutions.ca
 - Richard Greenwood richATgreenwoodmap.com
