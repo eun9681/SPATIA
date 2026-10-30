@@ -1,0 +1,13 @@
+{
+  "name": "spatia",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Spatial + Intelligence — 실내 공간 관계 분석 및 유지관리 플랫폼",
+  "scripts": {
+    "start": "node preview-server.cjs",
+    "test": "node verify-geo.cjs",
+    "test:ui": "node verify-geo-ui.cjs",
+    "test:management": "node verify-build.cjs",
+    "test:cloud": "node verify-cloud.cjs"
+  }
+}

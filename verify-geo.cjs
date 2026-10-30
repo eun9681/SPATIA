@@ -1,0 +1,18 @@
+const assert=require('node:assert/strict'),fs=require('node:fs');
+const {GeoEngine:G}=require('./dist/geo-engine.js');const m=G.seed();assert.equal(m.elements.length,84);assert.equal(new Set(m.elements.map(e=>e.id)).size,84);
+const a={min:[0,0,0],max:[1,1,1],floor:1},b={min:[1,0,0],max:[2,1,1],floor:1},c={min:[.5,.5,.5],max:[1.5,1.5,1.5],floor:1};
+assert.equal(G.intersects(a,b),false);assert.equal(G.distance(a,b),0);assert.equal(G.intersects(a,c),true);assert.equal(G.distance(a,{min:[2,2,2],max:[3,3,3]}),Math.sqrt(3));
+assert.equal(G.vertical(a,{min:[0,0,1.2],max:[1,1,2],floor:2}),true);assert.equal(G.vertical(a,{min:[4,0,1.2],max:[5,1,2],floor:2}),false);
+const candidates=G.candidates(m,'A-302-C01');assert.ok(candidates.some(r=>r.element.id==='A-402-F01'&&r.reasons.includes('위층')));assert.ok(candidates.some(r=>r.element.id==='A-402-P01'&&r.reasons.includes('배관 연결')));
+assert.ok(!G.network(m,['A-302-P01'],0).includes('A-402-P01'));assert.ok(G.network(m,['A-302-P01'],1).includes('A-402-P01'));assert.ok(G.network(m,['A-302-P01'],2).includes('A-102-P01'));
+const c302=m.elements.find(e=>e.id==='A-302-C01');const s=G.score(m,c302);assert.equal(s.value,Math.round((s.factors.Q*.3+s.factors.M*.25+s.factors.D*.25+s.factors.E*.2)*10)/10);assert.throws(()=>G.score(m,c302,{weights:{Q:0,M:0,D:0,E:0}}));
+assert.equal(G.activeDefects(m,'2026-01-31').length,0);assert.ok(G.activeDefects(m,'2026-09-01').some(d=>d.element==='A-202-W02'));assert.ok(!G.activeDefects(m,'2026-10-30').some(d=>d.element==='A-202-W02'));
+assert.ok(G.score(m,m.elements.find(e=>e.id==='A-102-W02'),{rain:100,sun:100}).value>G.score(m,m.elements.find(e=>e.id==='A-102-W02'),{rain:0,sun:0}).value);
+const tickets=[{element:'A-302-C01',stage:0,created:'2026-10-30T10:00:00'}];assert.equal(G.indicators(m,c302,{requests:tickets}).tickets,1);assert.equal(G.indicators(m,c302,{requests:tickets,asOf:'2026-09-30'}).tickets,0);
+assert.deepEqual(G.evaluate(['a','b'],['b','c']),{tp:1,fp:1,fn:1,precision:.5,recall:.5});
+assert.equal(G.validate(m).elements.length,84);assert.throws(()=>G.validate({...m,elements:[m.elements[0],m.elements[0]]}),/중복/);assert.throws(()=>G.validate({...m,connections:[['missing','A-302-C01']]}),/연결망/);
+const ifc=fs.readFileSync('dist/sample-model.ifc','utf8'),parsed=G.parseIFC(ifc);assert.equal(parsed.imported,4);assert.equal(parsed.warnings.length,0);const wall=parsed.model.elements.find(e=>e.id==='IFC-27');assert.ok(Math.abs(wall.min[0]-12.7)<1e-6);assert.ok(Math.abs(wall.min[2]-6.6)<1e-6);assert.ok(Math.abs(wall.max[2]-9.3)<1e-6);
+const mixed=G.parseIFC(ifc.replace("#51=IFCEXTRUDEDAREASOLID(#50,#4,#2,3.2);","#51=IFCFACETEDBREP(#50);"));assert.equal(mixed.imported,3);assert.equal(mixed.warnings.length,1);
+assert.throws(()=>G.parseIFC(ifc.replace(".LENGTHUNIT.,$,.METRE.",".LENGTHUNIT.,$,.FOOT.")),/길이단위/);
+const mm=G.parseIFC(ifc.replace('.LENGTHUNIT.,$,.METRE.','.LENGTHUNIT.,.MILLI.,.METRE.'));assert.ok(Math.abs(mm.model.elements[0].min[0]-wall.min[0]*.001)<1e-6);
+console.log('PASS: 84 unique elements; 3D overlap/distance/vertical relations; pipe graph hops; weighted scores; historical closure; environment sensitivity; request linkage; synthetic evaluation; JSON validation; IFC geometry/placement/units/partial rejection.');

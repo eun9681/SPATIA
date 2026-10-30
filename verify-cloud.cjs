@@ -1,0 +1,31 @@
+const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
+const {CloudCore:C}=require('./dist/cloud-core.js'),{GeoEngine:G}=require('./dist/geo-engine.js'),{BuildModel:M}=require('./dist/build-model.js');
+const config={apiKey:'example-public-key',projectId:'example-project',authDomain:'example-project.firebaseapp.com',appId:'1:123456789:web:abcdef'};
+assert.deepEqual(C.parseConfig('const firebaseConfig = '+JSON.stringify(config)+';'),config);
+assert.throws(()=>C.parseConfig('{"private_key":"secret"}'),/서비스/);
+assert.throws(()=>C.parseConfig('alert(1)'),/객체/);
+assert.equal(C.validatePayload('model',JSON.stringify(G.seed()),G).elements.length,84);
+assert.equal(C.validatePayload('operations',JSON.stringify(M.seed()),G).requests.length,5);
+const completed=M.seed();completed.requests[0].stage=5;assert.equal(C.validatePayload('operations',JSON.stringify(completed),G).requests[0].stage,5);
+assert.throws(()=>C.validatePayload('operations',JSON.stringify({version:2,requests:[]}),G),/형식/);
+assert.throws(()=>C.validatePayload('model','한'.repeat(300000),G),/800KB/);
+assert.throws(()=>C.validateDocument({schemaVersion:2,kind:'model'},'model',G),/백업/);
+const duplex=G.validate(JSON.parse(fs.readFileSync('dist/duplex-spatial-model.json','utf8')));assert.equal(duplex.elements.length,50);assert.equal(duplex.connections.length,21);
+const els=new Map(),store=new Map(),reads=[],saves=[];
+function el(k){if(!els.has(k))els.set(k,{textContent:'',value:'',disabled:false,dataset:{},className:'',checked:false,reportValidity:()=>true});return els.get(k)}
+const bs={};for(const op of ['read','save','load'])bs[op]=['model','operations'].map(k=>{const b=el(op+k);b.dataset[op]=k;return b});
+const ctx=vm.createContext({CloudCore:C,GeoEngine:G,BuildModel:M,TextEncoder,console,document:{querySelector:el,querySelectorAll:s=>s==='[data-save],[data-load],[data-read]'?Object.values(bs).flat():bs[s.match(/data-(\w+)/)?.[1]]||[]},localStorage:{getItem:k=>store.get(k)||null,setItem:(k,v)=>store.set(k,v),removeItem:k=>store.delete(k)},window:{addEventListener(){}},confirm:()=>true,fetch:async()=>({ok:true,text:async()=>''})});
+vm.runInContext(fs.readFileSync('dist/cloud.js','utf8'),ctx);
+assert(bs.save.every(b=>b.disabled));
+ctx.reads=reads;ctx.saves=saves;
+(async()=>{
+ await vm.runInContext(`auth={};user={uid:'USER-A'};F={doc:(_db,...parts)=>parts.join('/'),serverTimestamp:()=>123,setDoc:async(ref,data)=>saves.push({ref,data}),getDocFromServer:async()=>({exists:()=>true,data:()=>({schemaVersion:1,kind:'model',provenance:'user_workspace_snapshot',payload:JSON.stringify(GeoEngine.seed())})})};buttons();`,ctx);
+ await bs.save[0].onclick();assert.equal(saves.length,1);assert.equal(saves[0].ref,'users/USER-A/snapshots/model');assert(el('#status').textContent.includes('저장 완료'));
+ await vm.runInContext(`F.setDoc=async()=>{throw {code:'permission-denied'}}`,ctx);await bs.save[0].onclick();assert(el('#status').className.includes('error'));assert(!el('#status').textContent.includes('저장 완료'));
+ await bs.load[0].onclick();assert.equal(JSON.parse(store.get(C.KEYS.model)).elements.length,84);
+ const prior=store.get(C.KEYS.model);await vm.runInContext(`F.getDocFromServer=async()=>({exists:()=>true,data:()=>({schemaVersion:99})})`,ctx);await bs.load[0].onclick();assert.equal(store.get(C.KEYS.model),prior);assert(el('#status').className.includes('error'));
+ await vm.runInContext(`user={uid:'USER-B'};F.setDoc=async(ref,data)=>saves.push({ref,data})`,ctx);await bs.save[0].onclick();assert.equal(saves.at(-1).ref,'users/USER-B/snapshots/model');
+ const rules=fs.readFileSync('dist/firestore.rules','utf8');for(const s of ['request.auth.uid == userId','allow list: if false','request.resource.data.updatedAt == request.time','hasOnly'])assert(rules.includes(s));
+ for(const page of ['index.html','management.html','guide.html'])assert(fs.readFileSync('dist/'+page,'utf8').includes('href="cloud.html"'));
+ console.log('PASS: config/payload validation, UTF-8 size bound, sample JSON, signed-out controls, per-user paths, successful and denied saves, validated restores, corrupt restore leaves local intact. Authenticated Firebase writes and rule execution NOT tested: no test user.');
+})().catch(e=>{console.error(e);process.exitCode=1});

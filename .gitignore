@@ -1,0 +1,10 @@
+node_modules/
+.netlify/
+.env
+.env.*
+!.env.example
+*.log
+deploy-result*.json
+*service-account*.json
+*adminsdk*.json
+.DS_Store

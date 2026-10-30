@@ -1,0 +1,25 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /users/{userId}/snapshots/{kind} {
+      function owner() {
+        return request.auth != null && request.auth.uid == userId;
+      }
+      function validSnapshot() {
+        return kind in ['model', 'operations']
+          && request.resource.data.keys().hasAll(['schemaVersion','kind','payload','provenance','updatedAt'])
+          && request.resource.data.keys().hasOnly(['schemaVersion','kind','payload','provenance','updatedAt'])
+          && request.resource.data.schemaVersion == 1
+          && request.resource.data.kind == kind
+          && request.resource.data.payload is string
+          && request.resource.data.payload.size() <= 800000
+          && request.resource.data.provenance == 'user_workspace_snapshot'
+          && request.resource.data.updatedAt == request.time;
+      }
+      allow get: if owner() && kind in ['model', 'operations'];
+      allow list: if false;
+      allow create, update: if owner() && validSnapshot();
+      allow delete: if owner() && kind in ['model', 'operations'];
+    }
+  }
+}

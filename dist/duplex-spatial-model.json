@@ -1,0 +1,1771 @@
+{
+  "version": 3,
+  "name": "Duplex Apartment 공개 IFC 연구용 부분집합",
+  "crs": "LOCAL_METERS",
+  "note": "공개 IFC 형상·자재 + 가상 Q/M/E·결함; 실제 시공·안전 평가 아님",
+  "elements": [
+    {
+      "id": "ARC-0iEHWY1$XA8eQeeULq4jDb",
+      "name": "Basic Wall:Interior - Furring (152 mm Stud):190774",
+      "type": "wall",
+      "floor": 1,
+      "unit": "common",
+      "min": [
+        4.618000000000003,
+        -10.370000000000017,
+        0.0
+      ],
+      "max": [
+        4.770000000000002,
+        -8.07499999999999,
+        2.795000000000196
+      ],
+      "material": "Basic Wall:Interior - Furring (152 mm Stud)",
+      "Q": 20,
+      "M": 10,
+      "E": 15,
+      "ifcGuid": "0iEHWY1$XA8eQeeULq4jDb",
+      "ifcStepId": 24768,
+      "source": "Duplex_A_20110907.ifc · IfcOpenShell AABB; Q/M/E synthetic",
+      "source_id": "SRC-DUPLEX-ARC",
+      "geometry_id": "ARC-GEO-24768",
+      "constructed": null,
+      "inspected": null,
+      "manufacturer": null,
+      "spec": "Basic Wall:Interior - Furring (152 mm Stud)"
+    },
+    {
+      "id": "ARC-0iEHWY1$XA8eQeeULq4jE6",
+      "name": "Basic Wall:Interior - Furring (152 mm Stud):190933",
+      "type": "wall",
+      "floor": 1,
+      "unit": "common",
+      "min": [
+        0.4169999999999992,
+        -10.370000000000001,
+        0.0
+      ],
+      "max": [
+        4.6179999999999986,
+        -10.218,
+        2.795000000000196
+      ],
+      "material": "Basic Wall:Interior - Furring (152 mm Stud)",
+      "Q": 35,
+      "M": 25,
+      "E": 25,
+      "ifcGuid": "0iEHWY1$XA8eQeeULq4jE6",
+      "ifcStepId": 24813,
+      "source": "Duplex_A_20110907.ifc · IfcOpenShell AABB; Q/M/E synthetic",
+      "source_id": "SRC-DUPLEX-ARC",
+      "geometry_id": "ARC-GEO-24813",
+      "constructed": null,
+      "inspected": null,
+      "manufacturer": null,
+      "spec": "Basic Wall:Interior - Furring (152 mm Stud)"
+    },
+    {
+      "id": "ARC-0iEHWY1$XA8eQeeULq4jZ1",
+      "name": "Basic Wall:Interior - Furring (152 mm Stud):189074",
+      "type": "wall",
+      "floor": 1,
+      "unit": "common",
+      "min": [
+        4.030000000000003,
+        -7.5820000000000025,
+        0.0
+      ],
+      "max": [
+        8.382999999999988,
+        -7.430000000000003,
+        2.795000000000196
+      ],
+      "material": "Basic Wall:Interior - Furring (152 mm Stud)",
+      "Q": 55,
+      "M": 45,
+      "E": 35,
+      "ifcGuid": "0iEHWY1$XA8eQeeULq4jZ1",
+      "ifcStepId": 24596,
+      "source": "Duplex_A_20110907.ifc · IfcOpenShell AABB; Q/M/E synthetic",
+      "source_id": "SRC-DUPLEX-ARC",
+      "geometry_id": "ARC-GEO-24596",
+      "constructed": null,
+      "inspected": null,
+      "manufacturer": null,
+      "spec": "Basic Wall:Interior - Furring (152 mm Stud)"
+    },
+    {
+      "id": "ARC-0iEHWY1$XA8eQeeULq4j_U",
+      "name": "Basic Wall:Interior - Furring (152 mm Stud):189901",
+      "type": "wall",
+      "floor": 1,
+      "unit": "common",
+      "min": [
+        4.029999999999999,
+        -9.725000000000014,
+        0.0
+      ],
+      "max": [
+        4.181999999999999,
+        -7.581999999999972,
+        3.100000000000196
+      ],
+      "material": "Basic Wall:Interior - Furring (152 mm Stud)",
+      "Q": 75,
+      "M": 65,
+      "E": 15,
+      "ifcGuid": "0iEHWY1$XA8eQeeULq4j_U",
+      "ifcStepId": 24680,
+      "source": "Duplex_A_20110907.ifc · IfcOpenShell AABB; Q/M/E synthetic",
+      "source_id": "SRC-DUPLEX-ARC",
+      "geometry_id": "ARC-GEO-24680",
+      "constructed": null,
+      "inspected": null,
+      "manufacturer": null,
+      "spec": "Basic Wall:Interior - Furring (152 mm Stud)"
+    },
+    {
+      "id": "ARC-0iEHWY1$XA8eQeeULq4jpl",
+      "name": "Basic Wall:Interior - Partition (92mm Stud):190140",
+      "type": "wall",
+      "floor": 1,
+      "unit": "common",
+      "min": [
+        2.5740000000000007,
+        -7.553999999999974,
+        0.0
+      ],
+      "max": [
+        4.030000000000003,
+        -7.429999999999973,
+        2.795000000000196
+      ],
+      "material": "Basic Wall:Interior - Partition (92mm Stud)",
+      "Q": 40,
+      "M": 10,
+      "E": 25,
+      "ifcGuid": "0iEHWY1$XA8eQeeULq4jpl",
+      "ifcStepId": 24723,
+      "source": "Duplex_A_20110907.ifc · IfcOpenShell AABB; Q/M/E synthetic",
+      "source_id": "SRC-DUPLEX-ARC",
+      "geometry_id": "ARC-GEO-24723",
+      "constructed": null,
+      "inspected": null,
+      "manufacturer": null,
+      "spec": "Basic Wall:Interior - Partition (92mm Stud)"
+    },
+    {
+      "id": "ARC-1aj$VJZFn2TxepZUBcKpee",
+      "name": "Basic Wall:Interior - Partition (92mm Stud):204300",
+      "type": "wall",
+      "floor": 1,
+      "unit": "common",
+      "min": [
+        1.431400000000008,
+        -9.725000000000007,
+        2.612
+      ],
+      "max": [
+        1.555400000000008,
+        -6.250000000000005,
+        3.1000000000001955
+      ],
+      "material": "Basic Wall:Interior - Partition (92mm Stud)",
+      "Q": 20,
+      "M": 25,
+      "E": 35,
+      "ifcGuid": "1aj$VJZFn2TxepZUBcKpee",
+      "ifcStepId": 35452,
+      "source": "Duplex_A_20110907.ifc · IfcOpenShell AABB; Q/M/E synthetic",
+      "source_id": "SRC-DUPLEX-ARC",
+      "geometry_id": "ARC-GEO-35452",
+      "constructed": null,
+      "inspected": null,
+      "manufacturer": null,
+      "spec": "Basic Wall:Interior - Partition (92mm Stud)"
+    },
+    {
+      "id": "ARC-1aj$VJZFn2TxepZUBcKphf",
+      "name": "Basic Wall:Interior - Partition (92mm Stud):204493",
+      "type": "wall",
+      "floor": 1,
+      "unit": "common",
+      "min": [
+        7.244599999999956,
+        -11.55,
+        2.612
+      ],
+      "max": [
+        7.368599999999956,
+        -8.075,
+        3.1000000000001955
+      ],
+      "material": "Basic Wall:Interior - Partition (92mm Stud)",
+      "Q": 35,
+      "M": 45,
+      "E": 15,
+      "ifcGuid": "1aj$VJZFn2TxepZUBcKphf",
+      "ifcStepId": 35497,
+      "source": "Duplex_A_20110907.ifc · IfcOpenShell AABB; Q/M/E synthetic",
+      "source_id": "SRC-DUPLEX-ARC",
+      "geometry_id": "ARC-GEO-35497",
+      "constructed": null,
+      "inspected": null,
+      "manufacturer": null,
+      "spec": "Basic Wall:Interior - Partition (92mm Stud)"
+    },
+    {
+      "id": "ARC-2O2Fr$t4X7Zf8NOew3FKGS",
+      "name": "Basic Wall:Interior - Partition (92mm Stud):139939",
+      "type": "wall",
+      "floor": 1,
+      "unit": "common",
+      "min": [
+        6.200000000000001,
+        -17.382999999999992,
+        0.0
+      ],
+      "max": [
+        6.324000000000002,
+        -13.8,
+        2.795000000000196
+      ],
+      "material": "Basic Wall:Interior - Partition (92mm Stud)",
+      "Q": 55,
+      "M": 65,
+      "E": 25,
+      "ifcGuid": "2O2Fr$t4X7Zf8NOew3FKGS",
+      "ifcStepId": 4598,
+      "source": "Duplex_A_20110907.ifc · IfcOpenShell AABB; Q/M/E synthetic",
+      "source_id": "SRC-DUPLEX-ARC",
+      "geometry_id": "ARC-GEO-4598",
+      "constructed": null,
+      "inspected": null,
+      "manufacturer": null,
+      "spec": "Basic Wall:Interior - Partition (92mm Stud)"
+    },
+    {
+      "id": "ARC-1CZILmCaHETO8tf3SgGEWh",
+      "name": "Floor:150mm Exterior Slab on Grade:216507",
+      "type": "floor",
+      "floor": 1,
+      "unit": "common",
+      "min": [
+        2.5999999999999996,
+        -4.440892098500626e-16,
+        -0.137
+      ],
+      "max": [
+        8.399999999999999,
+        4.382734000000035,
+        0.012999999999999984
+      ],
+      "material": "Floor:150mm Exterior Slab on Grade",
+      "Q": 75,
+      "M": 10,
+      "E": 35,
+      "ifcGuid": "1CZILmCaHETO8tf3SgGEWh",
+      "ifcStepId": 37777,
+      "source": "Duplex_A_20110907.ifc · IfcOpenShell AABB; Q/M/E synthetic",
+      "source_id": "SRC-DUPLEX-ARC",
+      "geometry_id": "ARC-GEO-37777",
+      "constructed": null,
+      "inspected": null,
+      "manufacturer": null,
+      "spec": "Floor:150mm Exterior Slab on Grade"
+    },
+    {
+      "id": "ARC-1CZILmCaHETO8tf3SgGEXu",
+      "name": "Floor:150mm Exterior Slab on Grade:216552",
+      "type": "floor",
+      "floor": 1,
+      "unit": "common",
+      "min": [
+        0.40000000000000036,
+        -22.182733999999982,
+        -0.137
+      ],
+      "max": [
+        6.199999999999999,
+        -17.799999999999983,
+        0.012999999999999984
+      ],
+      "material": "Floor:150mm Exterior Slab on Grade",
+      "Q": 40,
+      "M": 25,
+      "E": 15,
+      "ifcGuid": "1CZILmCaHETO8tf3SgGEXu",
+      "ifcStepId": 37864,
+      "source": "Duplex_A_20110907.ifc · IfcOpenShell AABB; Q/M/E synthetic",
+      "source_id": "SRC-DUPLEX-ARC",
+      "geometry_id": "ARC-GEO-37864",
+      "constructed": null,
+      "inspected": null,
+      "manufacturer": null,
+      "spec": "Floor:150mm Exterior Slab on Grade"
+    },
+    {
+      "id": "ARC-2O2Fr$t4X7Zf8NOew3FK4F",
+      "name": "Floor:127mm Slab on Grade:141232",
+      "type": "floor",
+      "floor": 1,
+      "unit": "common",
+      "min": [
+        0.41699999999998516,
+        -9.725000000000014,
+        -0.127
+      ],
+      "max": [
+        8.383,
+        -0.4170000000000007,
+        0.0
+      ],
+      "material": "Floor:127mm Slab on Grade",
+      "Q": 20,
+      "M": 45,
+      "E": 25,
+      "ifcGuid": "2O2Fr$t4X7Zf8NOew3FK4F",
+      "ifcStepId": 5165,
+      "source": "Duplex_A_20110907.ifc · IfcOpenShell AABB; Q/M/E synthetic",
+      "source_id": "SRC-DUPLEX-ARC",
+      "geometry_id": "ARC-GEO-5165",
+      "constructed": null,
+      "inspected": null,
+      "manufacturer": null,
+      "spec": "Floor:127mm Slab on Grade"
+    },
+    {
+      "id": "ARC-2O2Fr$t4X7Zf8NOew3FKcz",
+      "name": "Floor:127mm Slab on Grade:143106",
+      "type": "floor",
+      "floor": 1,
+      "unit": "common",
+      "min": [
+        0.4169999999999998,
+        -17.383,
+        -0.127
+      ],
+      "max": [
+        8.383000000000003,
+        -8.075000000000003,
+        0.0
+      ],
+      "material": "Floor:127mm Slab on Grade",
+      "Q": 35,
+      "M": 65,
+      "E": 35,
+      "ifcGuid": "2O2Fr$t4X7Zf8NOew3FKcz",
+      "ifcStepId": 5267,
+      "source": "Duplex_A_20110907.ifc · IfcOpenShell AABB; Q/M/E synthetic",
+      "source_id": "SRC-DUPLEX-ARC",
+      "geometry_id": "ARC-GEO-5267",
+      "constructed": null,
+      "inspected": null,
+      "manufacturer": null,
+      "spec": "Floor:127mm Slab on Grade"
+    },
+    {
+      "id": "ARC-2OrWItJ6zAwBNp0OUxK$8W",
+      "name": "M_W-Wide Flange:W410X60:W410X60:208949",
+      "type": "beam",
+      "floor": 1,
+      "unit": "common",
+      "min": [
+        0.2666128795750412,
+        -17.611999999999977,
+        2.69300000000019
+      ],
+      "max": [
+        6.448499999999999,
+        -17.433999999999976,
+        3.1000000000001897
+      ],
+      "material": "Metal - Steel - 345 MPa",
+      "Q": 55,
+      "M": 10,
+      "E": 15,
+      "ifcGuid": "2OrWItJ6zAwBNp0OUxK$8W",
+      "ifcStepId": 36892,
+      "source": "Duplex_A_20110907.ifc · IfcOpenShell AABB; Q/M/E synthetic",
+      "source_id": "SRC-DUPLEX-ARC",
+      "geometry_id": "ARC-GEO-36892",
+      "constructed": null,
+      "inspected": null,
+      "manufacturer": null,
+      "spec": "Metal - Steel - 345 MPa"
+    },
+    {
+      "id": "ARC-2OrWItJ6zAwBNp0OUxK$Du",
+      "name": "M_W-Wide Flange:W410X60:W410X60:209261",
+      "type": "beam",
+      "floor": 1,
+      "unit": "common",
+      "min": [
+        2.3515000000000326,
+        -0.3660000000000434,
+        2.6930000000001906
+      ],
+      "max": [
+        8.53338712042499,
+        -0.18800000000004316,
+        3.1000000000001897
+      ],
+      "material": "Metal - Steel - 345 MPa",
+      "Q": 75,
+      "M": 25,
+      "E": 25,
+      "ifcGuid": "2OrWItJ6zAwBNp0OUxK$Du",
+      "ifcStepId": 37456,
+      "source": "Duplex_A_20110907.ifc · IfcOpenShell AABB; Q/M/E synthetic",
+      "source_id": "SRC-DUPLEX-ARC",
+      "geometry_id": "ARC-GEO-37456",
+      "constructed": null,
+      "inspected": null,
+      "manufacturer": null,
+      "spec": "Metal - Steel - 345 MPa"
+    },
+    {
+      "id": "ARC-0dxE1Sy6nDqfpDb5vIMN_Z",
+      "name": "Basic Wall:Interior - Furring (152 mm Stud):194166",
+      "type": "wall",
+      "floor": 2,
+      "unit": "common",
+      "min": [
+        4.0299999999999825,
+        -11.01,
+        3.100000000000378
+      ],
+      "max": [
+        4.181999999999982,
+        -6.850000000000004,
+        5.69500000000039
+      ],
+      "material": "Basic Wall:Interior - Furring (152 mm Stud)",
+      "Q": 40,
+      "M": 45,
+      "E": 35,
+      "ifcGuid": "0dxE1Sy6nDqfpDb5vIMN_Z",
+      "ifcStepId": 31476,
+      "source": "Duplex_A_20110907.ifc · IfcOpenShell AABB; Q/M/E synthetic",
+      "source_id": "SRC-DUPLEX-ARC",
+      "geometry_id": "ARC-GEO-31476",
+      "constructed": null,
+      "inspected": null,
+      "manufacturer": null,
+      "spec": "Basic Wall:Interior - Furring (152 mm Stud)"
+    },
+    {
+      "id": "ARC-0dxE1Sy6nDqfpDb5vIMNiA",
+      "name": "Basic Wall:Interior - Furring (152 mm Stud):193247",
+      "type": "wall",
+      "floor": 2,
+      "unit": "common",
+      "min": [
+        4.61799999999999,
+        -10.95000000000001,
+        3.100000000000378
+      ],
+      "max": [
+        4.769999999999989,
+        -6.790000000000003,
+        5.69500000000039
+      ],
+      "material": "Basic Wall:Interior - Furring (152 mm Stud)",
+      "Q": 20,
+      "M": 65,
+      "E": 15,
+      "ifcGuid": "0dxE1Sy6nDqfpDb5vIMNiA",
+      "ifcStepId": 31431,
+      "source": "Duplex_A_20110907.ifc · IfcOpenShell AABB; Q/M/E synthetic",
+      "source_id": "SRC-DUPLEX-ARC",
+      "geometry_id": "ARC-GEO-31431",
+      "constructed": null,
+      "inspected": null,
+      "manufacturer": null,
+      "spec": "Basic Wall:Interior - Furring (152 mm Stud)"
+    },
+    {
+      "id": "ARC-1aj$VJZFn2TxepZUBcKpZw",
+      "name": "Basic Wall:Interior - Partition (92mm Stud):203998",
+      "type": "wall",
+      "floor": 2,
+      "unit": "common",
+      "min": [
+        4.769999999999988,
+        -7.845384235071523,
+        3.100000000000378
+      ],
+      "max": [
+        6.294000000000007,
+        -7.721384235071523,
+        6.00000000000039
+      ],
+      "material": "Basic Wall:Interior - Partition (92mm Stud)",
+      "Q": 35,
+      "M": 10,
+      "E": 25,
+      "ifcGuid": "1aj$VJZFn2TxepZUBcKpZw",
+      "ifcStepId": 35357,
+      "source": "Duplex_A_20110907.ifc · IfcOpenShell AABB; Q/M/E synthetic",
+      "source_id": "SRC-DUPLEX-ARC",
+      "geometry_id": "ARC-GEO-35357",
+      "constructed": null,
+      "inspected": null,
+      "manufacturer": null,
+      "spec": "Basic Wall:Interior - Partition (92mm Stud)"
+    },
+    {
+      "id": "ARC-1aj$VJZFn2TxepZUBcKpvt",
+      "name": "Basic Wall:Interior - Partition (92mm Stud):203347",
+      "type": "wall",
+      "floor": 2,
+      "unit": "common",
+      "min": [
+        2.505999999999993,
+        -10.094051178510592,
+        3.100000000000378
+      ],
+      "max": [
+        4.029999999999983,
+        -9.97005117851059,
+        6.00000000000039
+      ],
+      "material": "Basic Wall:Interior - Partition (92mm Stud)",
+      "Q": 55,
+      "M": 25,
+      "E": 35,
+      "ifcGuid": "1aj$VJZFn2TxepZUBcKpvt",
+      "ifcStepId": 35199,
+      "source": "Duplex_A_20110907.ifc · IfcOpenShell AABB; Q/M/E synthetic",
+      "source_id": "SRC-DUPLEX-ARC",
+      "geometry_id": "ARC-GEO-35199",
+      "constructed": null,
+      "inspected": null,
+      "manufacturer": null,
+      "spec": "Basic Wall:Interior - Partition (92mm Stud)"
+    },
+    {
+      "id": "ARC-2O2Fr$t4X7Zf8NOew3FKau",
+      "name": "Basic Wall:Party Wall - CMU Residential Unit Dimising Wall:143239",
+      "type": "wall",
+      "floor": 2,
+      "unit": "common",
+      "min": [
+        4.125000000000001,
+        -17.38299999999998,
+        3.100000000000378
+      ],
+      "max": [
+        4.675000000000001,
+        -0.4170000000000139,
+        6.000000000000391
+      ],
+      "material": "Basic Wall:Party Wall - CMU Residential Unit Dimising Wall",
+      "Q": 75,
+      "M": 45,
+      "E": 15,
+      "ifcGuid": "2O2Fr$t4X7Zf8NOew3FKau",
+      "ifcStepId": 5399,
+      "source": "Duplex_A_20110907.ifc · IfcOpenShell AABB; Q/M/E synthetic",
+      "source_id": "SRC-DUPLEX-ARC",
+      "geometry_id": "ARC-GEO-5399",
+      "constructed": null,
+      "inspected": null,
+      "manufacturer": null,
+      "spec": "Basic Wall:Party Wall - CMU Residential Unit Dimising Wall"
+    },
+    {
+      "id": "ARC-2O2Fr$t4X7Zf8NOew3FL96",
+      "name": "Basic Wall:Interior - Partition (92mm Stud):144633",
+      "type": "wall",
+      "floor": 2,
+      "unit": "common",
+      "min": [
+        6.418000000000008,
+        -6.250000000000003,
+        3.100000000000378
+      ],
+      "max": [
+        8.38299999999999,
+        -6.126000000000002,
+        6.00000000000039
+      ],
+      "material": "Basic Wall:Interior - Partition (92mm Stud)",
+      "Q": 40,
+      "M": 65,
+      "E": 25,
+      "ifcGuid": "2O2Fr$t4X7Zf8NOew3FL96",
+      "ifcStepId": 5992,
+      "source": "Duplex_A_20110907.ifc · IfcOpenShell AABB; Q/M/E synthetic",
+      "source_id": "SRC-DUPLEX-ARC",
+      "geometry_id": "ARC-GEO-5992",
+      "constructed": null,
+      "inspected": null,
+      "manufacturer": null,
+      "spec": "Basic Wall:Interior - Partition (92mm Stud)"
+    },
+    {
+      "id": "ARC-2O2Fr$t4X7Zf8NOew3FL9r",
+      "name": "Basic Wall:Interior - Partition (92mm Stud):144586",
+      "type": "wall",
+      "floor": 2,
+      "unit": "common",
+      "min": [
+        6.294,
+        -11.55,
+        3.100000000000378
+      ],
+      "max": [
+        6.418,
+        -6.126000000000005,
+        6.00000000000039
+      ],
+      "material": "Basic Wall:Interior - Partition (92mm Stud)",
+      "Q": 20,
+      "M": 10,
+      "E": 35,
+      "ifcGuid": "2O2Fr$t4X7Zf8NOew3FL9r",
+      "ifcStepId": 5948,
+      "source": "Duplex_A_20110907.ifc · IfcOpenShell AABB; Q/M/E synthetic",
+      "source_id": "SRC-DUPLEX-ARC",
+      "geometry_id": "ARC-GEO-5948",
+      "constructed": null,
+      "inspected": null,
+      "manufacturer": null,
+      "spec": "Basic Wall:Interior - Partition (92mm Stud)"
+    },
+    {
+      "id": "ARC-2O2Fr$t4X7Zf8NOew3FLCm",
+      "name": "Basic Wall:Interior - Plumbing (152mm Stud):144783",
+      "type": "wall",
+      "floor": 2,
+      "unit": "common",
+      "min": [
+        4.674999999999983,
+        -11.134000000000011,
+        3.100000000000378
+      ],
+      "max": [
+        6.294000000000001,
+        -10.95000000000001,
+        6.00000000000039
+      ],
+      "material": "Basic Wall:Interior - Plumbing (152mm Stud)",
+      "Q": 35,
+      "M": 25,
+      "E": 15,
+      "ifcGuid": "2O2Fr$t4X7Zf8NOew3FLCm",
+      "ifcStepId": 6080,
+      "source": "Duplex_A_20110907.ifc · IfcOpenShell AABB; Q/M/E synthetic",
+      "source_id": "SRC-DUPLEX-ARC",
+      "geometry_id": "ARC-GEO-6080",
+      "constructed": null,
+      "inspected": null,
+      "manufacturer": null,
+      "spec": "Basic Wall:Interior - Plumbing (152mm Stud)"
+    },
+    {
+      "id": "ARC-1hOSvn6df7F8_7GcBWlRqU",
+      "name": "Floor:Residential - Wood Joist with Subflooring:144800",
+      "type": "floor",
+      "floor": 2,
+      "unit": "common",
+      "min": [
+        0.4169999999999996,
+        -17.38299999999999,
+        2.795000000000196
+      ],
+      "max": [
+        4.125,
+        -0.4170000000000016,
+        3.1000000000001964
+      ],
+      "material": "Floor:Residential - Wood Joist with Subflooring",
+      "Q": 55,
+      "M": 45,
+      "E": 25,
+      "ifcGuid": "1hOSvn6df7F8_7GcBWlRqU",
+      "ifcStepId": 6132,
+      "source": "Duplex_A_20110907.ifc · IfcOpenShell AABB; Q/M/E synthetic",
+      "source_id": "SRC-DUPLEX-ARC",
+      "geometry_id": "ARC-GEO-6132",
+      "constructed": null,
+      "inspected": null,
+      "manufacturer": null,
+      "spec": "Floor:Residential - Wood Joist with Subflooring"
+    },
+    {
+      "id": "ARC-1hOSvn6df7F8_7GcBWlRrM",
+      "name": "Floor:Residential - Wood Joist with Subflooring:144872",
+      "type": "floor",
+      "floor": 2,
+      "unit": "common",
+      "min": [
+        4.674999999999998,
+        -17.383,
+        2.795000000000196
+      ],
+      "max": [
+        8.382999999999997,
+        -0.4170000000000158,
+        3.1000000000001964
+      ],
+      "material": "Floor:Residential - Wood Joist with Subflooring",
+      "Q": 75,
+      "M": 65,
+      "E": 35,
+      "ifcGuid": "1hOSvn6df7F8_7GcBWlRrM",
+      "ifcStepId": 6247,
+      "source": "Duplex_A_20110907.ifc · IfcOpenShell AABB; Q/M/E synthetic",
+      "source_id": "SRC-DUPLEX-ARC",
+      "geometry_id": "ARC-GEO-6247",
+      "constructed": null,
+      "inspected": null,
+      "manufacturer": null,
+      "spec": "Floor:Residential - Wood Joist with Subflooring"
+    },
+    {
+      "id": "ARC-2OBrcmyk58NupXoVOHUt0F",
+      "name": "Floor:Finish Floor - Ceramic Tile:169866",
+      "type": "floor",
+      "floor": 2,
+      "unit": "common",
+      "min": [
+        4.769999999999986,
+        -10.95000000000001,
+        3.100000000000378
+      ],
+      "max": [
+        6.294,
+        -6.79,
+        3.113000000000378
+      ],
+      "material": "Floor:Finish Floor - Ceramic Tile",
+      "Q": 40,
+      "M": 10,
+      "E": 15,
+      "ifcGuid": "2OBrcmyk58NupXoVOHUt0F",
+      "ifcStepId": 21336,
+      "source": "Duplex_A_20110907.ifc · IfcOpenShell AABB; Q/M/E synthetic",
+      "source_id": "SRC-DUPLEX-ARC",
+      "geometry_id": "ARC-GEO-21336",
+      "constructed": null,
+      "inspected": null,
+      "manufacturer": null,
+      "spec": "Floor:Finish Floor - Ceramic Tile"
+    },
+    {
+      "id": "ARC-2OBrcmyk58NupXoVOHUt2f",
+      "name": "Floor:Finish Floor - Ceramic Tile:169772",
+      "type": "floor",
+      "floor": 2,
+      "unit": "common",
+      "min": [
+        2.505999999999992,
+        -11.01,
+        3.100000000000378
+      ],
+      "max": [
+        4.029999999999986,
+        -6.85,
+        3.113000000000378
+      ],
+      "material": "Floor:Finish Floor - Ceramic Tile",
+      "Q": 20,
+      "M": 25,
+      "E": 25,
+      "ifcGuid": "2OBrcmyk58NupXoVOHUt2f",
+      "ifcStepId": 21195,
+      "source": "Duplex_A_20110907.ifc · IfcOpenShell AABB; Q/M/E synthetic",
+      "source_id": "SRC-DUPLEX-ARC",
+      "geometry_id": "ARC-GEO-21195",
+      "constructed": null,
+      "inspected": null,
+      "manufacturer": null,
+      "spec": "Floor:Finish Floor - Ceramic Tile"
+    },
+    {
+      "id": "ARC-2OrWItJ6zAwBNp0OUxK$Bq",
+      "name": "M_W-Wide Flange:W410X60:W410X60:209121",
+      "type": "beam",
+      "floor": 2,
+      "unit": "common",
+      "min": [
+        0.17761287957504876,
+        -17.522999999999975,
+        5.593000000000202
+      ],
+      "max": [
+        0.355612879575049,
+        -13.401720071369624,
+        6.0000000000002025
+      ],
+      "material": "Metal - Steel - 345 MPa",
+      "Q": 35,
+      "M": 45,
+      "E": 35,
+      "ifcGuid": "2OrWItJ6zAwBNp0OUxK$Bq",
+      "ifcStepId": 37065,
+      "source": "Duplex_A_20110907.ifc · IfcOpenShell AABB; Q/M/E synthetic",
+      "source_id": "SRC-DUPLEX-ARC",
+      "geometry_id": "ARC-GEO-37065",
+      "constructed": null,
+      "inspected": null,
+      "manufacturer": null,
+      "spec": "Metal - Steel - 345 MPa"
+    },
+    {
+      "id": "ARC-2OrWItJ6zAwBNp0OUxK$CR",
+      "name": "M_W-Wide Flange:W410X60:W410X60:209166",
+      "type": "beam",
+      "floor": 2,
+      "unit": "common",
+      "min": [
+        4.428954328744266,
+        -17.617766862973667,
+        5.593000000000202
+      ],
+      "max": [
+        8.528954328744266,
+        -17.439766862973666,
+        6.0000000000002025
+      ],
+      "material": "Metal - Steel - 345 MPa",
+      "Q": 55,
+      "M": 65,
+      "E": 15,
+      "ifcGuid": "2OrWItJ6zAwBNp0OUxK$CR",
+      "ifcStepId": 37195,
+      "source": "Duplex_A_20110907.ifc · IfcOpenShell AABB; Q/M/E synthetic",
+      "source_id": "SRC-DUPLEX-ARC",
+      "geometry_id": "ARC-GEO-37195",
+      "constructed": null,
+      "inspected": null,
+      "manufacturer": null,
+      "spec": "Metal - Steel - 345 MPa"
+    },
+    {
+      "id": "PLB-2h405XijT83A$BX7w5ki8Q",
+      "name": "M_Elbow - Generic:Elbow - Generic:Elbow - Generic:583212",
+      "type": "pipe",
+      "floor": 1,
+      "unit": "common",
+      "min": [
+        4.0760461709823215,
+        -8.455593853238671,
+        2.8357124999999965
+      ],
+      "max": [
+        4.110971170982322,
+        -8.427018853238671,
+        2.8706374999999964
+      ],
+      "material": "UNSPECIFIED_IN_IFC",
+      "Q": 75,
+      "M": 10,
+      "E": 25,
+      "ifcGuid": "2h405XijT83A$BX7w5ki8Q",
+      "ifcStepId": 112805,
+      "source": "Duplex_Plumbing_20121113.ifc · IfcOpenShell AABB; Q/M/E synthetic",
+      "source_id": "SRC-DUPLEX-PLB",
+      "geometry_id": "PLB-GEO-112805",
+      "constructed": null,
+      "inspected": null,
+      "manufacturer": null,
+      "spec": null
+    },
+    {
+      "id": "PLB-2h405XijT83A$BX7w5ki7P",
+      "name": "Pipe Types:Hot Water:583151",
+      "type": "pipe",
+      "floor": 2,
+      "unit": "common",
+      "min": [
+        4.07763367098231,
+        -8.453913755939714,
+        2.8706374999996163
+      ],
+      "max": [
+        4.10303367098231,
+        -8.428698950537624,
+        3.0730124999996113
+      ],
+      "material": "UNSPECIFIED_IN_IFC",
+      "Q": 40,
+      "M": 25,
+      "E": 35,
+      "ifcGuid": "2h405XijT83A$BX7w5ki7P",
+      "ifcStepId": 107820,
+      "source": "Duplex_Plumbing_20121113.ifc · IfcOpenShell AABB; Q/M/E synthetic",
+      "source_id": "SRC-DUPLEX-PLB",
+      "geometry_id": "PLB-GEO-107820",
+      "constructed": null,
+      "inspected": null,
+      "manufacturer": null,
+      "spec": null
+    },
+    {
+      "id": "PLB-2h405XijT83A$BX7w5ki8n",
+      "name": "Pipe Types:Hot Water:583175",
+      "type": "pipe",
+      "floor": 2,
+      "unit": "common",
+      "min": [
+        4.110971170982309,
+        -8.45400635323867,
+        2.8373925972989547
+      ],
+      "max": [
+        4.1319415733501375,
+        -8.428606353238669,
+        2.8626074027010455
+      ],
+      "material": "UNSPECIFIED_IN_IFC",
+      "Q": 20,
+      "M": 45,
+      "E": 15,
+      "ifcGuid": "2h405XijT83A$BX7w5ki8n",
+      "ifcStepId": 109425,
+      "source": "Duplex_Plumbing_20121113.ifc · IfcOpenShell AABB; Q/M/E synthetic",
+      "source_id": "SRC-DUPLEX-PLB",
+      "geometry_id": "PLB-GEO-109425",
+      "constructed": null,
+      "inspected": null,
+      "manufacturer": null,
+      "spec": null
+    },
+    {
+      "id": "PLB-2h405XijT83A$BX7w5ki8R",
+      "name": "M_Tee - Generic:Tee - Generic:Tee - Generic:583213",
+      "type": "pipe",
+      "floor": 2,
+      "unit": "common",
+      "min": [
+        4.076046170982308,
+        -8.468293853238672,
+        3.0730124999999915
+      ],
+      "max": [
+        4.104621170982308,
+        -8.414318853238676,
+        3.1142874999999917
+      ],
+      "material": "UNSPECIFIED_IN_IFC",
+      "Q": 35,
+      "M": 65,
+      "E": 25,
+      "ifcGuid": "2h405XijT83A$BX7w5ki8R",
+      "ifcStepId": 112879,
+      "source": "Duplex_Plumbing_20121113.ifc · IfcOpenShell AABB; Q/M/E synthetic",
+      "source_id": "SRC-DUPLEX-PLB",
+      "geometry_id": "PLB-GEO-112879",
+      "constructed": null,
+      "inspected": null,
+      "manufacturer": null,
+      "spec": null
+    },
+    {
+      "id": "PLB-2h405XijT83A$BX7w5ki9V",
+      "name": "M_Elbow - Generic:Elbow - Generic:Elbow - Generic:583273",
+      "type": "pipe",
+      "floor": 1,
+      "unit": "common",
+      "min": [
+        4.131941573350129,
+        -8.455593853238751,
+        2.8293625000000038
+      ],
+      "max": [
+        4.166866573350129,
+        -8.427018853238751,
+        2.8642875000000037
+      ],
+      "material": "UNSPECIFIED_IN_IFC",
+      "Q": 55,
+      "M": 10,
+      "E": 35,
+      "ifcGuid": "2h405XijT83A$BX7w5ki9V",
+      "ifcStepId": 116095,
+      "source": "Duplex_Plumbing_20121113.ifc · IfcOpenShell AABB; Q/M/E synthetic",
+      "source_id": "SRC-DUPLEX-PLB",
+      "geometry_id": "PLB-GEO-116095",
+      "constructed": null,
+      "inspected": null,
+      "manufacturer": null,
+      "spec": null
+    },
+    {
+      "id": "PLB-2h405XijT83A$BX7w5ki74",
+      "name": "Pipe Types:Hot Water:583154",
+      "type": "pipe",
+      "floor": 2,
+      "unit": "common",
+      "min": [
+        4.07763367098231,
+        -8.41431885323867,
+        3.0873925972989547
+      ],
+      "max": [
+        4.10303367098231,
+        -8.00373999560903,
+        3.1126074027010455
+      ],
+      "material": "UNSPECIFIED_IN_IFC",
+      "Q": 75,
+      "M": 25,
+      "E": 15,
+      "ifcGuid": "2h405XijT83A$BX7w5ki74",
+      "ifcStepId": 108021,
+      "source": "Duplex_Plumbing_20121113.ifc · IfcOpenShell AABB; Q/M/E synthetic",
+      "source_id": "SRC-DUPLEX-PLB",
+      "geometry_id": "PLB-GEO-108021",
+      "constructed": null,
+      "inspected": null,
+      "manufacturer": null,
+      "spec": null
+    },
+    {
+      "id": "PLB-2h405XijT83A$BX7w5ki8O",
+      "name": "Pipe Types:Hot Water:583214",
+      "type": "pipe",
+      "floor": 2,
+      "unit": "common",
+      "min": [
+        4.0776336709823005,
+        -8.91743815951534,
+        3.0873925972989547
+      ],
+      "max": [
+        4.1030336709823,
+        -8.468293853238666,
+        3.1126074027010455
+      ],
+      "material": "UNSPECIFIED_IN_IFC",
+      "Q": 40,
+      "M": 45,
+      "E": 25,
+      "ifcGuid": "2h405XijT83A$BX7w5ki8O",
+      "ifcStepId": 112957,
+      "source": "Duplex_Plumbing_20121113.ifc · IfcOpenShell AABB; Q/M/E synthetic",
+      "source_id": "SRC-DUPLEX-PLB",
+      "geometry_id": "PLB-GEO-112957",
+      "constructed": null,
+      "inspected": null,
+      "manufacturer": null,
+      "spec": null
+    },
+    {
+      "id": "PLB-2h405XijT83A$BX7w5ki9T",
+      "name": "Pipe Types:Hot Water:583275",
+      "type": "pipe",
+      "floor": 2,
+      "unit": "common",
+      "min": [
+        4.13987907335014,
+        -8.453913755939794,
+        0.7342054484651199
+      ],
+      "max": [
+        4.165279073350139,
+        -8.428698950537704,
+        2.82936249999964
+      ],
+      "material": "UNSPECIFIED_IN_IFC",
+      "Q": 20,
+      "M": 65,
+      "E": 35,
+      "ifcGuid": "2h405XijT83A$BX7w5ki9T",
+      "ifcStepId": 116248,
+      "source": "Duplex_Plumbing_20121113.ifc · IfcOpenShell AABB; Q/M/E synthetic",
+      "source_id": "SRC-DUPLEX-PLB",
+      "geometry_id": "PLB-GEO-116248",
+      "constructed": null,
+      "inspected": null,
+      "manufacturer": null,
+      "spec": null
+    },
+    {
+      "id": "PLB-2h405XijT83A$BX7w5ki86",
+      "name": "M_Elbow - Generic:Elbow - Generic:Elbow - Generic:583216",
+      "type": "pipe",
+      "floor": 2,
+      "unit": "common",
+      "min": [
+        4.076046170982421,
+        -8.003739995609045,
+        3.0857124999999983
+      ],
+      "max": [
+        4.110971170982421,
+        -7.968814995609046,
+        3.1142874999999983
+      ],
+      "material": "UNSPECIFIED_IN_IFC",
+      "Q": 35,
+      "M": 10,
+      "E": 15,
+      "ifcGuid": "2h405XijT83A$BX7w5ki86",
+      "ifcStepId": 113108,
+      "source": "Duplex_Plumbing_20121113.ifc · IfcOpenShell AABB; Q/M/E synthetic",
+      "source_id": "SRC-DUPLEX-PLB",
+      "geometry_id": "PLB-GEO-113108",
+      "constructed": null,
+      "inspected": null,
+      "manufacturer": null,
+      "spec": null
+    },
+    {
+      "id": "PLB-2h405XijT83A$BX7w5ki72",
+      "name": "M_Tee - Generic:Tee - Generic:Tee - Generic:583156",
+      "type": "pipe",
+      "floor": 2,
+      "unit": "common",
+      "min": [
+        4.063346170982312,
+        -8.971413159515334,
+        3.0857124999999983
+      ],
+      "max": [
+        4.104621170982313,
+        -8.917438159515338,
+        3.1142874999999983
+      ],
+      "material": "UNSPECIFIED_IN_IFC",
+      "Q": 55,
+      "M": 25,
+      "E": 25,
+      "ifcGuid": "2h405XijT83A$BX7w5ki72",
+      "ifcStepId": 108168,
+      "source": "Duplex_Plumbing_20121113.ifc · IfcOpenShell AABB; Q/M/E synthetic",
+      "source_id": "SRC-DUPLEX-PLB",
+      "geometry_id": "PLB-GEO-108168",
+      "constructed": null,
+      "inspected": null,
+      "manufacturer": null,
+      "spec": null
+    },
+    {
+      "id": "PLB-2h405XijT83A$BX7w5ki9S",
+      "name": "M_Tee - Generic:Tee - Generic:Tee - Generic:583274",
+      "type": "pipe",
+      "floor": 1,
+      "unit": "common",
+      "min": [
+        4.138291573350118,
+        -8.468293853238748,
+        0.6802304484655012
+      ],
+      "max": [
+        4.166866573350118,
+        -8.42701885323875,
+        0.7342054484654963
+      ],
+      "material": "UNSPECIFIED_IN_IFC",
+      "Q": 75,
+      "M": 45,
+      "E": 35,
+      "ifcGuid": "2h405XijT83A$BX7w5ki9S",
+      "ifcStepId": 116169,
+      "source": "Duplex_Plumbing_20121113.ifc · IfcOpenShell AABB; Q/M/E synthetic",
+      "source_id": "SRC-DUPLEX-PLB",
+      "geometry_id": "PLB-GEO-116169",
+      "constructed": null,
+      "inspected": null,
+      "manufacturer": null,
+      "spec": null
+    },
+    {
+      "id": "PLB-2h405XijT83A$BX7w5ki8P",
+      "name": "Pipe Types:Hot Water:583215",
+      "type": "pipe",
+      "floor": 2,
+      "unit": "common",
+      "min": [
+        4.11097117098241,
+        -7.99580249560903,
+        3.0873925972989547
+      ],
+      "max": [
+        4.154696170982428,
+        -7.97040249560903,
+        3.1126074027010455
+      ],
+      "material": "UNSPECIFIED_IN_IFC",
+      "Q": 40,
+      "M": 65,
+      "E": 15,
+      "ifcGuid": "2h405XijT83A$BX7w5ki8P",
+      "ifcStepId": 113035,
+      "source": "Duplex_Plumbing_20121113.ifc · IfcOpenShell AABB; Q/M/E synthetic",
+      "source_id": "SRC-DUPLEX-PLB",
+      "geometry_id": "PLB-GEO-113035",
+      "constructed": null,
+      "inspected": null,
+      "manufacturer": null,
+      "spec": null
+    },
+    {
+      "id": "PLB-2h405XijT83A$BX7w5ki73",
+      "name": "M_Transition - Generic:Transition - Generic:Transition - Generic:583157",
+      "type": "pipe",
+      "floor": 2,
+      "unit": "common",
+      "min": [
+        4.056202420982304,
+        -8.958713159515352,
+        3.0857125000000085
+      ],
+      "max": [
+        4.06334617098231,
+        -8.930138159515352,
+        3.1142875000000085
+      ],
+      "material": "UNSPECIFIED_IN_IFC",
+      "Q": 20,
+      "M": 10,
+      "E": 25,
+      "ifcGuid": "2h405XijT83A$BX7w5ki73",
+      "ifcStepId": 108241,
+      "source": "Duplex_Plumbing_20121113.ifc · IfcOpenShell AABB; Q/M/E synthetic",
+      "source_id": "SRC-DUPLEX-PLB",
+      "geometry_id": "PLB-GEO-108241",
+      "constructed": null,
+      "inspected": null,
+      "manufacturer": null,
+      "spec": null
+    },
+    {
+      "id": "PLB-2h405XijT83A$BX7w5ki7E",
+      "name": "Pipe Types:Hot Water:583160",
+      "type": "pipe",
+      "floor": 2,
+      "unit": "common",
+      "min": [
+        4.0776336709823005,
+        -9.56726367851062,
+        3.0873925972989547
+      ],
+      "max": [
+        4.1030336709823,
+        -8.97141315951534,
+        3.1126074027010455
+      ],
+      "material": "UNSPECIFIED_IN_IFC",
+      "Q": 35,
+      "M": 25,
+      "E": 35,
+      "ifcGuid": "2h405XijT83A$BX7w5ki7E",
+      "ifcStepId": 108406,
+      "source": "Duplex_Plumbing_20121113.ifc · IfcOpenShell AABB; Q/M/E synthetic",
+      "source_id": "SRC-DUPLEX-PLB",
+      "geometry_id": "PLB-GEO-108406",
+      "constructed": null,
+      "inspected": null,
+      "manufacturer": null,
+      "spec": null
+    },
+    {
+      "id": "PLB-2h405XijT83A$BX7w5ki9p",
+      "name": "Pipe Types:Hot Water:583237",
+      "type": "pipe",
+      "floor": 2,
+      "unit": "common",
+      "min": [
+        4.13987907335012,
+        -8.453913755939805,
+        0.6206374999996203
+      ],
+      "max": [
+        4.16527907335012,
+        -8.428698950537715,
+        0.6802304484651236
+      ],
+      "material": "UNSPECIFIED_IN_IFC",
+      "Q": 55,
+      "M": 45,
+      "E": 15,
+      "ifcGuid": "2h405XijT83A$BX7w5ki9p",
+      "ifcStepId": 114271,
+      "source": "Duplex_Plumbing_20121113.ifc · IfcOpenShell AABB; Q/M/E synthetic",
+      "source_id": "SRC-DUPLEX-PLB",
+      "geometry_id": "PLB-GEO-114271",
+      "constructed": null,
+      "inspected": null,
+      "manufacturer": null,
+      "spec": null
+    },
+    {
+      "id": "PLB-2h405XijT83A$BX7w5ki9g",
+      "name": "Pipe Types:Hot Water:583260",
+      "type": "pipe",
+      "floor": 2,
+      "unit": "common",
+      "min": [
+        4.13987907335012,
+        -8.56471249999999,
+        0.6946105457639146
+      ],
+      "max": [
+        4.16527907335012,
+        -8.46829385323876,
+        0.7198253511660052
+      ],
+      "material": "UNSPECIFIED_IN_IFC",
+      "Q": 75,
+      "M": 65,
+      "E": 25,
+      "ifcGuid": "2h405XijT83A$BX7w5ki9g",
+      "ifcStepId": 115462,
+      "source": "Duplex_Plumbing_20121113.ifc · IfcOpenShell AABB; Q/M/E synthetic",
+      "source_id": "SRC-DUPLEX-PLB",
+      "geometry_id": "PLB-GEO-115462",
+      "constructed": null,
+      "inspected": null,
+      "manufacturer": null,
+      "spec": null
+    },
+    {
+      "id": "PLB-2h405XijT83A$BX7w5ki84",
+      "name": "M_Elbow - Generic:Elbow - Generic:Elbow - Generic:583218",
+      "type": "pipe",
+      "floor": 2,
+      "unit": "common",
+      "min": [
+        4.154696170982429,
+        -7.9973899956090335,
+        3.0857124999999983
+      ],
+      "max": [
+        4.189621170982429,
+        -7.962464995609033,
+        3.1142874999999983
+      ],
+      "material": "UNSPECIFIED_IN_IFC",
+      "Q": 40,
+      "M": 10,
+      "E": 35,
+      "ifcGuid": "2h405XijT83A$BX7w5ki84",
+      "ifcStepId": 113259,
+      "source": "Duplex_Plumbing_20121113.ifc · IfcOpenShell AABB; Q/M/E synthetic",
+      "source_id": "SRC-DUPLEX-PLB",
+      "geometry_id": "PLB-GEO-113259",
+      "constructed": null,
+      "inspected": null,
+      "manufacturer": null,
+      "spec": null
+    },
+    {
+      "id": "PLB-2h405XijT83A$BX7w5ki77",
+      "name": "Pipe Types:Hot Water:583153",
+      "type": "pipe",
+      "floor": 2,
+      "unit": "common",
+      "min": [
+        4.00618750000001,
+        -8.95077565951533,
+        3.0936962986494776
+      ],
+      "max": [
+        4.056202420982297,
+        -8.93807565951533,
+        3.1063037013505226
+      ],
+      "material": "UNSPECIFIED_IN_IFC",
+      "Q": 20,
+      "M": 25,
+      "E": 15,
+      "ifcGuid": "2h405XijT83A$BX7w5ki77",
+      "ifcStepId": 107942,
+      "source": "Duplex_Plumbing_20121113.ifc · IfcOpenShell AABB; Q/M/E synthetic",
+      "source_id": "SRC-DUPLEX-PLB",
+      "geometry_id": "PLB-GEO-107942",
+      "constructed": null,
+      "inspected": null,
+      "manufacturer": null,
+      "spec": null
+    },
+    {
+      "id": "PLB-2h405XijT83A$BX7w5ki7C",
+      "name": "M_Tee - Generic:Tee - Generic:Tee - Generic:583162",
+      "type": "pipe",
+      "floor": 2,
+      "unit": "common",
+      "min": [
+        4.063346170982312,
+        -9.621238678510604,
+        3.0857124999999983
+      ],
+      "max": [
+        4.104621170982313,
+        -9.567263678510608,
+        3.1142874999999983
+      ],
+      "material": "UNSPECIFIED_IN_IFC",
+      "Q": 35,
+      "M": 45,
+      "E": 25,
+      "ifcGuid": "2h405XijT83A$BX7w5ki7C",
+      "ifcStepId": 108479,
+      "source": "Duplex_Plumbing_20121113.ifc · IfcOpenShell AABB; Q/M/E synthetic",
+      "source_id": "SRC-DUPLEX-PLB",
+      "geometry_id": "PLB-GEO-108479",
+      "constructed": null,
+      "inspected": null,
+      "manufacturer": null,
+      "spec": null
+    },
+    {
+      "id": "PLB-2h405XijT83A$BX7w5ki9R",
+      "name": "M_Elbow - Generic:Elbow - Generic:Elbow - Generic:583277",
+      "type": "pipe",
+      "floor": 1,
+      "unit": "common",
+      "min": [
+        4.138291573350128,
+        -8.455593853238744,
+        0.5857124999999912
+      ],
+      "max": [
+        4.166866573350128,
+        -8.420668853238745,
+        0.6206374999999912
+      ],
+      "material": "UNSPECIFIED_IN_IFC",
+      "Q": 55,
+      "M": 65,
+      "E": 35,
+      "ifcGuid": "2h405XijT83A$BX7w5ki9R",
+      "ifcStepId": 116404,
+      "source": "Duplex_Plumbing_20121113.ifc · IfcOpenShell AABB; Q/M/E synthetic",
+      "source_id": "SRC-DUPLEX-PLB",
+      "geometry_id": "PLB-GEO-116404",
+      "constructed": null,
+      "inspected": null,
+      "manufacturer": null,
+      "spec": null
+    },
+    {
+      "id": "PLB-2h405XijT83A$BX7w5ki9j",
+      "name": "M_Tee - Generic:Tee - Generic:Tee - Generic:583259",
+      "type": "pipe",
+      "floor": 1,
+      "unit": "common",
+      "min": [
+        4.125591573350131,
+        -8.618687499999973,
+        0.6929304484655051
+      ],
+      "max": [
+        4.1668665733501316,
+        -8.564712499999978,
+        0.7215054484655051
+      ],
+      "material": "UNSPECIFIED_IN_IFC",
+      "Q": 75,
+      "M": 10,
+      "E": 15,
+      "ifcGuid": "2h405XijT83A$BX7w5ki9j",
+      "ifcStepId": 115383,
+      "source": "Duplex_Plumbing_20121113.ifc · IfcOpenShell AABB; Q/M/E synthetic",
+      "source_id": "SRC-DUPLEX-PLB",
+      "geometry_id": "PLB-GEO-115383",
+      "constructed": null,
+      "inspected": null,
+      "manufacturer": null,
+      "spec": null
+    },
+    {
+      "id": "PLB-2h405XijT83A$BX7w5ki87",
+      "name": "Pipe Types:Hot Water:583217",
+      "type": "pipe",
+      "floor": 2,
+      "unit": "common",
+      "min": [
+        4.16263367098243,
+        -7.96246499560904,
+        3.0873925972989547
+      ],
+      "max": [
+        4.1880336709824295,
+        -7.100068749999934,
+        3.1126074027010455
+      ],
+      "material": "UNSPECIFIED_IN_IFC",
+      "Q": 40,
+      "M": 25,
+      "E": 25,
+      "ifcGuid": "2h405XijT83A$BX7w5ki87",
+      "ifcStepId": 113186,
+      "source": "Duplex_Plumbing_20121113.ifc · IfcOpenShell AABB; Q/M/E synthetic",
+      "source_id": "SRC-DUPLEX-PLB",
+      "geometry_id": "PLB-GEO-113186",
+      "constructed": null,
+      "inspected": null,
+      "manufacturer": null,
+      "spec": null
+    }
+  ],
+  "connections": [
+    [
+      "PLB-2h405XijT83A$BX7w5ki72",
+      "PLB-2h405XijT83A$BX7w5ki73"
+    ],
+    [
+      "PLB-2h405XijT83A$BX7w5ki72",
+      "PLB-2h405XijT83A$BX7w5ki7E"
+    ],
+    [
+      "PLB-2h405XijT83A$BX7w5ki72",
+      "PLB-2h405XijT83A$BX7w5ki8O"
+    ],
+    [
+      "PLB-2h405XijT83A$BX7w5ki73",
+      "PLB-2h405XijT83A$BX7w5ki77"
+    ],
+    [
+      "PLB-2h405XijT83A$BX7w5ki74",
+      "PLB-2h405XijT83A$BX7w5ki86"
+    ],
+    [
+      "PLB-2h405XijT83A$BX7w5ki74",
+      "PLB-2h405XijT83A$BX7w5ki8R"
+    ],
+    [
+      "PLB-2h405XijT83A$BX7w5ki7C",
+      "PLB-2h405XijT83A$BX7w5ki7E"
+    ],
+    [
+      "PLB-2h405XijT83A$BX7w5ki7P",
+      "PLB-2h405XijT83A$BX7w5ki8Q"
+    ],
+    [
+      "PLB-2h405XijT83A$BX7w5ki7P",
+      "PLB-2h405XijT83A$BX7w5ki8R"
+    ],
+    [
+      "PLB-2h405XijT83A$BX7w5ki84",
+      "PLB-2h405XijT83A$BX7w5ki87"
+    ],
+    [
+      "PLB-2h405XijT83A$BX7w5ki84",
+      "PLB-2h405XijT83A$BX7w5ki8P"
+    ],
+    [
+      "PLB-2h405XijT83A$BX7w5ki86",
+      "PLB-2h405XijT83A$BX7w5ki8P"
+    ],
+    [
+      "PLB-2h405XijT83A$BX7w5ki8O",
+      "PLB-2h405XijT83A$BX7w5ki8R"
+    ],
+    [
+      "PLB-2h405XijT83A$BX7w5ki8Q",
+      "PLB-2h405XijT83A$BX7w5ki8n"
+    ],
+    [
+      "PLB-2h405XijT83A$BX7w5ki8n",
+      "PLB-2h405XijT83A$BX7w5ki9V"
+    ],
+    [
+      "PLB-2h405XijT83A$BX7w5ki9R",
+      "PLB-2h405XijT83A$BX7w5ki9p"
+    ],
+    [
+      "PLB-2h405XijT83A$BX7w5ki9S",
+      "PLB-2h405XijT83A$BX7w5ki9T"
+    ],
+    [
+      "PLB-2h405XijT83A$BX7w5ki9S",
+      "PLB-2h405XijT83A$BX7w5ki9g"
+    ],
+    [
+      "PLB-2h405XijT83A$BX7w5ki9S",
+      "PLB-2h405XijT83A$BX7w5ki9p"
+    ],
+    [
+      "PLB-2h405XijT83A$BX7w5ki9T",
+      "PLB-2h405XijT83A$BX7w5ki9V"
+    ],
+    [
+      "PLB-2h405XijT83A$BX7w5ki9g",
+      "PLB-2h405XijT83A$BX7w5ki9j"
+    ]
+  ],
+  "defects": [
+    {
+      "id": "SYN-DEF-001",
+      "element": "ARC-0iEHWY1$XA8eQeeULq4j_U",
+      "date": "2026-05-03",
+      "type": "누수 의심",
+      "closed": "2026-10-15"
+    },
+    {
+      "id": "SYN-DEF-002",
+      "element": "ARC-2O2Fr$t4X7Zf8NOew3FK4F",
+      "date": "2026-06-04",
+      "type": "표면 균열",
+      "closed": null
+    },
+    {
+      "id": "SYN-DEF-003",
+      "element": "ARC-1aj$VJZFn2TxepZUBcKpvt",
+      "date": "2026-07-05",
+      "type": "결로 흔적",
+      "closed": null
+    },
+    {
+      "id": "SYN-DEF-004",
+      "element": "ARC-2OBrcmyk58NupXoVOHUt0F",
+      "date": "2026-08-06",
+      "type": "마감 박리",
+      "closed": null
+    },
+    {
+      "id": "SYN-DEF-005",
+      "element": "PLB-2h405XijT83A$BX7w5ki8R",
+      "date": "2026-09-07",
+      "type": "연결부 점검",
+      "closed": null
+    },
+    {
+      "id": "SYN-DEF-006",
+      "element": "PLB-2h405XijT83A$BX7w5ki9S",
+      "date": "2026-10-08",
+      "type": "누수 의심",
+      "closed": "2026-10-15"
+    },
+    {
+      "id": "SYN-DEF-007",
+      "element": "PLB-2h405XijT83A$BX7w5ki77",
+      "date": "2026-05-09",
+      "type": "표면 균열",
+      "closed": null
+    },
+    {
+      "id": "SYN-DEF-008",
+      "element": "ARC-0iEHWY1$XA8eQeeULq4jZ1",
+      "date": "2026-06-10",
+      "type": "결로 흔적",
+      "closed": null
+    },
+    {
+      "id": "SYN-DEF-009",
+      "element": "ARC-1CZILmCaHETO8tf3SgGEXu",
+      "date": "2026-07-11",
+      "type": "마감 박리",
+      "closed": null
+    },
+    {
+      "id": "SYN-DEF-010",
+      "element": "ARC-1aj$VJZFn2TxepZUBcKpZw",
+      "date": "2026-08-12",
+      "type": "연결부 점검",
+      "closed": null
+    },
+    {
+      "id": "SYN-DEF-011",
+      "element": "ARC-1hOSvn6df7F8_7GcBWlRrM",
+      "date": "2026-09-13",
+      "type": "누수 의심",
+      "closed": "2026-10-15"
+    },
+    {
+      "id": "SYN-DEF-012",
+      "element": "PLB-2h405XijT83A$BX7w5ki8n",
+      "date": "2026-10-14",
+      "type": "표면 균열",
+      "closed": null
+    },
+    {
+      "id": "SYN-DEF-013",
+      "element": "PLB-2h405XijT83A$BX7w5ki72",
+      "date": "2026-05-15",
+      "type": "결로 흔적",
+      "closed": null
+    },
+    {
+      "id": "SYN-DEF-014",
+      "element": "PLB-2h405XijT83A$BX7w5ki84",
+      "date": "2026-06-16",
+      "type": "마감 박리",
+      "closed": null
+    },
+    {
+      "id": "SYN-DEF-015",
+      "element": "ARC-0iEHWY1$XA8eQeeULq4jE6",
+      "date": "2026-07-17",
+      "type": "연결부 점검",
+      "closed": null
+    },
+    {
+      "id": "SYN-DEF-016",
+      "element": "ARC-1CZILmCaHETO8tf3SgGEWh",
+      "date": "2026-08-18",
+      "type": "누수 의심",
+      "closed": "2026-10-15"
+    },
+    {
+      "id": "SYN-DEF-017",
+      "element": "ARC-0dxE1Sy6nDqfpDb5vIMNiA",
+      "date": "2026-09-19",
+      "type": "표면 균열",
+      "closed": null
+    },
+    {
+      "id": "SYN-DEF-018",
+      "element": "ARC-1hOSvn6df7F8_7GcBWlRqU",
+      "date": "2026-10-20",
+      "type": "결로 흔적",
+      "closed": null
+    },
+    {
+      "id": "SYN-DEF-019",
+      "element": "PLB-2h405XijT83A$BX7w5ki7P",
+      "date": "2026-05-21",
+      "type": "마감 박리",
+      "closed": null
+    },
+    {
+      "id": "SYN-DEF-020",
+      "element": "PLB-2h405XijT83A$BX7w5ki86",
+      "date": "2026-06-22",
+      "type": "연결부 점검",
+      "closed": null
+    },
+    {
+      "id": "SYN-DEF-021",
+      "element": "PLB-2h405XijT83A$BX7w5ki9g",
+      "date": "2026-07-23",
+      "type": "누수 의심",
+      "closed": "2026-10-15"
+    },
+    {
+      "id": "SYN-DEF-022",
+      "element": "ARC-0iEHWY1$XA8eQeeULq4jDb",
+      "date": "2026-08-24",
+      "type": "표면 균열",
+      "closed": null
+    },
+    {
+      "id": "SYN-DEF-023",
+      "element": "ARC-2O2Fr$t4X7Zf8NOew3FKGS",
+      "date": "2026-09-03",
+      "type": "결로 흔적",
+      "closed": null
+    },
+    {
+      "id": "SYN-DEF-024",
+      "element": "ARC-0dxE1Sy6nDqfpDb5vIMN_Z",
+      "date": "2026-10-04",
+      "type": "마감 박리",
+      "closed": null
+    },
+    {
+      "id": "SYN-DEF-025",
+      "element": "ARC-2O2Fr$t4X7Zf8NOew3FLCm",
+      "date": "2026-05-05",
+      "type": "연결부 점검",
+      "closed": null
+    }
+  ]
+}
