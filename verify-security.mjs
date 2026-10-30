@@ -1,0 +1,48 @@
+import fs from 'node:fs/promises';
+import assert from 'node:assert/strict';
+import {initializeTestEnvironment,assertSucceeds,assertFails} from '@firebase/rules-unit-testing';
+import {initializeApp,deleteApp} from 'firebase/app';
+import {getAuth,connectAuthEmulator,createUserWithEmailAndPassword,signOut} from 'firebase/auth';
+import {getFirestore,connectFirestoreEmulator,doc,setDoc,getDoc,getDocs,collection,query,where,updateDoc,serverTimestamp} from 'firebase/firestore';
+const projectId='demo-spatia',env=await initializeTestEnvironment({projectId,firestore:{host:'127.0.0.1',port:8088,rules:await fs.readFile('dist/firestore.rules','utf8')}}),apps=[],checks=[];
+const yes=async(name,p)=>{await assertSucceeds(p);checks.push({name,pass:true})},no=async(name,p)=>{await assertFails(p);checks.push({name,pass:true})};
+try{
+await env.clearFirestore();const users={};for(const role of ['resident','neighbor','manager','expert','outsider']){const app=initializeApp({projectId,apiKey:'emulator-only',appId:'test'},role+'-'+Date.now());apps.push(app);const auth=getAuth(app);connectAuthEmulator(auth,'http://127.0.0.1:9098',{disableWarnings:true});const account=await createUserWithEmailAndPassword(auth,role+'-'+Date.now()+'@example.test','Emulator-only-'+crypto.randomUUID());const db=getFirestore(app);connectFirestoreEmulator(db,'127.0.0.1',8088);users[role]={uid:account.user.uid,db,auth}}
+const b='forest-a-demo',ref=(role,kind,id)=>doc(users[role].db,'buildings',b,kind,id);
+await env.withSecurityRulesDisabled(async ctx=>{const db=ctx.firestore();for(const [role,unit] of [['resident','302'],['neighbor','201'],['manager','302'],['expert','302']])await db.doc(`buildings/${b}/members/${users[role].uid}`).set({role:role==='neighbor'?'resident':role,units:[unit]});await db.doc(`buildings/${b}/elements/A-302-W01`).set({buildingId:b,unitId:'302',floorId:b+'-F3',name:'302 벽체',type:'wall',material:'RC',min:[0,0,0],max:[1,1,1],ifcGuid:''});});
+await no('입주자의 관리자 자기 승격 차단',setDoc(ref('resident','members',users.resident.uid),{role:'manager',units:['302']}));
+await no('비회원 건물 구조물 접근 차단',getDoc(ref('outsider','elements','A-302-W01')));
+await no('다른 세대 구조물 접근 차단',getDoc(ref('neighbor','elements','A-302-W01')));
+const ticket={buildingId:b,unitId:'302',elementId:'A-302-W01',ownerUid:users.resident.uid,assignedUid:'',stage:0,title:'벽면 누수 점검',description:'우천 후 벽면에서 습기 흔적을 발견했습니다.',dueDate:'',createdAt:serverTimestamp(),updatedAt:serverTimestamp()};
+await yes('실제 에뮬레이터 계정으로 본인 요청 등록',setDoc(ref('resident','requests','R1'),ticket));
+await no('다른 UID로 위조한 요청 차단',setDoc(ref('resident','requests','R2'),{...ticket,ownerUid:users.neighbor.uid}));
+await no('다른 세대 요청 등록 차단',setDoc(ref('neighbor','requests','R2'),{...ticket,ownerUid:users.neighbor.uid}));
+await no('다른 세대 요청 원문 읽기 차단',getDoc(ref('neighbor','requests','R1')));
+await no('입주자의 전체 요청 목록 조회 차단',getDocs(collection(users.resident.db,'buildings',b,'requests')));
+await yes('본인 UID로 제한한 요청 조회',getDocs(query(collection(users.resident.db,'buildings',b,'requests'),where('ownerUid','==',users.resident.uid))));
+await no('입주자의 처리 상태 변경 차단',updateDoc(ref('resident','requests','R1'),{stage:2,updatedAt:serverTimestamp()}));
+await yes('관리자의 담당 건물 요청 조회',getDoc(ref('manager','requests','R1')));
+await no('미배정 전문가의 요청 조회 차단',getDoc(ref('expert','requests','R1')));
+await no('전문가가 아닌 UID 배정 차단',updateDoc(ref('manager','requests','R1'),{assignedUid:users.neighbor.uid,stage:1,updatedAt:serverTimestamp()}));
+await yes('관리자의 담당 전문가 배정',updateDoc(ref('manager','requests','R1'),{assignedUid:users.expert.uid,stage:2,updatedAt:serverTimestamp()}));
+await yes('배정된 전문가의 요청 조회',getDoc(ref('expert','requests','R1')));
+const inspection={requestId:'R1',buildingId:b,unitId:'302',elementId:'A-302-W01',authorUid:users.expert.uid,raw:'실링 열화 및 수분 침투 흔적. 추가 점검 필요.',plain:'벽의 연결 부분으로 물이 들어왔을 가능성이 있어 점검합니다.',next:'11월 3일 현장 점검 예정',reviewed:false,revision:1,updatedAt:serverTimestamp()};
+await yes('담당 전문가 비공개 원문 저장',setDoc(ref('expert','inspections','I1'),inspection));
+await no('입주자의 비공개 원문 접근 차단',getDoc(ref('resident','inspections','I1')));
+const publication={requestId:'R1',inspectionId:'I1',buildingId:b,unitId:'302',elementId:'A-302-W01',plain:inspection.plain,next:inspection.next,reviewedRevision:1,approvedBy:users.manager.uid,approvedAt:serverTimestamp()};
+await no('미검토 설명 공개 승인 차단',setDoc(ref('manager','publicUpdates','I1'),publication));
+await yes('전문가 검토·개정 저장',updateDoc(ref('expert','inspections','I1'),{reviewed:true,revision:2,updatedAt:serverTimestamp()}));
+await no('검토본과 다른 설명 공개 차단',setDoc(ref('manager','publicUpdates','I1'),{...publication,reviewedRevision:2,plain:'원문과 다르게 변조한 설명'}));
+await yes('관리자가 검토된 설명만 공개',setDoc(ref('manager','publicUpdates','I1'),{...publication,reviewedRevision:2}));
+await yes('해당 세대의 승인 설명 조회',getDoc(ref('resident','publicUpdates','I1')));
+await no('다른 세대의 승인 설명 접근 차단',getDoc(ref('neighbor','publicUpdates','I1')));
+await assertSucceeds(getDocs(query(collection(users.resident.db,'buildings',b,'publicUpdates'),where('unitId','in',['302','common']))));await assertSucceeds(getDocs(query(collection(users.resident.db,'buildings',b,'elements'),where('unitId','in',['302','common']))));
+await env.withSecurityRulesDisabled(async ctx=>{await ctx.firestore().doc('systemAdmins/owner-test').set({enabled:true});await ctx.firestore().doc('systemAdmins/disabled-owner').set({enabled:false})});const ownerDb=env.authenticatedContext('owner-test').firestore(),disabledDb=env.authenticatedContext('disabled-owner').firestore();await assertSucceeds(setDoc(doc(ownerDb,'buildings',b,'members','new-resident'),{role:'resident',units:['302']}));await assertFails(setDoc(doc(disabledDb,'buildings',b,'members','bad-role'),{role:'manager',units:['302']}));
+const publicDoc=(await getDoc(ref('resident','publicUpdates','I1'))).data();assert(!('raw' in publicDoc));checks.push({name:'공개 문서에 전문가 원문 없음',pass:true});
+await no('일정 없는 보수 완료 차단',updateDoc(ref('manager','requests','R1'),{stage:4,updatedAt:serverTimestamp()}));
+await yes('관리자의 보수 완료 저장',updateDoc(ref('manager','requests','R1'),{stage:4,dueDate:'2026-11-03',updatedAt:serverTimestamp()}));
+await yes('입주자의 보수 결과 확인',updateDoc(ref('resident','requests','R1'),{stage:5,updatedAt:serverTimestamp()}));
+await no('완료 후 단계 되돌리기 차단',updateDoc(ref('manager','requests','R1'),{stage:1,updatedAt:serverTimestamp()}));
+await no('다른 UID의 개인 백업 접근 차단',getDoc(doc(users.neighbor.db,'users',users.resident.uid,'snapshots','operations')));
+const report={checkedAt:new Date().toISOString(),environment:'Firebase Authentication + Firestore official emulators; production not tested',checks};await fs.mkdir('qa',{recursive:true});await fs.writeFile('qa/security-results.json',JSON.stringify(report,null,2));console.log('PASS: '+checks.length+' real Auth/Firestore emulator checks. Production account membership and rule deployment require separate verification.');
+}finally{await Promise.all(apps.map(app=>deleteApp(app)));await env.cleanup()}

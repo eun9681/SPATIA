@@ -233,3 +233,12 @@ body[data-page] .project>span,body[data-page] .building-card>span{
 body[data-page] .project>span:last-child,body[data-page] .building-card>span:last-child{
  margin:0;font-size:12px;justify-self:end;
 }
+
+/* Imported IFC identifiers and names must never determine the page width. */
+body[data-page] .analysis-controls .element-picker{display:grid;gap:6px;width:100%;max-width:480px;min-width:0}
+body[data-page] .element-picker select{width:100%;max-width:100%;min-width:0}
+body[data-page] .inspector h3,body[data-page] .ranking-row b,body[data-page] .ranking-row small,body[data-page] .kv dd{overflow-wrap:anywhere}
+body[data-page] .ranking-row{grid-template-columns:27px minmax(0,1fr) auto auto}
+body[data-page] .inspector-meta{grid-template-columns:repeat(2,minmax(0,1fr))}
+
+@media(max-width:600px){body[data-page] .spatia-workspaces{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;overflow:visible}body[data-page] .spatia-workspaces a{margin:0;min-width:0;text-align:center;padding:10px 6px;font-size:12px}}

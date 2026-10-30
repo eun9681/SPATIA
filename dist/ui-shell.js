@@ -4,7 +4,7 @@
  if(!main)return;
  main.id='main-content';main.tabIndex=-1;
  const skip=document.createElement('a');skip.className='spatia-skip';skip.href='#main-content';skip.textContent='본문으로 건너뛰기';body.prepend(skip);
- const pages=[['geo','index.html','공간 분석'],['management','management.html','유지관리'],['guide','guide.html','사용 가이드'],['cloud','cloud.html','개인 백업']];
+ const pages=[['geo','index.html','공간 분석'],['gis','gis.html','GIS 입지'],['management','management.html','역할 체험'],['collaboration','collaboration.html','공동 관리'],['guide','guide.html','사용 가이드'],['cloud','cloud.html','개인 백업']];
  const nav=document.createElement('nav');nav.className='spatia-workspaces';nav.setAttribute('aria-label','주요 서비스');
  for(const [id,href,label]of pages){const a=document.createElement('a');a.href=href;a.textContent=label;if(id===kind)a.setAttribute('aria-current','page');if(id==='cloud')a.className='spatia-backup';nav.append(a)}
  const sidebar=document.querySelector('.sidebar,.rail');

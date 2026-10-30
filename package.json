@@ -8,6 +8,17 @@
     "test": "node verify-geo.cjs",
     "test:ui": "node verify-geo-ui.cjs",
     "test:management": "node verify-build.cjs",
-    "test:cloud": "node verify-cloud.cjs"
+    "test:cloud": "node verify-cloud.cjs",
+    "test:platform": "node verify-platform.cjs",
+    "test:security": "node verify-security.mjs"
+  },
+  "devDependencies": {
+    "@firebase/rules-unit-testing": "^6.0.0",
+    "firebase": "^13.1.0",
+    "leaflet": "^1.9.4",
+    "proj4": "^2.22.0"
+  },
+  "overrides": {
+    "@grpc/grpc-js": "1.14.7"
   }
 }

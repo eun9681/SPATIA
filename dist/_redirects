@@ -3,3 +3,6 @@
 /management /management.html 200
 /indoor / 301
 /indoor.html / 301
+
+/gis /gis.html 200
+/collaboration /collaboration.html 200

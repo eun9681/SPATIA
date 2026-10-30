@@ -21,5 +21,55 @@ service cloud.firestore {
       allow create, update: if owner() && validSnapshot();
       allow delete: if owner() && kind in ['model', 'operations'];
     }
+
+    // Membership is provisioned by a system administrator. No self-selected roles.
+    function signedIn() { return request.auth != null; }
+    function systemAdmin() { return signedIn() && exists(/databases/$(database)/documents/systemAdmins/$(request.auth.uid)) && get(/databases/$(database)/documents/systemAdmins/$(request.auth.uid)).data.enabled == true; }
+    function memberPath(b) { return /databases/$(database)/documents/buildings/$(b)/members/$(request.auth.uid); }
+    function member(b) { return signedIn() && exists(memberPath(b)); }
+    function role(b, r) { return member(b) && get(memberPath(b)).data.role == r; }
+    function staff(b) { return role(b,'manager') || systemAdmin(); }
+    function unitAccess(b,u) { return member(b) && (u == 'common' || u in get(memberPath(b)).data.units); }
+    function str(x,n) { return x is string && x.size() <= n; }
+    function canReadRequest(b,d) { return staff(b) || (member(b) && d.ownerUid == request.auth.uid) || (role(b,'expert') && d.assignedUid == request.auth.uid); }
+    match /systemAdmins/{uid} { allow get: if signedIn() && request.auth.uid == uid; allow list,write: if false; }
+    match /buildings/{b} {
+      allow get: if member(b) || systemAdmin();
+      allow list: if false;
+      allow create,update: if staff(b) && request.resource.data.keys().hasOnly(['name','buildingId','updatedAt']) && request.resource.data.buildingId == b && str(request.resource.data.name,120) && request.resource.data.updatedAt == request.time;
+      allow delete: if false;
+      match /members/{uid} {
+        allow get: if signedIn() && (request.auth.uid == uid || staff(b));
+        allow list: if staff(b);
+        allow create,update: if systemAdmin() && request.resource.data.keys().hasOnly(['role','units']) && request.resource.data.role in ['resident','manager','expert'] && request.resource.data.units is list && request.resource.data.units.size() <= 20;
+        allow delete: if systemAdmin();
+      }
+      match /elements/{id} {
+        allow get,list: if staff(b) || role(b,'expert') || unitAccess(b,resource.data.unitId);
+        allow create,update: if staff(b) && request.resource.data.keys().hasOnly(['buildingId','unitId','floorId','name','type','material','min','max','ifcGuid']) && request.resource.data.buildingId == b && str(request.resource.data.unitId,100) && str(request.resource.data.floorId,120) && str(request.resource.data.name,120) && str(request.resource.data.material,100) && str(request.resource.data.ifcGuid,100) && request.resource.data.type in ['wall','floor','ceiling','column','beam','pipe'] && request.resource.data.min is list && request.resource.data.min.size() == 3 && request.resource.data.max is list && request.resource.data.max.size() == 3;
+        allow delete: if false;
+      }
+      match /requests/{id} {
+        function valid(d) { return d.keys().hasAll(['buildingId','unitId','elementId','ownerUid','assignedUid','stage','title','description','dueDate','createdAt','updatedAt']) && d.keys().hasOnly(['buildingId','unitId','elementId','ownerUid','assignedUid','stage','title','description','dueDate','createdAt','updatedAt']) && d.buildingId == b && str(d.unitId,100) && str(d.elementId,100) && str(d.ownerUid,128) && str(d.assignedUid,128) && d.stage is int && d.stage >= 0 && d.stage <= 5 && str(d.title,100) && d.title.size() > 0 && str(d.description,1500) && d.description.size() >= 5 && str(d.dueDate,10) && d.updatedAt == request.time; }
+        allow get,list: if signedIn() && canReadRequest(b,resource.data);
+        allow create: if member(b) && (role(b,'resident') || staff(b)) && valid(request.resource.data) && request.resource.data.ownerUid == request.auth.uid && request.resource.data.stage == 0 && request.resource.data.assignedUid == '' && request.resource.data.dueDate == '' && request.resource.data.createdAt == request.time && unitAccess(b,request.resource.data.unitId) && exists(/databases/$(database)/documents/buildings/$(b)/elements/$(request.resource.data.elementId)) && get(/databases/$(database)/documents/buildings/$(b)/elements/$(request.resource.data.elementId)).data.unitId == request.resource.data.unitId;
+        allow update: if signedIn() && valid(request.resource.data) && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['assignedUid','stage','dueDate','updatedAt']) && ((staff(b) && request.resource.data.stage >= resource.data.stage && request.resource.data.stage <= 4 && (request.resource.data.assignedUid == '' || (exists(/databases/$(database)/documents/buildings/$(b)/members/$(request.resource.data.assignedUid)) && get(/databases/$(database)/documents/buildings/$(b)/members/$(request.resource.data.assignedUid)).data.role == 'expert')) && (request.resource.data.stage < 1 || request.resource.data.assignedUid != '') && (request.resource.data.stage < 3 || request.resource.data.dueDate.size() == 10)) || (member(b) && resource.data.ownerUid == request.auth.uid && resource.data.stage == 4 && request.resource.data.stage == 5 && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['stage','updatedAt'])));
+        allow delete: if false;
+      }
+      match /inspections/{id} {
+        function task(d) { return get(/databases/$(database)/documents/buildings/$(b)/requests/$(d.requestId)).data; }
+        function valid(d) { return d.keys().hasOnly(['requestId','buildingId','unitId','elementId','authorUid','raw','plain','next','reviewed','revision','updatedAt']) && d.buildingId == b && d.authorUid == request.auth.uid && str(d.requestId,100) && str(d.raw,3000) && d.raw.size() > 0 && str(d.plain,1500) && str(d.next,1000) && d.reviewed is bool && (!d.reviewed || d.plain.size() > 0) && d.revision is int && d.updatedAt == request.time && d.unitId == task(d).unitId && d.elementId == task(d).elementId && task(d).assignedUid == request.auth.uid; }
+        allow get,list: if staff(b) || (role(b,'expert') && resource.data.authorUid == request.auth.uid);
+        allow create: if role(b,'expert') && valid(request.resource.data) && request.resource.data.revision == 1;
+        allow update: if role(b,'expert') && valid(request.resource.data) && resource.data.authorUid == request.auth.uid && request.resource.data.requestId == resource.data.requestId && request.resource.data.revision == resource.data.revision + 1;
+        allow delete: if false;
+      }
+      match /publicUpdates/{id} {
+        function reviewed(d) { let rec=get(/databases/$(database)/documents/buildings/$(b)/inspections/$(d.inspectionId)).data;return rec.reviewed == true && d.reviewedRevision == rec.revision && d.requestId == rec.requestId && d.unitId == rec.unitId && d.elementId == rec.elementId && d.plain == rec.plain && d.next == rec.next; }
+        allow get,list: if staff(b) || (role(b,'expert')) || unitAccess(b,resource.data.unitId);
+        allow create,update: if staff(b) && request.resource.data.keys().hasOnly(['requestId','inspectionId','buildingId','unitId','elementId','plain','next','reviewedRevision','approvedBy','approvedAt']) && request.resource.data.buildingId == b && str(request.resource.data.plain,1500) && str(request.resource.data.next,1000) && request.resource.data.approvedBy == request.auth.uid && request.resource.data.approvedAt == request.time && reviewed(request.resource.data);
+        allow delete: if false;
+      }
+    }
   }
 }

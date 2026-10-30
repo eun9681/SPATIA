@@ -1,6 +1,7 @@
 const assert=require('node:assert/strict');
 const fs=require('node:fs'),vm=require('node:vm');
 const {BuildModel:M}=require('./dist/build-model.js');
+const {GeoEngine:G}=require('./dist/geo-engine.js'),{SpatiaWorkspace:W}=require('./dist/workspace-core.js');
 const s=M.seed();
 assert.equal(M.visibleRequests(s,'resident').some(r=>r.unit==='201'),false);
 assert.equal(M.visibleRequests(s,'resident').some(r=>r.unit==='common'),true);
@@ -21,7 +22,7 @@ assert.equal(s.notices[0].unit,'302');
 assert.throws(()=>M.transition(s,'REQ-2026-001',2,'김 담당','2026-11-02','manager'),/되돌릴/);
 assert.throws(()=>M.transition(s,'REQ-2026-001',5,'김 담당','2026-11-02','manager'),/단계/);
 const elements=new Map();function el(k){if(!elements.has(k))elements.set(k,{innerHTML:'',textContent:'',value:'',style:{},classList:{add(){},remove(){},toggle(){}},querySelectorAll:()=>[],querySelector:()=>el(k+'sub'),close(){},showModal(){}});return elements.get(k)}
-const ctx=vm.createContext({BuildModel:M,document:{querySelector:el,querySelectorAll:()=>[],addEventListener(){}},window:{addEventListener(){}},localStorage:{getItem:()=>null,setItem(){}},console,setTimeout,clearTimeout});
+const ctx=vm.createContext({BuildModel:M,GeoEngine:G,SpatiaWorkspace:W,SPATIA_ACTIVE_MODEL:G.seed(),document:{querySelector:el,querySelectorAll:()=>[],addEventListener(){}},window:{addEventListener(){}},localStorage:{getItem:()=>null,setItem(){}},console,setTimeout,clearTimeout});
 vm.runInContext(fs.readFileSync('dist/build.js','utf8'),ctx);
 el('#termSelect').value='콘크리트 중성화';
 vm.runInContext(`
@@ -34,6 +35,6 @@ if(csvValue('=1+1').charCodeAt(1)!==39)throw Error('CSV formula injection');
 role='resident';page='home';render();
 if(recordCards(records()).includes('전문가 원문'))throw Error('Resident sees original expert record');
 `,ctx);
-assert.ok(elements.get('#content').innerHTML.includes('우리 집 공간 지도'));
+assert.ok(elements.get('#content').innerHTML.includes('같은 모델의 구조물 위치'));
 assert.ok(!elements.get('#content').innerHTML.includes('外壁'));
 console.log('PASS: resident data filters; review/publish gate; multi-unit recurrence; state transitions; all role pages render; HTML and CSV escaping.');

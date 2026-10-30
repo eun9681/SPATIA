@@ -1,38 +1,35 @@
-# Firebase 연결과 검증
+# Firebase 저장·권한과 확인 결과
 
-`dist/cloud.html`은 Firebase Web SDK 13.1.0의 Authentication(이메일/비밀번호)과 Cloud Firestore로 개인 백업을 제공합니다. 소유자가 제공한 SPATIA 프로젝트 `spatia-550fc` 웹 앱 설정을 기본 등록했습니다. 연결 화면을 열면 SDK를 초기화합니다. 실제 계정 로그인·저장 및 보안 규칙 실행은 별도 확인이 필요합니다. 웹 앱 설정은 연결 화면에서 입력하며, 선택한 경우에만 해당 브라우저에 기억합니다. 계정 비밀번호는 저장하거나 로그에 남기지 않습니다.
+## 운영 상태
 
-## 사용자 설정
+2026-10-31: spatia-550fc의 Firestore API를 활성화하고 기본 Standard 데이터베이스를 서울(asia-northeast3)에 생성했습니다. 이메일/비밀번호 인증을 확인했으며 super-concha-6f6fb1.netlify.app 및 roaring-maamoul-d1bbf1.netlify.app을 승인 도메인에 연결했습니다. 기존 승인 도메인을 보존했습니다. dist/firestore.rules와 firestore.indexes.json을 운영에 배포했습니다.
 
-1. https://console.firebase.google.com/ 에서 프로젝트와 웹 앱을 등록합니다. Firebase Hosting은 이 Sites 주소를 대신하지 않습니다.
-2. 이메일/비밀번호 Authentication을 활성화하고 이 사이트 도메인을 승인된 도메인에 추가합니다.
-3. 기본 `(default)` Firestore 데이터베이스를 프로덕션 모드로 생성합니다. 실제 사용할 지역·리전을 선택합니다.
-4. `dist/firestore.rules`를 콘솔의 규칙 편집기에 게시합니다. 기존 프로젝트의 다른 앱이 있으면 규칙을 무조건 교체하지 말고 병합하세요.
-5. 웹 앱 `firebaseConfig`를 사이트의 Firebase 연결 화면에 입력합니다. 서비스 계정 키는 브라우저나 채팅으로 보내지 않습니다.
-6. 연결 화면에서 백업 계정을 생성하거나 로그인하고, '현재 모델 저장' → '백업 확인' → 다른 브라우저에서 동일 프로젝트·동일 계정으로 '모델 불러오기'를 확인합니다.
+운영 Firebase Auth/Firestore 임시 계정으로 20개 검사를 통과했습니다. 개인 백업 저장·다른 UID 차단, 공동 요청 저장·다른 세대 차단, 담당자 배정, 전문가 원문 비공개, 관리자 승인 설명, 다른 계정의 실시간 상태 수신을 확인했습니다. 임시 계정·격리 QA 문서는 삭제했습니다. 에뮬레이터에서 추가 경계 사례 포함 29개 검사를 통과했습니다. qa/ 결과를 참조하세요. 이 결과는 현장 정확도·안전·법규 인증이 아닙니다.
 
-CLI가 있는 개발 환경에서는 이 디렉터리에서 `firebase deploy --only firestore:rules,firestore:indexes --project 실제프로젝트ID`로 준비된 규칙과 payload 인덱스 제외 설정을 배포할 수 있습니다. 실제 프로젝트ID는 아직 지정하지 않았습니다.
+## 최초 사람 계정의 권한 등록
 
-## 저장 규약
+1. cloud.html에서 본인의 SPATIA 계정을 만든 뒤 collaboration.html에 로그인합니다.
+2. 화면의 UID를 확인합니다. 프로젝트 소유자가 신원을 확인한 뒤 Firebase 콘솔 Firestore의 systemAdmins/{UID} 문서를 등록합니다. 예: enabled=true. 현재 규칙은 이 문서의 enabled=true로 시스템 관리자를 판별합니다. 웹 클라이언트는 이 컬렉션에 쓸 수 없습니다.
+3. 공동 관리에서 건물 ID를 열고 현재 모델 구조물을 등록합니다.
+4. 시스템 관리자는 담당자 UID·역할(resident/manager/expert)·units(최대 20개)를 등록합니다. 실제 사람에게 임의로 권한을 부여하지 않았습니다.
 
-- `users/{uid}/snapshots/model` 및 `operations`, 종류별 최신 스냅샷 1개
-- 문서 필드: schemaVersion=1, kind, payload(JSON 문자열), provenance, updatedAt(서버 시각)
-- 각 백업은 UTF-8 800,000 bytes 이하. IFC 원본·대용량 사진은 파일 저장소 확장 전까지 별도 JSON/파일로 보관
-- 저장·불러오기는 사용자 클릭으로 수행. 원격 성공 응답 후 저장 완료 표시
-- 불러올 데이터는 형식 검증 및 교체 확인 후 localStorage에 반영
-- Firestore 규칙은 본인 UID 경로만 허용하고 목록 조회는 금지. 유지관리 데모의 역할 선택은 Firebase 권한과 무관
-- 이 연결은 개인 백업용. 여러 직원의 공동 편집·관리자 권한·입주자 세대별 권한·실제 업무 알림은 별도 구현 필요
+## 서버 경계
 
-## 확인한 범위
+- users/{uid}/snapshots/{model|operations}: 본인 UID의 최신 개인 스냅샷. 명시적 저장·복원, UTF-8 800,000 bytes 이하.
+- buildings/{id}/members/{uid}: 시스템 관리자만 역할·세대 등록. 자기 승격 거부.
+- elements/{elementId}: 관리자 등록, 세대별 입주자 조회 제한.
+- requests/{requestId}: 본인 요청 등록·조회, 담당 건물 관리자 처리, 배정된 전문가 조회. 단계·일정·불변 필드 검증.
+- inspections/{inspectionId}: 담당 전문가 작성 원문. 관리자/작성 전문가만 조회.
+- publicUpdates/{inspectionId}: 관리자만 검토된 내용·개정과 일치하는 설명을 승인. raw 필드는 허용하지 않음. 입주자는 본인 세대·공용부만 조회.
 
-2026-10-30: 제공된 웹 앱 설정으로 Firebase Auth 공개 프로젝트 설정을 조회해 HTTP 200 응답과 프로젝트 번호 169709493162를 확인했습니다. 당시 승인된 도메인은 localhost, spatia-550fc.firebaseapp.com, spatia-550fc.web.app이며 Sites 도메인은 빠져 있었습니다. 공개 응답은 이메일/비밀번호 사용 설정 여부를 제공하지 않았습니다. 계정 로그인·Firestore 쓰기는 사용자 로그인 후 확인해야 합니다. 이 조회로 콘솔의 보안 규칙을 게시하거나 수정하지 않았습니다.
+클라이언트가 역할이나 쿼리를 변조해도 Firestore 서버 규칙이 검사합니다. Admin SDK를 사용하는 별도 서버를 추가하면 이 규칙을 우회하므로 같은 권한을 서버에서도 검증해야 합니다. 현재 별도 Admin SDK 업무 서버는 없습니다.
 
-`node verify-cloud.cjs`: 설정·원본 비밀키 입력 거부, UTF-8 크기 한도, 모델/관리 이력 스키마, UID 경로 분리, 모의 서버 저장 성공·거부 처리, 복원 검증과 손상 데이터로 인한 로컬 덮어쓰기 방지.
+공동 관리의 실제 업무 기록을 로컬 데모나 개인 스냅샷으로 자동 복사하지 않습니다. 역할 체험은 가상 자료이며 실제 직무 인증이 아닙니다. 로그인 실패·권한 거부 시 로컬로 저장해 성공했다고 표시하지 않습니다.
 
-실제 Firebase 프로젝트가 준비되면 인증·쓰기·다른 계정 접근 거부를 원격 또는 Emulator Suite에서 확인해야 합니다. 모의 테스트는 실제 보안 규칙의 실행 검증을 대신하지 않습니다.
+## 검증 실행
 
-공식 근거(2026-10-30 확인):
-- https://firebase.google.com/docs/web/setup
-- https://firebase.google.com/docs/auth/web/password-auth
-- https://firebase.google.com/docs/firestore/security/get-started
-- https://firebase.google.com/docs/firestore/quotas
+공식 Firebase Emulator Suite를 demo-spatia 프로젝트로 실행하고 npm run test:security를 실행합니다. verify-production.mjs는 명시적으로 실행할 때만 운영에 격리된 임시 계정·기록을 만들고 정리합니다. 프로젝트 소유자 CLI 권한이 필요하며 토큰은 메모리에서만 사용합니다. 일반 npm test에는 운영 쓰기를 포함하지 않습니다.
+
+공식 문서: https://firebase.google.com/docs/firestore/security/get-started , https://firebase.google.com/docs/rules/unit-tests , https://firebase.google.com/docs/auth/web/password-auth
+
+운영 소유자가 제공한 UID를 확인해 시스템 관리자(enabled=true)로 등록했으며 기본 forest-a-demo 모델의 구조물 84개를 서버에 준비했습니다. UID는 공개 저장소에 기록하지 않습니다. 입주자·전문가 역할은 실제 담당자의 신원 확인 후 등록합니다.
