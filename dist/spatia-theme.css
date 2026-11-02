@@ -1,0 +1,194 @@
+/* SPATIA / Four colours, one connected space. */
+:root{--spatia-navy:#183451;--spatia-terracotta:#A9501C;--spatia-ivory:#F3ECDE;--spatia-sand:#D4AF83;--ink:#183451;--muted:#183451bf;--sub:#183451bf;--accent:#A9501C;--green:#183451;--line:#D4AF8380;--bg:#F3ECDE;--paper:#F3ECDE;--site-header-height:86px}
+html{scroll-padding-top:110px}
+body[data-page]{background:var(--spatia-ivory);color:var(--spatia-navy);font-weight:400;line-height:1.8}
+body[data-page] h1,body[data-page] h2,body[data-page] h3,body[data-page] h4{color:var(--spatia-navy);letter-spacing:-.045em}
+body[data-page] a{color:var(--spatia-navy)}
+body[data-page] button:focus-visible,body[data-page] a:focus-visible,body[data-page] input:focus-visible,body[data-page] select:focus-visible,body[data-page] textarea:focus-visible{outline:2px solid var(--spatia-terracotta);outline-offset:4px}
+body[data-page] .primary,body[data-page] .export,body[data-page] .button.primary{background:var(--spatia-terracotta);border-color:var(--spatia-terracotta);color:var(--spatia-ivory);box-shadow:none}
+body[data-page] .secondary,body[data-page] .outline-button,body[data-page] .outline-btn,body[data-page] .small-btn,body[data-page] .detail-action,body[data-page] .button{background:transparent;color:var(--spatia-navy);border-color:#18345155}
+body[data-page] button,body[data-page] .button{border-radius:2px}
+body[data-page] .text-button,body[data-page] .text-btn{color:var(--spatia-terracotta)}
+body[data-page] .eyebrow,body[data-page] .meta,body[data-page] .lede{color:#183451bf}
+body[data-page] input,body[data-page] select,body[data-page] textarea,body[data-page] .field input,body[data-page] .field select,body[data-page] .field textarea{color:var(--spatia-navy);background:var(--spatia-ivory);border-color:#18345155;border-radius:2px}
+body[data-page] .panel,body[data-page] .card,body[data-page] .map-panel,body[data-page] .detail-panel,body[data-page] .priority-panel,body[data-page] .trend-panel{border-radius:2px;box-shadow:none;background:var(--spatia-ivory);border-color:var(--line)}
+body[data-page] .disclaimer,body[data-page] .note,body[data-page] .notice,body[data-page] .workspace-banner,body[data-page] .security-note,body[data-page] .sample-banner,body[data-page] .demo-banner{color:var(--spatia-navy);background:#D4AF8324;border-color:#D4AF8380;border-radius:2px}
+body[data-page] .disclaimer b,body[data-page] .disclaimer p,body[data-page] .disclaimer small,body[data-page] .disclaimer button,body[data-page] .note b{color:var(--spatia-navy)}
+body[data-page] .tag,body[data-page] .pill,body[data-page] .subtag,body[data-page] .badge,body[data-page] .chip,body[data-page] .priority-badge{color:var(--spatia-navy);background:#D4AF8333;border-color:var(--line);border-radius:2px}
+body[data-page] .status{background:#D4AF8324;border-color:#D4AF8380;color:var(--spatia-navy)}
+body[data-page] .status.error,body[data-page] .warn{border-color:var(--spatia-terracotta);color:var(--spatia-terracotta);background:#A9501C0A}
+body[data-page] dialog{background:var(--spatia-ivory);color:var(--spatia-navy);border:1px solid var(--spatia-sand);border-radius:3px}
+body[data-page] dialog::backdrop{background:#183451a6}
+body[data-page] .toast{background:var(--spatia-navy);color:var(--spatia-ivory)}
+.spatia-skip{background:var(--spatia-terracotta);color:var(--spatia-ivory)}
+
+/* Template-inspired, wide, quiet navigation. */
+.spatia-site-header{min-height:var(--site-header-height);padding:17px clamp(22px,4.2vw,72px);display:flex;align-items:center;gap:32px;background:var(--spatia-navy);color:var(--spatia-ivory);position:sticky;top:0;z-index:80;border-bottom:1px solid #D4AF8326}
+body[data-page] .spatia-wordmark{color:var(--spatia-ivory);font-size:25px;font-weight:760;letter-spacing:.12em;line-height:1;text-decoration:none;white-space:nowrap}
+.spatia-wordmark sup{font-size:10px;vertical-align:top;letter-spacing:0;margin-left:3px}
+.spatia-wordmark small{display:block;font-size:7px;font-weight:400;letter-spacing:.21em;margin-top:9px;color:var(--spatia-sand)}
+body[data-page] .spatia-workspaces{position:static;display:flex;justify-content:center;flex:1;gap:clamp(2px,1.3vw,22px);flex-wrap:nowrap;border:0;padding:0;background:transparent;backdrop-filter:none;margin:0;overflow:visible}
+body[data-page] .spatia-workspaces a{color:var(--spatia-ivory);background:transparent;border-radius:0;font-size:12px;font-weight:400;padding:9px 3px;min-height:40px;line-height:1.5;letter-spacing:.035em;margin:0;position:relative;text-align:center}
+body[data-page] .spatia-workspaces a:hover,body[data-page] .spatia-workspaces a[aria-current=page]{color:var(--spatia-sand);background:transparent}
+.spatia-workspaces a[aria-current=page]::after{content:"";position:absolute;height:2px;background:var(--spatia-terracotta);bottom:2px;left:20%;right:20%}
+body[data-page] .spatia-header-action{color:var(--spatia-ivory);font-size:11px;text-decoration:none;white-space:nowrap;border-bottom:1px solid #D4AF8366;padding:7px 0}
+.spatia-site-menu{display:none}
+body[data-page]>.top{display:none}
+
+/* The first screen follows the centred, product-led reference composition. */
+body[data-page=geo] main{margin:0;padding:0;max-width:none}
+.spatia-hero{height:720px;min-height:640px;max-height:calc(100dvh - 40px);position:relative;overflow:hidden;background:var(--spatia-navy);isolation:isolate;color:var(--spatia-ivory);text-align:center}
+.spatia-hero-copy{position:relative;z-index:2;padding:50px 24px 0;pointer-events:none}
+.spatia-kicker{display:block;font-size:10px;letter-spacing:.23em;line-height:1.6;font-weight:500}
+.spatia-hero .spatia-kicker{color:var(--spatia-sand);margin:0 0 17px}
+body[data-page] .spatia-hero h1{color:var(--spatia-ivory);font-size:clamp(36px,4.8vw,64px);line-height:1.26;font-weight:450;letter-spacing:-.055em;margin:0 0 15px}
+.spatia-hero-copy>p:not(.spatia-kicker){color:#F3ECDEbf;font-size:13px;line-height:1.85;margin:0 0 15px}
+body[data-page] .spatia-hero-link{display:inline-flex;align-items:center;gap:28px;color:var(--spatia-sand);font-size:12px;letter-spacing:.025em;padding:8px 0;border-bottom:1px solid #D4AF8380;text-decoration:none;pointer-events:auto}
+.spatia-hero-link span{font-size:20px}
+.spatia-hero-building{position:absolute;width:min(1040px,85vw);height:auto;max-width:none;left:50%;bottom:-58px;transform:translateX(-50%);z-index:1;pointer-events:none}
+.spatia-hero-note{position:absolute;z-index:2;left:clamp(25px,5vw,76px);bottom:52px;text-align:left;font-size:9px;letter-spacing:.18em;color:var(--spatia-sand)}
+.spatia-hero-note small{display:block;font-size:8px;letter-spacing:.08em;margin-top:8px;color:#F3ECDE99}
+body[data-page] .spatia-scroll{position:absolute;right:clamp(25px,5vw,76px);bottom:52px;z-index:2;color:var(--spatia-ivory);font-size:9px;text-decoration:none;letter-spacing:.16em;display:flex;align-items:center;gap:25px}
+.spatia-scroll span{font-size:26px;color:var(--spatia-sand)}
+.spatia-visual-note{position:absolute;bottom:14px;left:0;right:0;z-index:2;color:#F3ECDE80;font-size:8px;letter-spacing:.08em}
+
+.spatia-explore{max-width:1440px;margin:auto;padding:72px clamp(24px,5vw,80px) 78px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:45px}
+body[data-page] .spatia-explore>a{display:block;position:relative;text-decoration:none;padding:4px 25px 12px 0;border-right:1px solid var(--line)}
+.spatia-explore>a:last-child{border:0}
+.spatia-explore a>span{font-size:9px;letter-spacing:.15em;color:var(--spatia-terracotta)}
+body[data-page] .spatia-explore h2{font-size:23px;font-weight:500;margin:15px 0 12px}
+.spatia-explore p{font-size:12px;line-height:1.9;color:#183451bf;margin:0}
+.spatia-explore b{position:absolute;right:25px;bottom:12px;font-size:22px;color:var(--spatia-terracotta);font-weight:400}
+
+/* Interactive analysis remains available inside the editorial page. */
+.spatia-workspace{border-top:1px solid var(--line);padding:76px clamp(22px,4.5vw,76px) 100px;scroll-margin-top:85px;max-width:1600px;margin:auto}
+.spatia-section-intro{text-align:center;margin:0 auto 50px;max-width:760px}
+.spatia-section-intro>span{font-size:10px;letter-spacing:.18em;color:var(--spatia-terracotta)}
+body[data-page] .spatia-section-intro h2{font-weight:500;font-size:34px;margin:14px 0 13px}
+.spatia-section-intro p{font-size:13px;color:#183451bf}
+.spatia-analysis-layout{display:grid;grid-template-columns:220px minmax(0,1fr);gap:35px;align-items:start}
+body[data-page=geo] .sidebar{position:sticky;inset:auto;top:110px;width:220px;max-height:calc(100dvh - 130px);height:auto;padding:0 20px 20px 0;background:transparent;border:0;border-right:1px solid var(--line);z-index:10;align-self:start}
+body[data-page=geo] .sidebar>.brand,body[data-page=geo] .sidebar .account{display:none}
+.spatia-analysis-content{min-width:0}
+body[data-page=geo] .page{max-width:none;padding:0;margin:0}
+body[data-page=geo] .spatia-context-bar{height:auto;min-height:32px;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:0 0 15px;background:transparent;border:0}
+body[data-page=geo] .spatia-context-bar .header-right{display:none}
+body[data-page=geo] .intro{padding:0;margin:0 0 22px;gap:16px;align-items:end}
+body[data-page=geo] .intro h2{font-size:26px;font-weight:550;line-height:1.45;margin:8px 0}
+body[data-page=geo] .intro p{font-size:12px}
+body[data-page=geo] .intro .eyebrow{font-size:9px;color:var(--spatia-terracotta)}
+body[data-page=geo] .intro-actions{gap:8px}
+body[data-page=geo] .intro-actions button{font-size:11px;padding:10px 12px}
+body[data-page=geo] .page>footer{display:none}
+body[data-page] .sidebar .nav,body[data-page] .rail .nav{color:var(--spatia-navy);border-radius:0}
+body[data-page] .sidebar .nav.active,body[data-page] .rail .nav.active{background:#D4AF833b;color:var(--spatia-navy);border-left:2px solid var(--spatia-terracotta)}
+body[data-page] .side-label,body[data-page] .rail-label,body[data-page] .workspace-label{color:#183451ad;font-size:9px}
+body[data-page] .project,body[data-page] .building-card{background:transparent;border:1px solid var(--line);border-radius:2px;color:var(--spatia-navy)}
+body[data-page] .project small,body[data-page] .building-card small{color:#183451b3}
+body[data-page] .project>span,body[data-page] .building-card>span{color:var(--spatia-terracotta)}
+body[data-page] .side-tool,body[data-page] .old-link,body[data-page] .help{color:var(--spatia-navy);font-size:11px}
+body[data-page] .stat,body[data-page] .metric{border:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);border-radius:0;background:transparent;box-shadow:none;padding:18px 8px}
+body[data-page] .stat strong,body[data-page] .metric-number{color:var(--spatia-navy);font-weight:500}
+body[data-page] .stat label,body[data-page] .metric-label,body[data-page] .stat small{color:#183451bf}
+body[data-page] .scene{background:var(--spatia-ivory)}
+body[data-page] .panel h2{color:var(--spatia-navy);font-size:17px;font-weight:550;letter-spacing:-.03em}
+body[data-page] .inspector h3{color:var(--spatia-navy);font-size:21px;font-weight:550}
+body[data-page] .element-id,body[data-page] .inspector-meta,body[data-page] .inspector-meta b,body[data-page] .ranking-row b,body[data-page] .ranking-row small{color:#183451cc}
+body[data-page] .spatial-insight{color:var(--spatia-navy);background:#D4AF8326;border-left:2px solid var(--spatia-sand)}
+body[data-page] .spatial-insight b{color:var(--spatia-navy)}
+body[data-page] .ranking-row strong{color:var(--spatia-terracotta)}
+
+.spatia-story{display:grid;grid-template-columns:1fr 1fr;min-height:540px;background:var(--spatia-sand)}
+.spatia-story-art{position:relative;overflow:hidden;min-height:500px;background:#1834510d}
+.spatia-story-grid{position:absolute;inset:-100px;background-image:linear-gradient(#18345114 1px,transparent 1px),linear-gradient(90deg,#18345114 1px,transparent 1px);background-size:52px 52px;transform:rotate(-18deg) scale(1.2)}
+.spatia-map-block{position:absolute;display:block;border:1px solid var(--spatia-navy);background:var(--spatia-ivory);transform:rotate(-18deg);box-shadow:12px 16px 0 #18345114}
+.block-one{width:26%;height:27%;left:17%;top:15%}.block-two{width:30%;height:24%;left:50%;top:30%;background:var(--spatia-navy)}.block-three{width:22%;height:24%;left:25%;top:55%}
+.spatia-map-line{position:absolute;width:30%;height:2px;left:36%;top:49%;background:var(--spatia-terracotta);transform:rotate(-18deg)}
+.spatia-map-pin{position:absolute;left:54%;top:40%;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:var(--spatia-terracotta);color:var(--spatia-ivory);font-size:21px;border:5px solid var(--spatia-sand)}
+.spatia-story-art-caption{position:absolute;left:8%;bottom:7%;font-size:10px;letter-spacing:.18em;line-height:1.8;color:var(--spatia-navy)}
+.spatia-story-copy{padding:85px clamp(32px,6vw,110px);align-self:center}
+.spatia-story-copy>.spatia-kicker{color:var(--spatia-terracotta);font-size:9px}
+body[data-page] .spatia-story-copy h2{font-size:40px;line-height:1.35;font-weight:450;margin:22px 0}
+.spatia-story-copy p{font-size:13px;line-height:2;color:#183451cc;margin:0 0 25px}
+body[data-page] .spatia-text-link{font-size:12px;text-decoration:none;padding:7px 0;border-bottom:1px solid currentColor}
+.spatia-invitation{padding:95px 25px;text-align:center;background:var(--spatia-navy);color:var(--spatia-ivory)}
+.spatia-invitation>.spatia-kicker{color:var(--spatia-sand);font-size:9px}
+body[data-page] .spatia-invitation h2{color:var(--spatia-ivory);font-size:38px;font-weight:450;line-height:1.45;margin:20px 0 28px}
+.spatia-invitation>div{display:flex;gap:30px;align-items:center;justify-content:center;flex-wrap:wrap}
+body[data-page] .spatia-invitation .spatia-text-link{color:var(--spatia-ivory)}
+.spatia-site-footer{padding:40px clamp(24px,5vw,80px);display:flex;align-items:end;justify-content:space-between;gap:24px;background:var(--spatia-ivory);color:var(--spatia-navy);border-top:1px solid var(--line);font-size:10px;line-height:1.8}
+.spatia-site-footer strong{font-size:22px;font-weight:650;letter-spacing:.08em;display:block;margin-bottom:8px}
+.spatia-site-footer nav{font-size:11px;gap:20px}.spatia-site-footer a{color:var(--spatia-navy);text-decoration:none}
+
+/* Supporting pages share the same editorial shell. */
+body[data-page]:not([data-page=geo]):not([data-page=management]) main{margin:0 auto;max-width:1240px;padding:65px 32px 90px}
+body[data-page]:not([data-page=geo]):not([data-page=management]) main>h1,body[data-page] .guide-intro h1{font-size:clamp(30px,3.6vw,46px);font-weight:500;line-height:1.4;margin:17px 0 24px}
+body[data-page=management] .rail{top:110px;bottom:20px;left:20px;background:transparent;border:0;border-right:1px solid var(--line);padding:0 20px 20px 0;width:225px}
+body[data-page=management] .rail>.logo{display:none}
+body[data-page=management] main{margin-left:270px;padding:0;max-width:none}
+body[data-page=management] .page{padding:30px 35px 80px;max-width:1500px}
+body[data-page=management] .role-tabs{background:#D4AF8333;border-radius:2px}
+body[data-page=management] .role-tabs .active{background:var(--spatia-navy);color:var(--spatia-ivory)}
+body[data-page] .guide-contents{background:#D4AF8326;border-color:var(--line);border-radius:2px}
+body[data-page] .guide-contents a{color:var(--spatia-navy);border-color:var(--line)}
+body[data-page] .guide-step{color:var(--spatia-terracotta)}
+body[data-page] .request-list article,body[data-page] .inspection-private{background:var(--spatia-ivory);border-color:var(--line);border-radius:2px}
+body[data-page] .table th,body[data-page] table th{color:var(--spatia-navy);background:#D4AF8326}
+
+@media(min-width:1600px){.spatia-hero-building{width:1120px;bottom:-65px}}
+@media(max-width:1100px){.spatia-site-header{gap:20px;padding-inline:25px}.spatia-header-action{display:none}.spatia-analysis-layout{grid-template-columns:195px minmax(0,1fr);gap:22px}body[data-page=geo] .sidebar{width:195px;padding-right:14px}.spatia-explore{gap:25px}.spatia-explore h2{font-size:20px!important}.spatia-story-copy{padding:55px 38px}}
+@media(max-width:900px){
+ :root{--site-header-height:76px}
+ .spatia-site-header{justify-content:space-between;min-height:76px;padding:17px 22px;gap:20px}
+ body[data-page] .spatia-wordmark{font-size:23px}
+ .spatia-site-menu{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:transparent;color:var(--spatia-ivory);border:1px solid #D4AF8366;border-radius:0;min-height:38px!important;font-size:11px;padding:7px 12px}
+ body[data-page] .spatia-site-header .spatia-workspaces{display:none;position:absolute;top:100%;left:0;right:0;flex:none;flex-direction:column;gap:0;padding:15px 22px 20px;background:var(--spatia-navy);border-bottom:1px solid #D4AF8380;z-index:85}
+ body[data-page] .spatia-site-header.is-menu-open .spatia-workspaces{display:flex}
+ body[data-page] .spatia-site-header .spatia-workspaces a{display:block;text-align:left;width:100%;padding:12px 4px;border-bottom:1px solid #D4AF8326}
+ .spatia-workspaces a[aria-current=page]::after{left:0;right:auto;width:25px;bottom:6px}
+ .spatia-hero{height:710px;min-height:620px;max-height:none}
+ .spatia-hero-copy{padding-top:55px}
+ .spatia-hero-building{width:870px;bottom:-15px}
+ .spatia-hero-note{left:25px;bottom:35px}.spatia-scroll{right:25px!important;bottom:35px!important}
+ .spatia-explore{padding-block:50px;gap:20px}.spatia-explore h2{font-size:18px!important}.spatia-explore a{padding-right:16px!important}.spatia-explore b{right:15px}
+ .spatia-workspace{padding:55px 22px 65px}.spatia-section-intro{margin-bottom:30px}.spatia-section-intro h2{font-size:28px!important}
+ .spatia-analysis-layout{display:block}
+ body[data-page=geo] .sidebar,body[data-page=management] .rail{position:fixed;inset:0 auto 0 0;top:0;left:0;bottom:0;width:min(310px,86vw);height:100dvh;max-height:100dvh;padding:25px 20px;background:var(--spatia-ivory);border:0;z-index:210;transform:translateX(-105%);overflow-y:auto;box-shadow:15px 0 40px #18345133}
+ body[data-page=geo] .sidebar.is-open,body[data-page=management] .rail.is-open{transform:translateX(0)}
+ body[data-page] .sidebar>.brand,body[data-page] .rail>.logo{display:flex;color:var(--spatia-navy)}
+ body[data-page] .brandmark,body[data-page] .logo-mark{color:var(--spatia-navy);border-color:var(--spatia-navy);background:transparent}
+ body[data-page] .spatia-mobile-bar{display:flex;position:sticky;top:76px;min-height:51px;height:auto;padding:8px 0;background:var(--spatia-ivory);border-bottom:1px solid var(--line);z-index:30;justify-content:flex-end;margin-bottom:20px}
+ .spatia-mobile-brand{display:none!important}
+ body[data-page] .spatia-menu-toggle{background:transparent;border:1px solid #18345155;color:var(--spatia-navy);border-radius:0;font-size:12px;min-height:37px}
+ body[data-page] .spatia-drawer-close{color:var(--spatia-navy);background:#D4AF8333;border-radius:0}
+ body[data-page] .spatia-backdrop{z-index:200;background:#18345199}
+ body[data-page=management] main{margin:0}
+ body[data-page=management]>.spatia-mobile-bar{padding-inline:22px;margin-bottom:0}
+ body[data-page=management] .page{padding:25px 22px 60px}
+ body[data-page]:not([data-page=geo]):not([data-page=management]) main{padding:42px 22px 65px}
+ .spatia-story{min-height:450px}.spatia-story-art{min-height:450px}.spatia-story-copy{padding:40px 30px}.spatia-story-copy h2{font-size:32px!important}
+}
+@media(max-width:600px){
+ .spatia-hero{height:690px;min-height:0}
+ .spatia-hero-copy{padding:48px 20px 0}
+ body[data-page] .spatia-hero h1{font-size:39px;line-height:1.3;margin-bottom:15px}
+ .spatia-hero .spatia-kicker{font-size:9px;letter-spacing:.18em}
+ .spatia-hero-copy>p:not(.spatia-kicker){font-size:12px;line-height:1.9}
+ .spatia-hero-building{width:700px;bottom:28px;left:48%}
+ .spatia-hero-note{font-size:8px;left:22px;bottom:37px}.spatia-hero-note small{font-size:7px;letter-spacing:0}
+ body[data-page] .spatia-scroll{font-size:0;gap:0;right:22px!important;bottom:37px!important}.spatia-scroll span{font-size:25px}
+ .spatia-visual-note{font-size:7px}
+ .spatia-explore{grid-template-columns:minmax(0,1fr);padding:38px 24px;gap:0}
+ body[data-page] .spatia-explore>a{border-right:0;border-bottom:1px solid var(--line);padding:22px 0 24px}
+ .spatia-explore>a:last-child{border-bottom:0}.spatia-explore h2{font-size:22px!important;margin-block:12px!important}.spatia-explore p{font-size:12px}.spatia-explore b{right:5px;bottom:28px}
+ .spatia-workspace{padding:42px 18px 55px}.spatia-section-intro{text-align:left;margin-bottom:25px}.spatia-section-intro h2{font-size:27px!important}.spatia-section-intro p{font-size:12px}
+ body[data-page=geo] .intro{display:block}.intro-actions{margin-top:18px}body[data-page=geo] .intro h2{font-size:24px}
+ .spatia-story{grid-template-columns:minmax(0,1fr)}.spatia-story-art{min-height:330px;order:0}.spatia-story-copy{padding:43px 26px 50px}.spatia-story-copy h2{font-size:35px!important}
+ .spatia-invitation{padding:66px 22px}.spatia-invitation h2{font-size:31px!important}.spatia-invitation>div{gap:22px}
+ .spatia-site-footer{padding:33px 24px;display:block}.spatia-site-footer nav{margin-top:22px;gap:20px}
+ body[data-page] .spatia-workspaces a{margin:0}
+ body[data-page=geo] .spatia-context-bar{font-size:10px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+
+body[data-page=management]>.spatia-site-footer{margin-left:270px}@media(max-width:900px){body[data-page=management]>.spatia-site-footer{margin-left:0}}
