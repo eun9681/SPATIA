@@ -1,0 +1,123 @@
+/* SPATIA — generated from tokens.json */
+:root, [data-theme="light"] {
+  --canvas: #e8ecf4;
+  --canvas-grid: rgba(33, 64, 217, 0.10);
+  --canvas-grid-minor: rgba(33, 64, 217, 0.05);
+  --ambient-a: rgba(92, 124, 255, 0.42);
+  --ambient-b: rgba(118, 206, 255, 0.45);
+  --ambient-c: rgba(255, 198, 150, 0.38);
+  --surface: #f7f9fc;
+  --surface-sunken: #dce2ec;
+  --glass-fill: rgba(255, 255, 255, 0.58);
+  --glass-fill-strong: rgba(255, 255, 255, 0.82);
+  --glass-fill-clear: rgba(255, 255, 255, 0.30);
+  --glass-sheen: rgba(255, 255, 255, 0.70);
+  --glass-rim: rgba(255, 255, 255, 1);
+  --glass-rim-low: rgba(255, 255, 255, 0.55);
+  --line: rgba(13, 24, 56, 0.10);
+  --control-border: #76819b;
+  --ink: #0d1838;
+  --ink-muted: #46526f;
+  --ink-faint: #5c6784;
+  --brand: #2140d9;
+  --brand-strong: #182fa6;
+  --brand-top: #3a58ee;
+  --brand-glint: rgba(255, 255, 255, 0.24);
+  --brand-soft: #dce2fb;
+  --on-brand: #ffffff;
+  --watch: #8a5300;
+  --watch-soft: #fbeacb;
+  --critical: #b5251a;
+  --critical-soft: #fad9d4;
+  --resolved: #0a6b7a;
+  --resolved-soft: #d2eef1;
+  --scrim: rgba(13, 24, 56, 0.28);
+  --focus: var(--brand);
+  --link: var(--brand);
+  --shadow-glass: inset 0 1px 0 0 rgba(255, 255, 255, 0.95), inset 0 0 0 1px rgba(255, 255, 255, 0.45), 0 1px 2px 0 rgba(13, 24, 56, 0.06), 0 18px 40px -12px rgba(13, 24, 56, 0.22);
+  --shadow-raised: inset 0 1px 0 0 rgba(255, 255, 255, 0.9), 0 1px 2px 0 rgba(13, 24, 56, 0.10), 0 4px 12px -2px rgba(13, 24, 56, 0.14);
+  --shadow-float: inset 0 1px 0 0 rgba(255, 255, 255, 0.95), inset 0 0 0 1px rgba(255, 255, 255, 0.5), 0 2px 6px 0 rgba(13, 24, 56, 0.08), 0 32px 64px -16px rgba(13, 24, 56, 0.32);
+  --shadow-brand: inset 0 1px 0 0 rgba(255, 255, 255, 0.34), inset 0 -1px 0 0 rgba(10, 22, 90, 0.28), inset 0 0 0 1px rgba(255, 255, 255, 0.08), 0 1px 2px 0 rgba(13, 24, 56, 0.14), 0 6px 16px -6px rgba(33, 64, 217, 0.42);
+  --shadow-brand-hover: inset 0 1px 0 0 rgba(255, 255, 255, 0.40), inset 0 -1px 0 0 rgba(10, 22, 90, 0.28), inset 0 0 0 1px rgba(255, 255, 255, 0.10), 0 1px 2px 0 rgba(13, 24, 56, 0.14), 0 10px 22px -8px rgba(33, 64, 217, 0.50);
+  --shadow-inset: inset 0 1px 2px 0 rgba(13, 24, 56, 0.08);
+  --focus-ring: 0 0 0 2px #e8ecf4, 0 0 0 4px #2140d9;
+}
+[data-theme="dark"] {
+  --canvas: #060c1e;
+  --canvas-grid: rgba(140, 163, 255, 0.10);
+  --canvas-grid-minor: rgba(140, 163, 255, 0.05);
+  --ambient-a: rgba(46, 75, 255, 0.42);
+  --ambient-b: rgba(18, 138, 190, 0.30);
+  --ambient-c: rgba(255, 140, 80, 0.10);
+  --surface: #0e1733;
+  --surface-sunken: #0b1430;
+  --glass-fill: rgba(22, 34, 74, 0.55);
+  --glass-fill-strong: rgba(26, 41, 84, 0.80);
+  --glass-fill-clear: rgba(255, 255, 255, 0.06);
+  --glass-sheen: rgba(255, 255, 255, 0.10);
+  --glass-rim: rgba(255, 255, 255, 0.38);
+  --glass-rim-low: rgba(140, 163, 255, 0.30);
+  --line: rgba(237, 241, 255, 0.10);
+  --control-border: #6878a8;
+  --ink: #edf1ff;
+  --ink-muted: #a6b2d4;
+  --ink-faint: #8794ba;
+  --brand: #8ca3ff;
+  --brand-strong: #b8c6ff;
+  --brand-top: #a3b6ff;
+  --brand-glint: rgba(255, 255, 255, 0.32);
+  --brand-soft: #1a2a6e;
+  --on-brand: #071033;
+  --watch: #f4b54a;
+  --watch-soft: #3a2a0b;
+  --critical: #ff8273;
+  --critical-soft: #4a1712;
+  --resolved: #59d0e0;
+  --resolved-soft: #0b3540;
+  --scrim: rgba(2, 5, 14, 0.60);
+  --shadow-glass: inset 0 1px 0 0 rgba(255, 255, 255, 0.16), inset 0 0 0 1px rgba(255, 255, 255, 0.07), 0 1px 2px 0 rgba(0, 0, 0, 0.5), 0 24px 48px -12px rgba(0, 0, 0, 0.6);
+  --shadow-raised: inset 0 1px 0 0 rgba(255, 255, 255, 0.18), 0 1px 2px 0 rgba(0, 0, 0, 0.5), 0 6px 16px -4px rgba(0, 0, 0, 0.55);
+  --shadow-float: inset 0 1px 0 0 rgba(255, 255, 255, 0.2), inset 0 0 0 1px rgba(255, 255, 255, 0.08), 0 2px 6px 0 rgba(0, 0, 0, 0.5), 0 32px 64px -16px rgba(0, 0, 0, 0.7);
+  --shadow-brand: inset 0 1px 0 0 rgba(255, 255, 255, 0.55), inset 0 -1px 0 0 rgba(7, 16, 51, 0.22), inset 0 0 0 1px rgba(255, 255, 255, 0.10), 0 1px 2px 0 rgba(0, 0, 0, 0.4), 0 6px 18px -6px rgba(140, 163, 255, 0.32);
+  --shadow-brand-hover: inset 0 1px 0 0 rgba(255, 255, 255, 0.60), inset 0 -1px 0 0 rgba(7, 16, 51, 0.22), inset 0 0 0 1px rgba(255, 255, 255, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.4), 0 10px 24px -8px rgba(140, 163, 255, 0.40);
+  --shadow-inset: inset 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  --focus-ring: 0 0 0 2px #060c1e, 0 0 0 4px #8ca3ff;
+  color-scheme: dark;
+}
+:root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-pill: 999px;
+  --blur-sm: 10px;
+  --blur-md: 22px;
+  --blur-lg: 40px;
+  --control-sm: 32px;
+  --control-md: 40px;
+  --control-lg: 48px;
+  --rail-width: 264px;
+  --font-display: "Archivo", "IBM Plex Sans KR", system-ui, sans-serif;
+  --font-sans: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+.display { font-family: var(--font-display); font-size: 64px; line-height: 60px; font-weight: 650; letter-spacing: -0.03em; }
+.metric { font-family: var(--font-display); font-size: 40px; line-height: 44px; font-weight: 600; letter-spacing: -0.02em; }
+.title-1 { font-family: var(--font-sans); font-size: 30px; line-height: 40px; font-weight: 700; letter-spacing: -0.02em; }
+.title-2 { font-family: var(--font-sans); font-size: 20px; line-height: 28px; font-weight: 600; letter-spacing: -0.01em; }
+.title-3 { font-family: var(--font-sans); font-size: 16px; line-height: 24px; font-weight: 600; }
+.body { font-family: var(--font-sans); font-size: 14px; line-height: 22px; font-weight: 400; }
+.body-strong { font-family: var(--font-sans); font-size: 14px; line-height: 22px; font-weight: 600; }
+.label { font-family: var(--font-sans); font-size: 13px; line-height: 18px; font-weight: 500; }
+.caption { font-family: var(--font-sans); font-size: 12px; line-height: 18px; font-weight: 400; }
+.data { font-family: var(--font-mono); font-size: 13px; line-height: 20px; font-weight: 500; }
+.data-sm { font-family: var(--font-mono); font-size: 11px; line-height: 16px; font-weight: 500; letter-spacing: 0.02em; }

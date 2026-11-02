@@ -1,7 +1,7 @@
 /* Display-only architecture. Analysis coordinates, IDs and IFC meshes stay unchanged. */
 (function(root){
  'use strict';
- const white='#FFFFFF',green='#133215',accent='#81C784',contextCache=new WeakMap();
+ const white='#FFFFFF',green='#465a8c',accent='#8ca3ff',contextCache=new WeakMap();
  function supported(model){return model.buildingId==='forest-a-demo'&&model.elements.every(e=>e.source==='synthetic')}
  function parts(e){
   if(e.type!=='wall')return[e];

@@ -1,0 +1,253 @@
+/* Adapted to SPATIA's working application from the supplied Vellum & Cyanotype system. */
+:root{--spatia-font:var(--font-sans);--spatia-ink:var(--ink);--spatia-muted:var(--ink-muted);--spatia-green:var(--brand);--green:var(--brand);--spatia-highlight:var(--brand);--spatia-surface:var(--glass-fill-strong);--flat-ink:var(--ink);--flat-soft:var(--brand-soft);--flat-line:var(--line);--ux-text:var(--ink);--ux-secondary:var(--ink-muted);--ux-divider:var(--line);--site-header-height:104px}
+body[data-page]{--spatia-text:var(--ink);--muted:var(--ink-muted);--sub:var(--ink-muted);--spatia-warm-text:var(--watch);--spatia-forest:var(--ink);--spatia-highlight:var(--brand)}
+body[data-page]{color:var(--ink);font-family:var(--font-sans);font-size:14px;background:var(--canvas);background-image:radial-gradient(ellipse at 6% 6%,var(--ambient-a),transparent 42%),radial-gradient(ellipse at 98% 8%,var(--ambient-b),transparent 42%),radial-gradient(ellipse at 82% 100%,var(--ambient-c),transparent 45%);background-attachment:fixed;word-break:keep-all}
+body[data-page]::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:linear-gradient(var(--canvas-grid) 1px,transparent 1px),linear-gradient(90deg,var(--canvas-grid) 1px,transparent 1px),linear-gradient(var(--canvas-grid-minor) 1px,transparent 1px),linear-gradient(90deg,var(--canvas-grid-minor) 1px,transparent 1px);background-size:120px 120px,120px 120px,24px 24px,24px 24px}
+body[data-page] :is(h1,h2,h3,h4,strong,b){color:var(--ink)}
+body[data-page] :is(p,small,label,.meta,.kv,.empty,.event,.report-meta,.section-heading p,.card-head p,.heading p){color:var(--ink-muted)}
+body[data-page] :is(button,a,input,select,textarea):focus-visible{outline:2px solid var(--brand);outline-offset:3px}
+body[data-page] :is(button,.button,input,select,textarea){font-family:var(--font-sans)}
+body[data-page] :is(button,.button){border-radius:999px;min-height:40px;cursor:pointer}
+body[data-page] :is(.primary,.export,.button.primary,.sp-btn--primary){border:0;border-radius:999px;color:var(--on-brand);background:linear-gradient(180deg,var(--brand-top),var(--brand));box-shadow:var(--shadow-brand);font-size:14px;padding:12px 22px;min-height:44px;text-decoration:none}
+body[data-page] :is(.primary,.export,.button.primary):hover{background:linear-gradient(180deg,var(--brand-top),var(--brand));filter:brightness(1.08);color:var(--on-brand)}
+body[data-page] :is(.secondary,.outline-button,.outline-btn,.small-btn,.detail-action,.text-button,.text-btn){border:0;border-radius:999px;background:var(--glass-fill-strong);color:var(--ink);box-shadow:var(--shadow-raised);font-size:13px}
+body[data-page] :is(input:not([type=range]):not([type=checkbox]):not([type=radio]),select,textarea){border:1px solid var(--control-border);border-radius:10px;background:var(--glass-fill-strong);color:var(--ink);font-size:14px;min-height:40px}
+body[data-page] :is(input[type=checkbox],input[type=range],input[type=radio]){accent-color:var(--brand)}
+body[data-page] :is(.card,.panel,.map-panel,.detail-panel,.priority-panel,.trend-panel,.metric-card,.record,dialog,.login-card){border:0;border-radius:24px;background:linear-gradient(165deg,var(--glass-sheen),transparent 40%),var(--glass-fill);backdrop-filter:blur(var(--blur-md)) saturate(180%);box-shadow:var(--shadow-glass);color:var(--ink)}
+body[data-page] :is(.panel-heading,.card-head,.section-heading,.toolbar,.map-bar,.unit-element-bar,.time-toolbar){background:transparent;border-color:var(--line);color:var(--ink-muted)}
+body[data-page] :is(.tag,.pill,.badge,.chip,.subtag,.priority-badge){border:0;border-radius:999px;background:var(--brand-soft);color:var(--brand-strong);font-size:12px}
+body[data-page] :is(.view-toggle,.role-tabs,.unit-view-toggle,.tabs){border:0;border-radius:999px;background:var(--glass-fill-clear);padding:4px;box-shadow:var(--shadow-inset)}
+body[data-page] :is(.view-toggle,.role-tabs,.unit-view-toggle,.tabs) button{border:0;border-radius:999px;background:transparent;color:var(--ink-muted);font-size:13px;padding:8px 14px;min-height:36px}
+body[data-page] :is(.view-toggle,.role-tabs,.unit-view-toggle,.tabs) button.active{color:var(--ink);background:var(--glass-fill-strong);box-shadow:var(--shadow-raised)}
+body[data-page] .spatia-site-header{position:fixed;inset:20px 24px auto;height:56px;width:auto;padding:8px 14px 8px 22px;border:0;border-radius:999px;background:linear-gradient(165deg,var(--glass-sheen),transparent 40%),var(--glass-fill);backdrop-filter:blur(22px) saturate(180%);box-shadow:var(--shadow-glass);gap:24px;color:var(--ink)}
+body[data-page] .spatia-wordmark{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-display);font-size:20px;letter-spacing:.07em;line-height:1;font-weight:650;color:var(--ink)}
+body[data-page] .spatia-wordmark :is(sup,small){display:none}
+.vellum-mark{width:27px;height:27px;flex-shrink:0;color:var(--brand)}
+body[data-page] .spatia-workspaces{gap:4px;margin:0;padding:0;border:0;background:none;box-shadow:none}
+body[data-page] .spatia-workspaces a{border:0;border-radius:999px;padding:9px 16px;font-size:13px;color:var(--ink-muted);min-height:38px;text-decoration:none}
+body[data-page] .spatia-workspaces a[aria-current=page]{color:var(--ink);background:var(--glass-fill-strong);box-shadow:var(--shadow-raised)}
+body[data-page] .spatia-workspaces a::after{display:none}
+body[data-page] .spatia-header-action{border:0;background:transparent;border-radius:999px;color:var(--ink);padding:10px 14px;font-size:13px;min-height:38px;white-space:nowrap}
+body[data-page] .spatia-site-menu{background:var(--glass-fill);color:var(--ink);border:0}
+body[data-page] .spatia-site-footer{border:0;background:none;color:var(--ink-muted);padding:24px 32px 32px}
+body[data-page] .spatia-site-footer a{color:var(--ink-muted)}
+body[data-page] .stats{border:0;gap:16px;margin:24px 0}
+body[data-page] .stats .stat{border:0!important;border-radius:16px!important;background:var(--glass-fill)!important;padding:18px 20px!important;box-shadow:var(--shadow-glass)}
+body[data-page] .stat strong{font-family:var(--font-display);font-variant-numeric:tabular-nums;color:var(--ink)}
+body[data-page] :is(td,th,.event,.request-row){border-color:var(--line);color:var(--ink)}
+body[data-page] th{background:var(--glass-fill-clear);color:var(--ink-muted)}
+body[data-page] :is(td button,td small,.request-row small,.request-row h4,.timeline li,.timeline small,.detail h3,.detail>p,.map-bottom,.kv dt,.kv dd,.analysis-controls,.graph-note,.field small){color:var(--ink-muted)}
+body[data-page] .request-row:hover{background:var(--glass-fill-clear)}
+body[data-page] .notice{border:0;background:transparent;color:var(--ink-muted)}
+body[data-page] dialog{background:var(--glass-fill-strong)}
+body[data-page] dialog::backdrop{background:var(--scrim);backdrop-filter:blur(8px)}
+body[data-page] :is(.toast,#toast){border-radius:999px;background:var(--surface);color:var(--ink);box-shadow:var(--shadow-float)}
+body[data-page] :is(.close,.text-button,.text-btn){color:var(--ink)}
+/* Landing: a lit drafting table and one precise architectural illustration. */
+body[data-page=landing] main{padding-top:104px!important}
+.vellum-landing-hero{max-width:1440px;margin:auto;min-height:700px;display:grid;grid-template-columns:1fr 1.15fr;gap:24px;align-items:center;padding:64px 48px 80px}
+.vellum-landing-copy{position:relative;z-index:2}
+.vellum-location{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;background:var(--glass-fill-strong);box-shadow:var(--shadow-raised);border-radius:999px;color:var(--ink);font-size:12px;margin-bottom:24px}
+body[data-page=landing] .vellum-landing-copy h1{font-size:clamp(38px,4.3vw,64px);font-weight:700;letter-spacing:-.055em;line-height:1.3;margin:0 0 24px;color:var(--ink);text-wrap:balance}
+.vellum-landing-copy h1 em{font-style:normal;color:var(--brand)}
+.vellum-landing-copy>p{max-width:520px;font-size:15px;line-height:1.95;color:var(--ink-muted);margin:0 0 28px}
+.vellum-hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.vellum-hero-actions a{display:inline-flex;align-items:center;gap:20px}
+.vellum-facts{display:flex;gap:28px;margin-top:36px}
+.vellum-facts div{display:grid;gap:6px}
+.vellum-facts b{font-family:var(--font-display);font-size:28px;font-weight:600;font-variant-numeric:tabular-nums}
+.vellum-facts small{font-size:12px}
+.vellum-building{margin:0;position:relative;min-width:0}
+.vellum-building>:is(img,svg){width:100%;height:auto;display:block}
+.vellum-building-note{position:absolute;right:0;top:34%;display:grid;gap:6px;padding:18px 20px;border-radius:20px;max-width:240px;background:var(--glass-fill-strong);box-shadow:var(--shadow-glass);backdrop-filter:blur(22px);font-size:13px}
+.vellum-building-note small{font-size:11px}.vellum-building-note code{font-family:var(--font-mono);font-size:11px;color:var(--ink-muted)}
+.vellum-services{max-width:1344px;margin:auto;padding:40px 48px 64px}
+.vellum-services h2{font-size:24px;font-weight:600;margin:0 0 28px}
+.vellum-service-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.vellum-service-grid a{display:flex;flex-direction:column;align-items:start;gap:16px;padding:28px;border-radius:24px;text-decoration:none;color:var(--ink);background:linear-gradient(165deg,var(--glass-sheen),transparent 40%),var(--glass-fill);box-shadow:var(--shadow-glass);backdrop-filter:blur(22px)}
+.vellum-service-grid svg{width:28px;height:28px;color:var(--brand)}
+.vellum-service-grid h3{font-size:19px;margin:0}.vellum-service-grid p{font-size:14px;line-height:1.8;margin:0;flex:1}.vellum-service-grid small{font-family:var(--font-mono);font-size:11px}
+.vellum-demo-note{max-width:1248px;margin:0 auto 32px;padding:20px 24px;color:var(--ink-muted);font-size:12px;line-height:1.8;background:var(--glass-fill-clear);border-radius:16px}
+/* Analysis: unobstructed canvas, floating tabs and a bottom service dock. */
+body[data-page=geo]{--site-header-height:0px;padding-bottom:92px}
+body[data-page=geo] main{padding:0!important;margin:0!important}
+body[data-page=geo] .spatia-site-header{inset:auto 20px 16px;height:52px;z-index:45}
+body[data-page=geo] .spatia-site-footer{display:none}
+body[data-page=geo] .spatia-workspace{padding:0;max-width:none;min-height:100dvh}
+body[data-page=geo] .spatia-analysis-layout{display:block;max-width:none;padding:0}
+body[data-page=geo] .spatia-analysis-content{width:100%;min-width:0}
+body[data-page=geo] .page{padding:32px;max-width:none;margin:0}
+body[data-page=geo] .intro{min-height:58px;align-items:flex-start;padding-right:580px;margin-bottom:24px}
+body[data-page=geo] .intro h2{font-size:26px!important;margin:0}
+body[data-page=geo] .intro-actions{position:absolute;right:32px;top:96px;flex-direction:row;gap:8px;z-index:5}
+body[data-page=geo] .intro-actions button{font-size:12px;min-height:36px;padding:8px 14px}
+body[data-page=geo] .sidebar{position:fixed;top:28px;right:28px;left:auto;bottom:auto;z-index:35;width:auto!important;max-width:calc(100vw - 32px);height:auto;min-height:0;padding:4px!important;border:0;border-radius:999px;background:var(--glass-fill);backdrop-filter:blur(22px);box-shadow:var(--shadow-glass);overflow:visible}
+body[data-page=geo] .spatia-sidebar-content{display:block!important}
+body[data-page=geo] .sidebar :is(.brand,.project,.side-label,.side-bottom,.link-nav,.spatia-drawer-close,.spatia-sidebar-collapse){display:none!important}
+body[data-page=geo] .sidebar #navigation{display:flex;gap:2px;margin:0;padding:0}
+body[data-page=geo] #navigation .nav{display:inline-flex;align-items:center;justify-content:center;width:auto;border:0;border-radius:999px;margin:0;padding:9px 16px;min-height:36px;background:none;color:var(--ink-muted);font-size:13px;white-space:nowrap}
+body[data-page=geo] #navigation .nav span{font-size:13px;line-height:1.4;white-space:nowrap}
+body[data-page=geo] #navigation .nav.active{color:var(--ink);background:var(--glass-fill-strong);box-shadow:var(--shadow-raised)}
+body[data-page=geo] :is(.spatia-mobile-bar,#stats){display:none}
+body[data-page=geo] #analysisContent>.analysis-controls{max-width:600px;margin:0 0 16px}
+body[data-page=geo] #analysisContent>.analysis-controls .element-picker{font-size:12px;min-width:0}
+body[data-page=geo] #analysisContent>.analysis-controls select{font-size:12px;min-height:36px;padding:7px 10px;max-width:360px}
+body[data-page=geo] .viewer-grid{display:block;position:relative}
+body[data-page=geo] .viewer-grid>.panel{border:0;background:none;box-shadow:none;backdrop-filter:none;overflow:visible}
+body[data-page=geo] .viewer-grid .panel-heading{padding:0 0 12px;justify-content:flex-start;gap:16px}
+body[data-page=geo] .viewer-grid .panel-heading>div:first-child{display:none}
+body[data-page=geo] .viewer-grid .view-toggle button{font-size:12px;min-height:32px;padding:6px 14px}
+body[data-page=geo] .toolbar{position:absolute;top:64px;left:0;z-index:3;display:flex;flex-direction:column;align-items:stretch;width:74px;padding:6px;border:0;gap:10px;background:var(--glass-fill);border-radius:24px;box-shadow:var(--shadow-glass);backdrop-filter:blur(22px)}
+body[data-page=geo] .floor-buttons{display:flex;flex-direction:column;gap:4px}
+body[data-page=geo] .floor-buttons button{width:100%;padding:8px;min-height:36px;background:none;border:0;color:var(--ink-muted);font-size:12px}
+body[data-page=geo] .floor-buttons button.active{background:var(--brand);color:var(--on-brand);box-shadow:var(--shadow-brand);border-radius:12px}
+body[data-page=geo] .toolbar .architecture-switch{font-size:11px;line-height:1.5;display:grid;text-align:center;gap:6px;padding:4px}
+body[data-page=geo] .toolbar select{font-size:10px;min-height:32px;padding:4px;max-width:62px}
+body[data-page=geo] .scene{height:max(510px,calc(100dvh - 280px));background:none;border:0;border-radius:0;overflow:hidden;padding-right:290px}
+body[data-page=geo] #modelCanvas{width:calc(100% - 290px);height:100%;left:70px;right:auto}
+body[data-page=geo] .scene-controls{left:calc(50% - 150px);right:auto;bottom:8px;top:auto;display:flex;gap:4px;transform:translateX(-50%);border-radius:999px;padding:4px;background:var(--glass-fill);box-shadow:var(--shadow-glass)}
+body[data-page=geo] .scene-controls button{border:0;border-radius:999px;background:none;color:var(--ink);width:36px;height:36px;min-height:36px;font-size:20px}
+body[data-page=geo] :is(.compass,.scene-bottom){display:none}
+body[data-page=geo] .hover-label{color:var(--ink);background:var(--glass-fill-strong);border:0;border-radius:10px}
+body[data-page=geo] .time-toolbar{border:0;max-width:560px;padding:10px 0;font-size:12px;color:var(--ink-faint)}
+.vellum-selection{position:absolute;right:0;top:48px;width:280px;padding:24px;border-radius:32px;background:linear-gradient(165deg,var(--glass-sheen),transparent 40%),var(--glass-fill);backdrop-filter:blur(22px);box-shadow:var(--shadow-glass);font-size:13px}
+.vellum-selection>small{font-size:12px}.vellum-selection h3{font-size:22px;margin:8px 0}.vellum-selection>code{font:11px var(--font-mono);color:var(--ink-muted)}
+.vellum-gauge{margin:24px auto 16px;position:relative;width:180px;height:160px;display:grid;place-items:center}.vellum-gauge svg{position:absolute;inset:0;width:100%;height:100%}.vellum-gauge div{display:grid;text-align:center;gap:4px}.vellum-gauge strong{font:600 36px var(--font-display)}.vellum-gauge span{font-size:12px;color:var(--gauge-color)}
+.vellum-selection dl{display:grid;gap:18px;margin:20px 0 24px}.vellum-selection dl>div{display:flex;justify-content:space-between;gap:12px}.vellum-selection dt{color:var(--ink-muted)}.vellum-selection dd{margin:0;color:var(--ink);font-weight:600}.vellum-selection .primary{display:block;width:100%;font-size:12px;text-align:center}
+/* Other workspaces share the same translucent controls and generous margins. */
+body[data-page=management] main{margin:0!important;padding:112px 32px 32px 252px!important;max-width:none}
+body[data-page=management] .page{padding:0;max-width:none}
+body[data-page=management] .rail{top:112px;bottom:28px;left:24px;width:204px;padding:20px 12px;border:0;border-radius:24px;background:var(--glass-fill);box-shadow:var(--shadow-glass);backdrop-filter:blur(22px)}
+body[data-page=management] .rail :is(.logo,.building-card,.rail-label,.rail-bottom){display:none}
+body[data-page=management] .rail nav{margin:0}
+body[data-page=management] .rail .nav{border:0;border-radius:12px;color:var(--ink-muted);font-size:16px;padding:12px;gap:10px;background:transparent}
+body[data-page=management] .rail .nav span{font-size:13px;color:inherit}
+body[data-page=management] .rail .nav.active{background:var(--glass-fill-strong);box-shadow:var(--shadow-raised);color:var(--ink)}
+body[data-page=management] .map-surface{background:transparent;background-image:linear-gradient(var(--canvas-grid-minor) 1px,transparent 1px),linear-gradient(90deg,var(--canvas-grid-minor) 1px,transparent 1px);background-size:24px 24px}
+body[data-page=management] :is(.detail-summary,.plain-box,.request-icon){background:var(--glass-fill-clear);color:var(--ink-muted);border-radius:12px}
+body[data-page=gis] main{padding-top:112px!important}
+body[data-page=gis] #gisMap{border:0;border-radius:24px;box-shadow:var(--shadow-glass);height:520px}
+body[data-page=login]{color-scheme:dark;min-height:100dvh}
+body[data-page=login] main{margin:112px auto 48px!important;padding:32px!important;max-width:480px!important;border-radius:24px;background:var(--glass-fill);box-shadow:var(--shadow-glass);backdrop-filter:blur(22px);min-height:0!important}
+body[data-page=login] .login-card{background:none;box-shadow:none;backdrop-filter:none}
+body[data-page=login] .auth-mode{color:var(--ink-muted)}
+@media(max-width:1100px){.vellum-landing-hero{padding-inline:32px;grid-template-columns:1fr 1fr;min-height:650px}.vellum-building-note{right:0;padding:14px;max-width:190px}.vellum-facts{gap:20px}body[data-page=geo] .intro{padding-right:0;margin-bottom:76px}body[data-page=geo] .sidebar{top:88px;right:24px}body[data-page=geo] .intro-actions{top:28px}body[data-page=geo] .scene{height:560px}}
+@media(max-width:900px){:root{--site-header-height:92px}body[data-page] .spatia-site-header{inset:12px 16px auto;height:56px;padding-inline:16px;gap:12px}body[data-page] .spatia-wordmark{font-size:18px}body[data-page] .spatia-site-menu{font-size:0;width:36px;min-height:36px;padding:0}body[data-page] .spatia-site-menu::before{content:'☰';font-size:18px}body[data-page] .spatia-site-header.is-menu-open .spatia-workspaces{position:absolute;inset:64px 0 auto;background:var(--glass-fill-strong);border:0;border-radius:20px;padding:12px;box-shadow:var(--shadow-float);backdrop-filter:blur(22px)}body[data-page=geo] .spatia-site-header{inset:auto 12px 12px}body[data-page=geo] .spatia-site-header.is-menu-open .spatia-workspaces{inset:auto 0 64px}body[data-page=geo] .sidebar{display:block!important;position:static!important;transform:none!important;visibility:visible!important;opacity:1!important;max-width:none;overflow:auto;border-radius:20px;margin:0 20px 20px}body[data-page=geo] .spatia-analysis-layout{display:flex;flex-direction:column-reverse}body[data-page=geo] .spatia-sidebar-content{display:block!important}body[data-page=geo] #navigation{min-width:max-content}body[data-page=geo] .intro{padding-right:0;margin-bottom:16px;min-height:0}body[data-page=geo] .intro-actions{position:static;display:flex;flex-direction:row;margin-top:16px}body[data-page=geo] .page{padding:24px 20px}body[data-page=geo] .scene{height:470px;padding:0}body[data-page=geo] #modelCanvas{width:100%;left:0}body[data-page=geo] .toolbar{left:0;top:64px;width:62px}body[data-page=geo] .floor-buttons button{min-height:32px}body[data-page=geo] .scene-controls{left:50%}.vellum-selection{position:static;width:100%;display:grid;grid-template-columns:1fr 1fr;column-gap:24px;padding:24px;border-radius:24px}.vellum-selection>small,.vellum-selection h3,.vellum-selection>code{grid-column:1}.vellum-selection .vellum-gauge{grid-column:2;grid-row:1/5;margin:0 auto;width:150px;height:140px}.vellum-selection dl,.vellum-selection>.primary{grid-column:1/-1}.vellum-selection dl{display:grid;grid-template-columns:1fr 1fr}body[data-page=geo] .spatia-analysis-content{order:0}body[data-page=geo] .sidebar{order:1}body[data-page=geo] #analysisContent>.analysis-controls{max-width:none}.vellum-landing-hero{grid-template-columns:1fr;padding:48px 24px 32px;gap:24px}.vellum-landing-copy>p{max-width:600px}.vellum-building{max-width:640px;width:100%;margin:auto}.vellum-building-note{max-width:220px}.vellum-services{padding:48px 24px}.vellum-service-grid{grid-template-columns:1fr}.vellum-demo-note{margin-inline:24px}body[data-page=management] main{padding:92px 20px 24px!important}body[data-page=management] .rail{position:static!important;transform:none!important;width:auto;height:auto;margin:0 20px 20px;padding:8px;border-radius:20px}body[data-page=management] .rail nav{display:flex;overflow:auto}body[data-page=management] .rail .nav{min-width:max-content}body[data-page=management] .spatia-mobile-bar{display:none}body[data-page=management] .rail .nav span{display:inline}body[data-page=gis] main{padding-top:92px!important}body[data-page=login] main{margin:92px 20px 36px!important;width:auto!important}body[data-page=geo] .sidebar[aria-hidden=true]{display:block}body[data-page] .spatia-site-footer{padding-inline:24px}}
+@media(max-width:480px){.vellum-landing-copy h1{font-size:36px!important}.vellum-facts{gap:24px;flex-wrap:wrap}.vellum-facts b{font-size:25px}.vellum-facts div{min-width:64px}.vellum-building-note{padding:12px;max-width:165px;right:-4px;top:34%}.vellum-building-note code{font-size:9px}.vellum-selection{column-gap:8px;padding:20px}.vellum-selection .vellum-gauge{width:130px;height:130px}.vellum-selection h3{font-size:20px}.vellum-selection>code{font-size:10px}.vellum-selection dl{font-size:12px;gap:16px}body[data-page=geo] .intro h2{font-size:24px!important}body[data-page=geo] .scene{height:390px}body[data-page] .spatia-wordmark{font-size:16px;gap:6px}.vellum-mark{width:22px;height:22px}body[data-page] .spatia-header-action{font-size:12px;padding:8px}body[data-page] .spatia-site-header{gap:8px}.vellum-demo-note{font-size:12px}}
+@media(prefers-reduced-motion:reduce){body[data-page] *,body[data-page] *::before,body[data-page] *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+@supports not (backdrop-filter:blur(1px)){body[data-page] :is(.card,.panel,.rail,.sidebar,.spatia-site-header,.vellum-selection){background:var(--surface)}}
+/* Reset the old editorial masthead's minimum height. */
+body[data-page] .spatia-site-header{min-height:56px}
+body[data-page=geo] .spatia-site-header{min-height:52px}
+body[data-page=geo] .spatia-sidebar-content{padding:0;overflow:visible}
+body[data-page=geo] .sidebar{max-height:none}
+body[data-page=geo] .spatia-workspace{background:transparent;border:0}
+body[data-page=geo] .scene{padding:0;height:calc(100dvh - 260px);min-height:380px}
+body[data-page=geo] #modelCanvas{width:calc(100% - 350px);height:100%;margin-left:64px}
+body[data-page=geo] .page>footer{display:none}
+body[data-page=geo] .vellum-selection{padding:20px;top:32px}
+body[data-page=geo] .vellum-gauge{width:150px;height:135px;margin:14px auto}
+body[data-page=geo] .vellum-selection dl{gap:12px;margin:16px 0 20px}
+body[data-page=geo] .vellum-selection .primary{min-height:36px;padding:10px 14px}
+@media(max-width:900px){body[data-page=geo] #modelCanvas{width:100%;margin-left:0}body[data-page=geo] .scene{height:450px}body[data-page=geo] .vellum-selection{padding:24px}body[data-page=geo] .vellum-selection .vellum-gauge{margin:0 auto}body[data-page=geo] .spatia-sidebar-content{padding:0}}
+@media(max-width:480px){body[data-page=geo] .scene{height:390px}}
+body[data-page=geo] .vellum-selection{top:0}
+body[data-page=geo] .vellum-selection h3{font-size:20px;margin:6px 0}
+body[data-page=geo] .vellum-gauge{width:130px;height:110px;margin:10px auto}
+body[data-page=geo] .vellum-gauge strong{font-size:30px}
+body[data-page=geo] .vellum-selection dl{gap:10px;margin:12px 0 16px;font-size:12px}
+body[data-page=geo] .vellum-view-settings{position:absolute;top:calc(100% + 10px);left:0;z-index:4;min-width:74px;border-radius:16px;background:var(--glass-fill-strong);box-shadow:var(--shadow-glass);color:var(--ink);font-size:11px;padding:10px}
+body[data-page=geo] .vellum-view-settings summary{cursor:pointer;white-space:nowrap}
+body[data-page=geo] .vellum-view-settings[open]{width:180px;padding:14px}
+body[data-page=geo] .vellum-view-settings .architecture-switch{display:flex;font-size:12px;margin:10px 0}
+body[data-page=geo] .vellum-view-settings select{width:100%;max-width:none;font-size:12px}
+@media(max-width:900px){body[data-page=geo] .vellum-selection .vellum-gauge{width:150px;height:140px}body[data-page=geo] .vellum-selection h3{font-size:22px}}
+body[data-page] :is(.primary,.export,.button.primary):hover:not(:disabled){background:linear-gradient(180deg,var(--brand-top),var(--brand));border-color:transparent;color:var(--on-brand)}
+body[data-page=geo] .time-toolbar :is(span,b,button){color:var(--ink-muted)}
+body[data-page] code{font-family:var(--font-mono);color:var(--ink-muted);background:transparent}
+body[data-page] :is(.guide-section p,.guide-step,.guide-label,.guide-intro p,.guide-contents a,.guide-contents a span){color:var(--ink-muted)}
+body[data-page] .guide-contents a{background:var(--glass-fill);border:0;border-radius:16px;box-shadow:var(--shadow-glass)}
+body[data-page=management] main{padding:176px 32px 32px!important}
+body[data-page=management] .rail{position:absolute;inset:96px 32px auto;width:auto;padding:4px;border-radius:999px;max-height:none;overflow:visible}
+body[data-page=management] .rail nav{display:flex;gap:4px;margin:0;overflow:auto}
+body[data-page=management] .rail .nav{width:auto;min-width:max-content;min-height:36px;padding:8px 16px;border-radius:999px;justify-content:center}
+body[data-page=management] .rail .nav em{display:none}
+body[data-page=management] .spatia-drawer-close{display:none}
+body[data-page=management] .timeline li.done i{background:var(--brand);border-color:var(--brand)}
+body[data-page=management] .timeline li.current i{background:var(--canvas);border-color:var(--brand)}
+body[data-page=management] .timeline li::before{background:var(--line)}
+body[data-page=management] .unit-selection-summary{background:transparent;color:var(--ink-muted)}
+body.spatia-embedded[data-page=management] main{padding-top:104px!important}
+body.spatia-embedded[data-page=management] .rail{top:20px}
+body.spatia-embedded[data-page=gis] main{padding-top:32px!important}
+@media(max-width:900px){body[data-page=management] main{padding:24px 20px!important}body[data-page=management] .rail{margin-top:88px;border-radius:20px}body[data-page=management] .rail .nav{padding:9px 12px}body[data-page=geo] .intro-actions{align-self:stretch;width:100%;justify-content:flex-start}body[data-page=geo] .intro-actions button{flex:0 0 auto;width:auto;min-width:120px;white-space:nowrap}body[data-page=geo] .spatia-analysis-layout{padding-top:16px}body.spatia-embedded[data-page=management] main{padding-top:24px!important}body.spatia-embedded[data-page=management] .rail{margin-top:20px}}
+body[data-page] .spatia-site-menu::before{display:none}
+body[data-page] .spatia-site-menu svg{display:block;width:20px;height:20px;margin:auto}
+body[data-page] .spatia-header-start{white-space:nowrap;font-size:12px;min-height:36px;height:36px;padding:8px 14px}
+@media(max-width:900px){body[data-page] .spatia-header-start{display:none}}
+/* Keep the whole landing illustration above the fold on desktop. */
+@media(min-width:901px){
+ body[data-page=landing] main{padding-top:92px!important}
+ .vellum-landing-hero{min-height:0;padding:16px 48px 32px;align-items:start}
+ .vellum-building>:is(img,svg){height:clamp(400px,calc(100svh - 140px),640px);width:100%;object-fit:contain;object-position:center top}
+ .vellum-location{margin-bottom:16px}
+ body[data-page=landing] .vellum-landing-copy h1{font-size:clamp(38px,4vw,58px);line-height:1.25;margin-bottom:20px}
+ .vellum-landing-copy>p{font-size:14px;line-height:1.85;margin-bottom:22px}
+ .vellum-facts{margin-top:24px}
+ .vellum-facts b{font-size:26px}
+}
+@media(max-width:900px){
+ body[data-page=landing] main{padding-top:84px!important}
+ .vellum-landing-hero{min-height:0;padding-top:20px}
+ .vellum-building>:is(img,svg){max-height:calc(100svh - 100px);object-fit:contain}
+}
+/* The dock overlays the page; it does not reserve a separate background strip. */
+body[data-page=geo].spatia-spa-active{padding-bottom:0;overflow:hidden}
+body.spatia-spa-active .spatia-spa-outlet{height:100dvh;min-height:100dvh;background:transparent}
+body.spatia-spa-active .spatia-workspace-frame{height:100%;background:transparent}
+/* Give field labels and the request summary their own breathing room. */
+body[data-page=gis] #referenceForm label{display:grid;gap:10px;align-items:start}
+body[data-page=gis] #referenceForm label>select,
+body[data-page=gis] #referenceForm label>input{width:100%;min-width:0;margin-top:0}
+body[data-page=management] .card.detail{padding:28px}
+body[data-page=management] .card.detail h3{margin:18px 0 12px;line-height:1.6}
+body[data-page=management] .card.detail>p{margin:0 0 22px}
+body[data-page=management] .card.detail .detail-summary{padding:18px;margin:0 0 26px;line-height:1.9}
+body[data-page=management] .card.detail .timeline{margin:0 0 16px}
+body[data-page=management] .card.detail>.outline-btn{margin-top:8px}
+@media(max-width:600px){body[data-page=management] .card.detail{padding:22px}}
+/* Move the entire model canvas so its top remains drawable after lifting it. */
+body[data-analysis-tab=twin] .scene{overflow:visible}
+body[data-analysis-tab=twin] #modelCanvas{transform:translateY(-80px)}
+@media(max-width:900px){body[data-analysis-tab=twin] #modelCanvas{transform:translateY(-56px)}}
+
+/* Four floor plates breathe together; the explanatory card remains stationary. */
+.landing-floor{animation:landing-floor-breathe 8s cubic-bezier(.45,0,.25,1) infinite;will-change:transform}
+.landing-pipe-motion{transform-origin:349.4px 477.2px;animation:landing-pipe-breathe 8s cubic-bezier(.45,0,.25,1) infinite}
+@keyframes landing-floor-breathe{0%,12%,100%{transform:translateY(var(--floor-closed))}45%,60%{transform:translateY(var(--floor-open))}}
+@keyframes landing-pipe-breathe{0%,12%,100%{transform:scaleY(.85)}45%,60%{transform:scaleY(1.04)}}
+.vellum-building.motion-paused :is(.landing-floor,.landing-pipe-motion){animation-play-state:paused}
+body[data-page=landing] .landing-motion-toggle{position:absolute;bottom:4px;left:50%;display:grid;place-items:center;transform:translateX(-50%);width:36px;height:36px;min-height:36px;padding:8px;border:0;border-radius:999px;background:var(--glass-fill-strong);color:var(--ink-muted);box-shadow:var(--shadow-raised)}
+.landing-motion-toggle>svg{width:20px;height:20px}
+@media(prefers-reduced-motion:reduce){.landing-floor,.landing-pipe-motion{animation:none!important;transform:none}body[data-page=landing] .landing-motion-toggle{display:none}}
+/* Keep metric text inside the gauge, independent of inherited grid/line height. */
+body[data-page=geo] .vellum-selection .vellum-gauge{display:block;position:relative;width:144px;height:128px;margin:10px auto 14px;flex-shrink:0}
+body[data-page=geo] .vellum-gauge>svg{display:block;position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+body[data-page=geo] .vellum-gauge>div{position:absolute;top:58.5%;left:50%;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;white-space:nowrap}
+body[data-page=geo] .vellum-gauge strong{display:block;font-family:var(--font-display);font-size:28px;line-height:32px;font-weight:600;letter-spacing:-.02em;font-variant-numeric:tabular-nums;margin:0}
+body[data-page=geo] .vellum-gauge span{display:block;font-size:12px;line-height:18px;margin:0;color:var(--gauge-color)}
+/* Action buttons occupy layout space instead of overlapping the model inspector. */
+body[data-page=geo] .intro{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px 24px;align-items:start;padding-right:0;min-height:0;margin-bottom:16px}
+body[data-page=geo] .intro>div:first-child{grid-column:1;grid-row:1;max-width:calc(100vw - 660px)}
+body[data-page=geo] .intro-actions{position:static;grid-column:2;grid-row:2;display:flex;flex-direction:row;flex-wrap:wrap;justify-content:flex-end;gap:10px;width:auto;margin:0;z-index:auto}
+body[data-page=geo] .intro-actions button{flex:none;min-width:0;white-space:nowrap;min-height:40px;padding:10px 18px}
+body[data-page=geo] #analysisContent>.analysis-controls{gap:16px}
+body[data-page=geo] #weightsButton{white-space:nowrap;flex-shrink:0;min-height:40px;padding:10px 16px;align-self:end}
+body[data-analysis-tab=twin] .vellum-selection{top:-40px}
+body[data-page=management] .view-all-button{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:10px 18px;min-height:44px;white-space:nowrap;flex-shrink:0;line-height:1.4}
+.view-all-button svg{display:block;width:16px;height:16px;flex:none}
+@media(min-width:901px){body[data-analysis-tab=twin] #modelCanvas{transform:translateY(-112px)}}
+@media(max-width:1100px){body[data-page=geo] .intro>div:first-child{max-width:none}body[data-page=geo] .intro{padding-top:0;margin-bottom:16px}body[data-page=geo] .sidebar{top:28px}}
+@media(max-width:900px){body[data-page=geo] .intro{display:flex;flex-direction:column;gap:18px;margin-bottom:20px}body[data-page=geo] .intro-actions{position:static;align-self:stretch;justify-content:flex-start;width:100%;gap:10px}body[data-page=geo] .intro-actions button{flex:0 1 auto;min-width:0;font-size:13px}body[data-page=geo] #analysisContent>.analysis-controls{row-gap:12px}body[data-page=geo] .vellum-selection .vellum-gauge{width:144px;height:128px;margin:0 auto}body[data-page=management] .view-all-button{padding:10px 14px;font-size:13px}}
+body[data-page] .icon-text-button{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:10px 18px;min-height:44px;white-space:nowrap;flex-shrink:0;font-size:13px;line-height:1.4}
+.icon-text-button svg{display:block;width:16px;height:16px;flex:none}

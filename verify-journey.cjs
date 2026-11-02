@@ -24,6 +24,11 @@ for(const aspect of [.45,.8,1.2,1.8,2.5]){
   for(const face of geometry){const points=J.clipNear(face.points.map(p=>J.cameraPoint([p[0],p[1]+face.floor*camera.spread,p[2]],camera,axes)));assert.ok(points.flat().every(Number.isFinite))}
  }
 }
-const html=fs.readFileSync('dist/index.html','utf8'),script=fs.readFileSync('dist/hero-journey.js','utf8'),css=fs.readFileSync('dist/hero-journey.css','utf8');
-assert.match(html,/hero-journey\.js/);assert.match(html,/id="journeyCanvas"/);assert.match(script,/fetch\(new URL\('hero-building.json'/);assert.match(css,/@media\(prefers-reduced-motion:reduce\)/);
-console.log('PASS: real 3D orbit; continuous camera entry into unit 302; floor alignment; near-plane clipping; five aspect ratios; asynchronous scene loading; reduced-motion fallback.');
+const html=fs.readFileSync('dist/index.html','utf8'),css=fs.readFileSync('dist/design-system/vellum.css','utf8');
+assert.match(html,/class="landing-building-svg"/);
+assert.equal((html.match(/class="landing-floor" data-floor=/g)||[]).length,4);
+assert.match(css,/landing-floor-breathe 8s/);
+assert.match(css,/@keyframes landing-floor-breathe/);
+assert.match(css,/@media\(prefers-reduced-motion:reduce\)/);
+assert.doesNotMatch(html,/landing-motion-toggle|hero-journey\.js/);
+console.log('PASS: current four-floor landing animation, eight-second loop and reduced-motion fallback; retained 3D camera geometry, continuity and near-plane clipping across five aspect ratios.');

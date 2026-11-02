@@ -2,7 +2,7 @@
 (function(root){
  'use strict';
  const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
- const ink='#133215',accent='#81C784',white='#FFFFFF';
+ const ink='#465a8c',accent='#8ca3ff',white='#FFFFFF';
  const names={floor:'바닥',ceiling:'천장',wall:'벽체',column:'기둥',beam:'보',pipe:'배관'};
  const corners=b=>[[0,0,0],[1,0,0],[1,1,0],[0,1,0],[0,0,1],[1,0,1],[1,1,1],[0,1,1]].map(a=>a.map((v,i)=>v?b.max[i]:b.min[i]));
  function elements(model,unit){return model.elements.filter(e=>e.unit===unit||e.unit==='common')}
@@ -39,7 +39,7 @@
   const count=id=>requests.filter(r=>r.element===id&&r.stage<4).length;
   const accessibleElements=new Set();
   const drawFace=f=>{
-   if(f.decoration){const b=f.decoration,fill=b.kind==='glass'?'#81C784':b.color,opacity=b.kind==='glass'?.09:b.kind==='facade'?.8:.92;return`<polygon points="${polygon(f.points)}" fill="${fill}" fill-opacity="${opacity}" stroke="${ink}" stroke-opacity=".26" stroke-width=".7" pointer-events="none"/>`}
+   if(f.decoration){const b=f.decoration,fill=b.kind==='glass'?'#8ca3ff':b.color,opacity=b.kind==='glass'?.09:b.kind==='facade'?.8:.92;return`<polygon points="${polygon(f.points)}" fill="${fill}" fill-opacity="${opacity}" stroke="${ink}" stroke-opacity=".26" stroke-width=".7" pointer-events="none"/>`}
    const e=f.e,chosen=e.id===selected,overhead=['ceiling','beam'].includes(e.type),slab=e.type==='floor';
    const fill=chosen?accent:e.type==='pipe'?ink:e.type==='column'?ink:f.top?white:'#E9F2E8';
    const opacity=overhead?.06:slab?(chosen?.28:1):chosen?.95:.94;
@@ -53,7 +53,7 @@
   // Door swings and windows are illustrative details for the synthetic model only.
   let planDetails='';
   if(view==='2d'&&synthetic){const wall=list.find(e=>e.type==='wall'&&!e.direction);if(wall){const axis=wall.max[0]-wall.min[0]>wall.max[1]-wall.min[1]?0:1,length=wall.max[axis]-wall.min[axis],hinge=[...wall.min];hinge[axis]+=length*.25;const p=screen(project(hinge)),radius=length*.27*scale;planDetails=`<path d="M${p[0]},${p[1]}h${radius.toFixed(2)}a${radius.toFixed(2)},${radius.toFixed(2)} 0 0 1-${radius.toFixed(2)},${radius.toFixed(2)}Z" fill="none" stroke="${ink}" stroke-opacity=".55" stroke-width="1.4" pointer-events="none"/>`}}
-  return`<defs><pattern id="role-plan-grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#133215" stroke-opacity=".055" stroke-width=".7"/></pattern></defs><rect width="900" height="620" fill="white"/><rect width="900" height="620" fill="url(#role-plan-grid)"/><ellipse cx="450" cy="535" rx="270" ry="26" fill="#133215" fill-opacity=".045"/><text x="32" y="30" font-size="11" fill="${ink}" letter-spacing="1.2">${view==='3d'?'입체 구조물':'평면 구조물'}</text><text x="868" y="30" text-anchor="end" font-size="11" fill="${ink}">${esc(unit)} · ${esc(floor)}F</text>${faces.map(drawFace).join('')}${planDetails}${pins}<circle cx="${sx.toFixed(2)}" cy="${sy.toFixed(2)}" r="6" fill="${accent}" stroke="${ink}" stroke-width="2" pointer-events="none"/><text x="450" y="584" text-anchor="middle" font-size="13" fill="${ink}">${esc(selectedObject.name)} · ${esc(selectedObject.id)}</text><text x="450" y="605" text-anchor="middle" font-size="10" fill="${ink}" opacity=".65">${synthetic?'창호·가구는 가상 표현 · 원본 구조물 좌표·ID 유지':'가져온 구조물 형상 · 원본 객체 ID 유지'}</text>`;
+  return`<defs><pattern id="role-plan-grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#465a8c" stroke-opacity=".055" stroke-width=".7"/></pattern></defs><rect width="900" height="620" fill="white"/><rect width="900" height="620" fill="url(#role-plan-grid)"/><ellipse cx="450" cy="535" rx="270" ry="26" fill="#465a8c" fill-opacity=".045"/><text x="32" y="30" font-size="11" fill="${ink}" letter-spacing="1.2">${view==='3d'?'입체 구조물':'평면 구조물'}</text><text x="868" y="30" text-anchor="end" font-size="11" fill="${ink}">${esc(unit)} · ${esc(floor)}F</text>${faces.map(drawFace).join('')}${planDetails}${pins}<circle cx="${sx.toFixed(2)}" cy="${sy.toFixed(2)}" r="6" fill="${accent}" stroke="${ink}" stroke-width="2" pointer-events="none"/><text x="450" y="584" text-anchor="middle" font-size="13" fill="${ink}">${esc(selectedObject.name)} · ${esc(selectedObject.id)}</text><text x="450" y="605" text-anchor="middle" font-size="10" fill="${ink}" opacity=".65">${synthetic?'창호·가구는 가상 표현 · 원본 구조물 좌표·ID 유지':'가져온 구조물 형상 · 원본 객체 ID 유지'}</text>`;
  }
  root.SpatiaRolePlan={elements,render};
 })(typeof module==='object'?module.exports:globalThis);

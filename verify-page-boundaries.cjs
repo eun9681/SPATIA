@@ -1,6 +1,6 @@
 const fs=require('node:fs'),assert=require('node:assert/strict');
 const read=f=>fs.readFileSync('dist/'+f,'utf8'),landing=read('index.html'),workspace=read('workspace.html');
-assert.match(landing,/data-page="landing"/);assert.match(landing,/journeyCanvas/);
+assert.match(landing,/data-page="landing"/);assert.match(landing,/class="landing-building-svg"/);
 assert.doesNotMatch(landing,/id="workspace"|geo-app\.js|geo-engine\.js|id="analysisContent"/);
 assert.match(workspace,/id="analysisContent"/);assert.match(workspace,/geo-app\.js/);
 assert.doesNotMatch(workspace,/journeyCanvas|hero-journey\.js|spatia-story|class="disclaimer"/);

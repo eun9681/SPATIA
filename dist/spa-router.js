@@ -74,6 +74,9 @@
  function render(){
   const target=readAddress(location.hash),key=location.hash;if(key===lastAddress)return;lastAddress=key;
   const changed=current!==target.id;current=target.id;home.hidden=current!=='geo';outlet.hidden=current==='geo';body.classList.toggle('spatia-spa-active',current!=='geo');footer.hidden=current!=='geo';
+  // The outer dock and exposed canvas must use the active workspace's theme.
+  body.dataset.route=current;
+  body.dataset.theme=current==='geo'?(body.dataset.analysisTab==='relations'?'light':'dark'):current==='login'?'dark':'light';
   for(const [id,record]of frames)record.frame.hidden=id!==current||!record.ready;
   for(const a of header.querySelectorAll('.spatia-workspaces a')){const d=destination(a.href,document.baseURI);if(d&&(d.id===current))a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')}
   document.title=current==='geo'?title:pages[current][1]+' · SPATIA';announcement.textContent=pages[current][1]+' 화면';
