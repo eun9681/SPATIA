@@ -1,0 +1,53 @@
+/* Flat interface layer. Spatial canvases and their camera interactions are retained. */
+:root{--flat-ink:#133215;--flat-accent:#81C784;--flat-line:#d5e2d6;--flat-soft:#e9f5ea;--flat-white:#fff}
+body[data-page]{background:var(--flat-white)}
+body[data-page] *,body[data-page] *::before,body[data-page] *::after{box-shadow:none!important;text-shadow:none!important;backdrop-filter:none!important}
+body[data-page] :is(button,.button,input,select,textarea,.card,.panel,.map-panel,.detail-panel,.priority-panel,.trend-panel,.metric-card,.stat,.project,.building-card,.role-tabs,.unit-view-toggle,.record,.badge,.tag,.pill,.chip,.subtag,.photo,.preview-photos img,dialog){border-radius:0!important}
+body[data-page] :is(button,.button):hover{filter:none;transform:none}
+body[data-page] :is(.card,.panel,.map-panel,.detail-panel,.priority-panel,.trend-panel,.metric-card,.record){background:#fff;background-image:none;border:1px solid var(--flat-line)}
+body[data-page] :is(.panel-heading,.card-head,.section-heading){background:#fff;background-image:none;border-color:var(--flat-line)}
+body[data-page] :is(input:not([type=checkbox]):not([type=range]),select,textarea){background-color:#fff;border:1px solid var(--flat-line)!important;color:var(--flat-ink)}
+body[data-page] :is(input,select,textarea):focus{border-color:var(--flat-ink)!important}
+body[data-page] :is(button,.button){transition:background-color .15s,color .15s,border-color .15s}
+body[data-page] :is(.primary,.export,.button.primary){background:var(--flat-ink);border:1px solid var(--flat-ink);color:#fff}
+body[data-page] :is(.primary,.export,.button.primary):hover:not(:disabled){background:#24572a;border-color:#24572a;color:#fff}
+body[data-page] :is(.secondary,.outline-button,.outline-btn,.small-btn,.detail-action){background:#fff;border:1px solid var(--flat-line);color:var(--flat-ink)}
+body[data-page] :is(.secondary,.outline-button,.outline-btn,.small-btn,.detail-action):hover:not(:disabled){background:var(--flat-soft);border-color:var(--flat-ink)}
+body[data-page] .spatia-site-header{background:#fff;border-bottom:1px solid var(--flat-line)}
+body[data-page] :is(.spatia-wordmark,.spatia-header-action,.spatia-site-menu),body[data-page] .spatia-workspaces a{color:var(--flat-ink)}
+body[data-page] .spatia-wordmark small{color:#4d7152}
+body[data-page] .spatia-workspaces a:hover,body[data-page] .spatia-workspaces a[aria-current=page]{color:var(--flat-ink)}
+body[data-page] .spatia-workspaces a[aria-current=page]::after{background:var(--flat-ink);height:2px}
+body[data-page] .spatia-header-action{background:#fff;border:1px solid var(--flat-ink);color:var(--flat-ink)}
+body[data-page] .spatia-header-action:hover{background:var(--flat-soft)}
+body[data-page] .spatia-header-action[data-auth-state=signed-in]{color:var(--flat-ink);border-color:var(--flat-ink)}
+body[data-page] :is(.sidebar,.rail){background:#fff;border-color:var(--flat-line)}
+body[data-page] :is(.sidebar,.rail) .nav{background:transparent;color:var(--flat-ink);border-radius:0}
+body[data-page] :is(.sidebar,.rail) .nav.active{background:var(--flat-ink);color:#fff;border-color:var(--flat-ink)}
+body[data-page] :is(.sidebar,.rail) .nav.active span{color:inherit}
+body[data-page] :is(.sidebar,.rail) .nav:hover:not(.active){background:var(--flat-soft)}
+body[data-page] :is(.project,.building-card){background:#fff;border:1px solid var(--flat-line)}
+body[data-page] :is(.view-toggle,.role-tabs,.unit-view-toggle,.tabs){background:transparent;border-radius:0!important}
+body[data-page] :is(.view-toggle,.role-tabs,.unit-view-toggle,.tabs) button{background:#fff;color:var(--flat-ink);border:1px solid var(--flat-line);border-radius:0!important}
+body[data-page] :is(.view-toggle,.role-tabs,.unit-view-toggle,.tabs) button.active{background:var(--flat-ink);color:#fff;border-color:var(--flat-ink)}
+body[data-page] .unit-view-toggle{padding:0;gap:0;border:0}
+body[data-page] :is(.scene,.map-surface,#gisMap,.leaflet-container,.leaflet-bar,.leaflet-control-zoom,.leaflet-popup-content-wrapper){border-radius:0!important}
+body[data-page=gis] label{display:grid;gap:7px}
+body[data-page=gis] :is(select,input:not([type=checkbox])){width:100%;min-width:0;min-height:42px;padding:9px 11px;font:inherit}
+body[data-page] .role-tabs{padding:0;gap:0}
+body[data-page] :is(.toolbar,.map-bar,.unit-element-bar,.unit-selection-summary,.time-toolbar){background:#fff;border-color:var(--flat-line)}
+body[data-page] :is(.tag,.pill,.badge,.chip,.subtag,.priority-badge){background:var(--flat-soft);border:0;color:var(--flat-ink);border-radius:0}
+body[data-page] :is(th,.table thead){background:var(--flat-soft)}
+body[data-page] :is(td,th,.event,.request-row){border-color:var(--flat-line)}
+body[data-page] :is(.status,.status.good,.status.error,.warn){background:#fff;border-color:var(--flat-line);color:var(--flat-ink)}
+body[data-page] dialog{background:#fff;border:1px solid var(--flat-ink)}
+body[data-page] dialog::backdrop{background:#13321580;backdrop-filter:none}
+body[data-page] :is(.toast,#toast){background:var(--flat-ink);color:#fff;border-radius:0}
+body[data-page=landing] .spatia-journey .spatia-hero{background:#133215;background-image:none}
+body[data-page=landing] .journey-room{background:#133215;background-image:none;border:0;border-left:2px solid #81C784}
+body[data-page] .spatia-site-footer{background:#fff;border-color:var(--flat-line)}
+@media(max-width:900px){
+ body[data-page] .spatia-site-header.is-menu-open .spatia-workspaces{background:#fff;border:1px solid var(--flat-line)}
+ body[data-page] .spatia-site-header .spatia-site-menu{border-color:var(--flat-line)}
+}
+@media(prefers-reduced-motion:reduce){body[data-page] :is(button,.button){transition:none}}

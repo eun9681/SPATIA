@@ -1,0 +1,46 @@
+/* An explanatory landing, separate from all analytical workspaces. */
+html:has(body[data-page=landing]){scroll-padding-top:var(--site-header-height)}
+body[data-page=landing] .landing-hero-actions{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+body[data-page=landing] .landing-intro-link{color:#fff;font-size:14px;min-height:44px;display:inline-flex;align-items:center;pointer-events:auto;text-decoration:underline;text-underline-offset:6px}
+body[data-page=landing] .landing-section{max-width:1280px;margin:0 auto;padding:88px var(--spatia-gutter);background:#fff;scroll-margin-top:0}
+body[data-page=landing] .landing-section h2{font-size:clamp(28px,3.2vw,42px);line-height:1.4;font-weight:650;letter-spacing:-.045em;margin:0}
+body[data-page=landing] .landing-section h3{font-size:20px;line-height:1.5;font-weight:600;margin:0 0 12px}
+body[data-page=landing] .landing-section p{font-size:16px;line-height:1.85;color:#526856;margin:0 0 14px;word-break:keep-all}
+body[data-page=landing] .landing-about-heading{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;margin-bottom:58px}
+body[data-page=landing] .landing-features{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}
+body[data-page=landing] .landing-features article{border-top:2px solid #133215;padding:24px 0 0;display:flex;flex-direction:column;align-items:start}
+body[data-page=landing] .landing-features p{font-size:15px;flex:1;margin-bottom:22px}
+body[data-page=landing] .landing-features a{display:inline-flex;align-items:center;justify-content:space-between;gap:24px;min-height:44px;font-size:15px;font-weight:600;text-decoration:none;border-bottom:1px solid #d5e2d6}
+body[data-page=landing] .landing-features a:hover{border-color:#133215}
+body[data-page=landing] .landing-flow{display:grid;grid-template-columns:1.15fr 1fr;gap:72px;border-top:1px solid #e4ebe5}
+body[data-page=landing] .landing-steps{list-style:none;padding:0;margin:36px 0 0;display:grid;gap:28px}
+body[data-page=landing] .landing-steps li{display:flex;gap:20px}
+body[data-page=landing] .landing-steps li>span{font-size:14px;color:#526856;padding-top:4px}
+body[data-page=landing] .landing-steps h3{font-size:18px;margin-bottom:6px}
+body[data-page=landing] .landing-steps p{font-size:15px;margin:0}
+body[data-page=landing] .landing-relation{margin:0;align-self:center;border-block:1px solid #d5e2d6;padding:30px 0}
+body[data-page=landing] .landing-relation-title{font-size:14px;color:#526856;margin-bottom:30px}
+body[data-page=landing] .landing-relation-map{display:grid;grid-template-columns:minmax(0,1fr) 28px minmax(0,1.2fr);gap:12px;align-items:center;font-size:15px;text-align:center}
+body[data-page=landing] .landing-relation-source{background:#133215;color:#fff;padding:20px 12px;font-weight:600;word-break:keep-all}
+body[data-page=landing] .landing-relation-arrow{font-size:24px;color:#133215}
+body[data-page=landing] .landing-relation-map ul{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+body[data-page=landing] .landing-relation-map li{padding:14px 10px;border:1px solid #d5e2d6;word-break:keep-all}
+body[data-page=landing] .landing-relation figcaption{font-size:13px;color:#526856;line-height:1.8;margin-top:28px}
+body[data-page=landing] .landing-start{border-top:1px solid #e4ebe5;display:flex;align-items:center;justify-content:space-between;gap:32px}
+body[data-page=landing] .landing-start h2{font-size:clamp(25px,2.6vw,34px);margin-bottom:18px}
+body[data-page=landing] .landing-start p{font-size:14px;margin:0}
+body[data-page=landing] .landing-start .button{display:inline-flex;align-items:center;gap:28px;white-space:nowrap;text-decoration:none}
+@media(max-width:900px){
+ body[data-page=landing] .landing-section{padding-block:64px}
+ body[data-page=landing] .landing-about-heading{grid-template-columns:1fr;gap:24px;margin-bottom:40px}
+ body[data-page=landing] .landing-features{grid-template-columns:1fr;gap:32px}
+ body[data-page=landing] .landing-features article{padding-top:22px}
+ body[data-page=landing] .landing-flow{grid-template-columns:1fr;gap:40px}
+ body[data-page=landing] .landing-start{align-items:stretch;flex-direction:column}
+ body[data-page=landing] .landing-start .button{justify-content:space-between}
+}
+@media(max-width:420px){
+ body[data-page=landing] .landing-hero-actions{gap:16px}
+ body[data-page=landing] .landing-intro-link{font-size:13px}
+ body[data-page=landing] .landing-relation-map{font-size:13px;gap:8px;grid-template-columns:minmax(0,1fr) 20px minmax(0,1.2fr)}
+}
