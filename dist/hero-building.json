@@ -1,0 +1,32 @@
+{
+  "name": "포레스트 레지던스 A동",
+  "source": "가상 공동주택 콘셉트 · 현장 BIM 또는 안전 분석 결과 아님",
+  "width": 15,
+  "depth": 9,
+  "storey": 3,
+  "floors": 4,
+  "unitsPerFloor": 3,
+  "focus": {
+    "floor": 3,
+    "unit": "302",
+    "lookAt": [
+      7.5,
+      7.4,
+      1.8
+    ],
+    "eye": [
+      7.5,
+      7.55,
+      5.8
+    ]
+  },
+  "palette": {
+    "teal": "#133215",
+    "orange": "#81C784",
+    "gold": "#81C784",
+    "olive": "#133215",
+    "paper": "#FFFFFF",
+    "wall": "#FFFFFF",
+    "glass": "#133215"
+  }
+}

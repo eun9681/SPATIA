@@ -1,0 +1,14 @@
+const assert=require('node:assert/strict'),fs=require('node:fs');
+const {GeoEngine:G}=require('./dist/geo-engine.js'),{SpatiaBuildingDetail:D}=require('./dist/building-detail.js');
+const model=G.seed(),before=JSON.stringify(model),ranking=model.elements.map(e=>G.score(model,e).value),relations=G.candidates(model,'A-302-C01');
+assert.ok(D.supported(model));const context=D.context(model);assert.ok(context.length>200);
+for(const kind of ['frame','glass','balcony','rail','corridor','door','furniture','stairs','roof','solar','planter'])assert.ok(context.some(b=>b.kind===kind),kind+' must exist');
+assert.ok(context.every(b=>b.min.every((v,i)=>Number.isFinite(v)&&v<b.max[i])&&b.floor>=1&&b.floor<=4));
+const wall=model.elements.find(e=>e.type==='wall'&&e.direction),parts=D.parts(wall);assert.equal(parts.length,4);
+assert.ok(parts.every(b=>b.min.every((v,i)=>v>=wall.min[i]&&b.max[i]<=wall.max[i])));
+const pipe=model.elements.find(e=>e.type==='pipe'),mesh=D.pipeMesh(pipe);
+assert.ok(mesh.vertices.every(v=>v.every((n,i)=>n>=pipe.min[i]-1e-10&&n<=pipe.max[i]+1e-10)));
+assert.ok(mesh.faces.every(t=>t.length===3&&t.every(i=>i<mesh.vertices.length)));
+assert.equal(JSON.stringify(model),before);assert.deepEqual(model.elements.map(e=>G.score(model,e).value),ranking);assert.deepEqual(G.candidates(model,'A-302-C01'),relations);
+const imported=G.validate(JSON.parse(fs.readFileSync('dist/duplex-spatial-model.json','utf8')));assert.equal(D.supported(imported),false);assert.deepEqual(D.context(imported),[]);
+console.log('PASS: detailed facade, stairs, roof and furniture; wall openings and pipe bounds; unchanged IDs, analysis geometry, ranking and relationships; no fabricated IFC context.');

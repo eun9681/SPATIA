@@ -1,0 +1,122 @@
+/* SPATIA — forest green, light green and white. Shared by every workspace. */
+:root{
+ --spatia-forest:#133215;--spatia-highlight:#81C784;--spatia-highlight-soft:#81C78426;
+ --spatia-lime:var(--spatia-highlight);--spatia-beige:#FFFFFF;--spatia-white:#FFFFFF;
+ --spatia-navy:var(--spatia-forest);--spatia-teal:var(--spatia-forest);
+ --spatia-terracotta:var(--spatia-forest);--spatia-orange:var(--spatia-forest);
+ --spatia-sand:var(--spatia-lime);--spatia-gold:var(--spatia-lime);--spatia-olive:var(--spatia-forest);
+ --spatia-ivory:var(--spatia-white);--spatia-paper:var(--spatia-white);
+ --spatia-surface:var(--spatia-white);--spatia-text:var(--spatia-forest);
+ --spatia-warm-text:#133215;--ink:var(--spatia-forest);--muted:#133215B3;--sub:#133215B3;
+ --accent:var(--spatia-forest);--green:var(--spatia-forest);--line:#13321529;
+ --bg:#FFFFFF;--paper:var(--spatia-white);color-scheme:light;
+}
+body[data-page]{background:var(--bg);color:var(--spatia-text)}
+body[data-page=geo]{background:var(--spatia-white)}
+body[data-page] ::selection{background:var(--spatia-highlight);color:var(--spatia-forest)}
+body[data-page] :is(button,a,input,select,textarea):focus-visible{outline:3px solid #133215;outline-offset:4px}
+body[data-page] :is(.eyebrow,.meta,.lede,.side-label,.rail-label,.workspace-label){color:var(--muted)}
+body[data-page] :is(.panel,.card,.map-panel,.detail-panel,.priority-panel,.trend-panel,.metric-card,dialog){background:var(--spatia-white);border-color:var(--line)}
+body[data-page] :is(.primary,.export,.button.primary){background:var(--spatia-highlight);border-color:var(--spatia-highlight);color:var(--spatia-forest)}
+body[data-page] :is(.primary,.export,.button.primary):hover:not(:disabled){background:#81C784CC;border-color:var(--spatia-forest)}
+body[data-page] :is(.secondary,.outline-button,.outline-btn,.small-btn,.detail-action){background:var(--spatia-white);color:var(--spatia-forest);border-color:#13321566}
+body[data-page] :is(.secondary,.outline-button,.outline-btn,.small-btn,.detail-action):hover:not(:disabled){background:var(--spatia-highlight-soft)}
+body[data-page] :is(input,select,textarea),body[data-page] .field :is(input,select,textarea),body[data-page=cloud] input:not([type=checkbox]){background:var(--spatia-white);color:var(--spatia-forest);border-color:#13321566}
+body[data-page] :is(input,textarea)::placeholder{color:#13321599;opacity:1}
+body[data-page] input[type=checkbox],body[data-page] input[type=range]{accent-color:var(--spatia-forest)}
+body[data-page] :is(.disclaimer,.note,.notice,.notice-strip,.security-note,.sample-banner,.demo-banner,.workspace-banner){background:#81C78414;color:var(--spatia-forest);border-color:#81C78480}
+body[data-page] :is(.tag,.pill,.subtag,.badge,.chip,.priority-badge){background:var(--spatia-highlight-soft);color:var(--spatia-forest);border-color:#81C78480}
+body[data-page] :is(.status,.status.good){background:var(--spatia-highlight-soft);color:var(--spatia-forest);border-color:var(--spatia-highlight)}
+body[data-page] :is(.status.error,.warn){background:var(--spatia-beige);color:var(--spatia-forest);border-color:#133215}
+body[data-page] .spatia-site-header{background:var(--spatia-forest);border-bottom-color:#FFFFFF33}
+body[data-page] :is(.spatia-wordmark,.spatia-header-action,.spatia-site-menu){color:var(--spatia-white)}
+body[data-page] .spatia-wordmark small{color:var(--spatia-highlight)}
+body[data-page] .spatia-workspaces a{color:var(--spatia-white)}
+body[data-page] .spatia-workspaces a:hover,body[data-page] .spatia-workspaces a[aria-current=page]{color:var(--spatia-highlight)}
+body[data-page] .spatia-workspaces a[aria-current=page]::after{background:var(--spatia-highlight)}
+body[data-page] .spatia-header-action{border-color:#FFFFFF66}
+body[data-page] .spatia-explore{background:var(--spatia-white)}
+body[data-page] :is(.spatia-explore p,.spatia-section-intro p,.spatia-story-copy p){color:var(--muted)}
+body[data-page] .spatia-workspace{background:#FFFFFF}
+body[data-page] :is(.sidebar,.rail){color:var(--spatia-forest)}
+body[data-page] :is(.sidebar,.rail) .nav.active{background:var(--spatia-highlight-soft);color:var(--spatia-forest);border-left-color:var(--spatia-highlight)}
+body[data-page] :is(.project,.building-card){background:var(--spatia-white);border-color:var(--line)}
+body[data-page] :is(.project,.building-card) small{color:var(--muted)}
+body[data-page] :is(.stat,.metric){background:var(--spatia-white);border-color:var(--line)}
+body[data-page] :is(.stat label,.metric-label,.stat small,.element-id,.inspector-meta,.inspector-meta b,.ranking-row small){color:var(--muted)}
+body[data-page] :is(.stat strong,.metric-number,.ranking-row b){color:var(--spatia-forest)}
+body[data-page] .scene{background:#13321506}
+body[data-page] .spatial-insight{background:var(--spatia-highlight-soft);border-left-color:var(--spatia-highlight)}
+body[data-page] :is(.table th,table th,.guide-contents,pre,code,.detail-summary,.plain-box){background:#13321506;color:var(--spatia-forest)}
+body[data-page] .role-tabs{background:var(--spatia-highlight-soft)}
+body[data-page] .role-tabs .active{background:var(--spatia-forest);color:var(--spatia-white)}
+body[data-page] :is(.floor-buttons,.floors,.view-toggle) button.active{background:var(--spatia-highlight);color:var(--spatia-forest);border-color:var(--spatia-highlight)}
+body[data-page] .spatia-story{background:var(--spatia-white);border-top:1px solid var(--line)}
+body[data-page] .spatia-story-art{background:#81C7841A}
+body[data-page] .spatia-map-block{background:var(--spatia-white);border-color:var(--spatia-forest)}
+body[data-page] .spatia-map-block.block-two{background:var(--spatia-forest)}
+body[data-page] .spatia-map-pin{background:var(--spatia-highlight);color:var(--spatia-forest);border-color:var(--spatia-white)}
+body[data-page] .spatia-invitation{background:var(--spatia-forest);color:var(--spatia-white)}
+body[data-page] .spatia-invitation :is(h2,.spatia-text-link){color:var(--spatia-white)}
+body[data-page] .spatia-invitation>.spatia-kicker{color:var(--spatia-highlight)}
+body[data-page]>.spatia-site-footer{background:var(--spatia-white);color:var(--spatia-forest);border-color:var(--line)}
+body[data-page] .spatia-site-footer a{color:var(--spatia-forest)}
+body[data-page] .toast,body[data-page] #toast{background:var(--spatia-forest);color:var(--spatia-white)}
+body[data-page] .spatia-skip{background:var(--spatia-highlight);color:var(--spatia-forest)}
+body[data-page] .graph-mini text,body[data-page] .map-surface svg text{fill:var(--spatia-forest)}
+body[data-page] .graph-mini text[fill=white]{fill:var(--spatia-white)}
+@media(max-width:900px){
+ body[data-page] .spatia-site-header .spatia-workspaces{background:var(--spatia-forest);border-color:#FFFFFF66}
+ body[data-page] .spatia-site-header .spatia-workspaces a{border-color:#FFFFFF33}
+ body[data-page] :is(.sidebar,.rail){background:var(--spatia-white)}
+ body[data-page] .spatia-mobile-bar{background:var(--spatia-white)}
+}
+
+/* Selected and interactive states use dark ink on the light-green accent. */
+body[data-page=geo] .viewer-grid{grid-template-columns:minmax(0,1fr)}
+body[data-page] .tabs button.active{background:var(--spatia-forest);color:var(--spatia-white)}
+body[data-page] .scene-legend i{border:1px solid #13321566}
+body[data-page] :is(.rank,.avatar,.account>b,.nav em){background:var(--spatia-highlight-soft);color:var(--spatia-forest)}
+body[data-page] .spatia-sidebar-collapse:hover{background:var(--spatia-highlight-soft);border-color:var(--spatia-highlight)}
+body[data-page] .spatia-sidebar-collapse svg{color:var(--spatia-forest)}
+/* Role experience: selectable unit cutaway, with the same analytical IDs. */
+body[data-page="management"] .unit-map-card{min-width:0}
+body[data-page="management"] .unit-map-toolbar{flex-wrap:wrap;gap:12px;border-color:#13321524}
+body[data-page="management"] .unit-map-toolbar label,.unit-element-bar label{display:flex;align-items:center;gap:10px;min-width:0}
+body[data-page="management"] .unit-view-toggle{display:flex;padding:3px;border:1px solid #13321524;border-radius:8px;background:#fff}
+body[data-page="management"] .unit-view-toggle button{border:0;border-radius:5px;background:white;padding:8px 14px;font-size:13px;color:#133215}
+body[data-page="management"] .unit-view-toggle button.active{background:#133215;color:white}
+body[data-page="management"] .unit-element-bar{padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;border-bottom:1px solid #13321524}
+body[data-page="management"] .unit-element-bar label{flex:1;font-size:13px}
+body[data-page="management"] .unit-element-bar select{min-width:0;max-width:100%;flex:1;border:1px solid #13321535;padding:9px;background:white;border-radius:5px;font-size:13px}
+body[data-page="management"] .unit-map-rotation{display:flex;gap:6px}
+body[data-page="management"] .unit-map-rotation button{width:38px;height:38px;border:1px solid #13321535;background:white;border-radius:6px;font-size:23px;line-height:1}
+body[data-page="management"] .unit-map-rotation button:disabled{opacity:.3;cursor:default}
+body[data-page="management"] .unit-structure-surface{height:auto;aspect-ratio:900/620;min-height:280px;background:white}
+body[data-page="management"] .unit-structure-surface svg{display:block;padding:0;transform:none;width:100%;height:100%;position:absolute;inset:0;font-family:var(--spatia-font)}
+body[data-page="management"] .role-structure{cursor:pointer}
+body[data-page="management"] .role-structure:hover polygon{stroke:#133215;stroke-width:3;fill:#81C784;fill-opacity:.65}
+body[data-page="management"] .role-structure:focus-visible{outline:none}
+body[data-page="management"] .role-structure:focus-visible polygon{stroke:#133215;stroke-width:4;stroke-dasharray:5 3}
+body[data-page="management"] .role-request-pin{cursor:pointer}
+body[data-page="management"] .unit-structure-surface svg .role-request-pin text{fill:white}
+body[data-page="management"] .unit-selection-summary{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:18px 22px;border-block:1px solid #13321524;background:#81C7840C}
+body[data-page="management"] .unit-selection-summary>div{display:grid;gap:5px;min-width:0}
+body[data-page="management"] .unit-selection-summary small{font-size:11px;opacity:.65}
+body[data-page="management"] .unit-selection-summary b{font-size:17px}
+body[data-page="management"] .unit-selection-summary code{font-family:inherit;font-size:12px;overflow-wrap:anywhere}
+body[data-page="management"] #unitRequestCount{font-size:12px;white-space:nowrap}
+body[data-page="management"] .unit-map-legend{justify-content:flex-start;flex-wrap:wrap;gap:14px;font-size:11px;padding:14px 22px}
+body[data-page="management"] .unit-map-legend span{display:flex;align-items:center;gap:6px}
+body[data-page="management"] .unit-map-legend i{width:9px;height:9px;display:inline-block;background:#81C784;border:1px solid #133215;border-radius:2px}
+body[data-page="management"] .unit-map-legend .unit-legend-request{border-radius:50%;background:#133215}
+@media(max-width:600px){body[data-page="management"] .unit-map-toolbar>label{flex:1}body[data-page="management"] .unit-map-toolbar #mapSelected{width:100%}body[data-page="management"] .unit-element-bar{padding:12px;gap:8px}body[data-page="management"] .unit-map-rotation button{width:32px}body[data-page="management"] .unit-selection-summary{padding:16px;flex-wrap:wrap}body[data-page="management"] .unit-map-card .card-head .tag{display:none}}
+/* Landing and analytical workspaces have separate documents and entry points. */
+body[data-page=landing] main{margin:0!important;padding:0!important;max-width:none!important}
+body[data-page=geo] .spatia-workspace{padding-top:36px}
+/* Explanatory copy stays plain; status and form validation remain visible. */
+body[data-page] :is(.notice,.note,.security-note,.workspace-banner){background:transparent!important;border:0!important;box-shadow:none!important;border-radius:0!important;padding:0!important;color:#133215}
+body[data-page] .security-note{margin-block:24px}
+body[data-page] :is(.side-feature,.role-note){display:none!important}
+body[data-page] .unit-selection-summary{background:#fff}
+body[data-page=landing] .spatia-workspaces a[aria-current=page]{border-color:#81C784}

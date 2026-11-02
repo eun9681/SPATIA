@@ -23,7 +23,7 @@ assert.throws(()=>M.transition(s,'REQ-2026-001',2,'김 담당','2026-11-02','man
 assert.throws(()=>M.transition(s,'REQ-2026-001',5,'김 담당','2026-11-02','manager'),/단계/);
 const elements=new Map();function el(k){if(!elements.has(k))elements.set(k,{innerHTML:'',textContent:'',value:'',style:{},classList:{add(){},remove(){},toggle(){}},querySelectorAll:()=>[],querySelector:()=>el(k+'sub'),close(){},showModal(){}});return elements.get(k)}
 const ctx=vm.createContext({BuildModel:M,GeoEngine:G,SpatiaWorkspace:W,SPATIA_ACTIVE_MODEL:G.seed(),document:{querySelector:el,querySelectorAll:()=>[],addEventListener(){}},window:{addEventListener(){}},localStorage:{getItem:()=>null,setItem(){}},console,setTimeout,clearTimeout});
-vm.runInContext(fs.readFileSync('dist/build.js','utf8'),ctx);
+for(const file of ['building-detail.js','role-plan.js','build.js'])vm.runInContext(fs.readFileSync('dist/'+file,'utf8'),ctx);
 el('#termSelect').value='콘크리트 중성화';
 vm.runInContext(`
 for(const testRole of ['resident','manager','expert']){

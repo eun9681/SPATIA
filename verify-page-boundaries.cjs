@@ -1,0 +1,17 @@
+const fs=require('node:fs'),assert=require('node:assert/strict');
+const read=f=>fs.readFileSync('dist/'+f,'utf8'),landing=read('index.html'),workspace=read('workspace.html');
+assert.match(landing,/data-page="landing"/);assert.match(landing,/journeyCanvas/);
+assert.doesNotMatch(landing,/id="workspace"|geo-app\.js|geo-engine\.js|id="analysisContent"/);
+assert.match(workspace,/id="analysisContent"/);assert.match(workspace,/geo-app\.js/);
+assert.doesNotMatch(workspace,/journeyCanvas|hero-journey\.js|spatia-story|class="disclaimer"/);
+assert.equal(fs.existsSync('dist/cloud.html'),false);assert.equal(fs.existsSync('dist/cloud.js'),false);
+for(const f of fs.readdirSync('dist').filter(f=>/\.(html|js)$/.test(f)))assert.doesNotMatch(read(f),/cloud\.html|cloud\.js|개인 백업/,f);
+assert.match(read('login.html'),/id="sharedRegister"/);
+assert.match(read('login.js'),/createUserWithEmailAndPassword/);
+assert.equal(fs.existsSync('dist/collaboration.html'),false);
+assert.equal(fs.existsSync('dist/shared-setup.html'),false);
+for(const file of ['index.html','workspace.html','management.html'])assert.doesNotMatch(read(file),/YOUR BUILDING, CONNECTED|A BETTER WAY TO CARE|class="breadcrumbs"|class="eyebrow"/);
+assert.match(read('build.js'),/workspace\.html\?element=/);
+assert.doesNotMatch(read('management.html'),/class="demo-banner"/);
+assert.doesNotMatch(read('build.js'),/id="modelConnection"|class="notice-strip"/);
+console.log('PASS: isolated landing/analysis documents and scripts; no published backup page or dangling backup links; account creation retained in login; analytical deep links preserved; explanatory banners removed.');

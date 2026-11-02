@@ -8,9 +8,12 @@
     "test": "node verify-geo.cjs",
     "test:ui": "node verify-geo-ui.cjs",
     "test:management": "node verify-build.cjs",
-    "test:cloud": "node verify-cloud.cjs",
     "test:platform": "node verify-platform.cjs",
-    "test:security": "node verify-security.mjs"
+    "test:spa": "node verify-spa.cjs",
+    "test:journey": "node verify-journey.cjs",
+    "test:security": "node verify-security.mjs",
+    "test:building": "node verify-building-detail.cjs",
+    "test:auth-header": "node verify-auth-header.cjs"
   },
   "devDependencies": {
     "@firebase/rules-unit-testing": "^6.0.0",

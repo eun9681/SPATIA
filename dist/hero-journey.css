@@ -1,0 +1,68 @@
+/* The building begins in the first viewport, then the camera travels with the scroll. */
+.spatia-journey{position:relative;height:350svh;background:#133215;scroll-margin-top:var(--site-header-height)}
+body[data-page] .spatia-journey .spatia-hero{position:sticky;top:var(--site-header-height);height:calc(100svh - var(--site-header-height));min-height:540px;max-height:none;padding:0;overflow:hidden;background:radial-gradient(ellipse at 70% 40%,#133215 0,#133215 65%);text-align:left;isolation:isolate}
+#journeyCanvas{display:none;position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
+.spatia-hero[data-scene=ready] #journeyCanvas{display:block}
+body[data-page] .spatia-journey .spatia-hero-building{position:absolute;right:3%;left:auto;top:7%;bottom:auto;width:58%;height:75%;max-width:none;margin:0;object-fit:contain;z-index:1}
+.spatia-hero[data-scene=ready] .spatia-hero-building{visibility:hidden}
+body[data-page] .spatia-journey .spatia-hero-copy{position:absolute;z-index:3;top:clamp(28px,6vh,72px);left:var(--spatia-gutter);width:43%;padding:0;opacity:var(--journey-copy-opacity,1);transform:translateY(var(--journey-copy-shift,0));pointer-events:none}
+body[data-page] .spatia-journey .spatia-kicker{color:var(--spatia-highlight);font-size:10px;letter-spacing:.24em;margin:0 0 20px}
+body[data-page] .spatia-journey h1{font-size:clamp(36px,4.3vw,65px);font-weight:450;line-height:1.25;letter-spacing:-.06em;margin:0 0 24px;color:#FFFFFF}
+body[data-page] .spatia-journey .spatia-hero-copy>p:not(.spatia-kicker){font-size:13px;line-height:1.95;margin:0 0 22px;color:#FFFFFFd9}
+body[data-page] .spatia-journey .spatia-hero-link{color:var(--spatia-highlight);font-size:12px;padding:10px 0;border-color:var(--spatia-highlight);gap:30px;pointer-events:auto}
+.journey-location{position:absolute;z-index:3;top:35px;right:var(--spatia-gutter);display:flex;align-items:center;gap:9px;color:#FFFFFFb3;font-size:9px;letter-spacing:.14em}
+.journey-location>span:last-child{color:#FFFFFF;margin-left:8px}
+.journey-live-dot{width:6px;height:6px;border-radius:50%;background:var(--spatia-highlight);box-shadow:0 0 0 4px #81C78426}
+.journey-room{position:absolute;z-index:3;left:var(--spatia-gutter);top:9%;opacity:var(--journey-inside-opacity,0);pointer-events:none;width:min(370px,40%);padding:24px;background:linear-gradient(110deg,#133215f5,#133215bd);border-left:2px solid var(--spatia-highlight);transform:translateY(calc(16px * (1 - var(--journey-inside-opacity,0))))}
+.journey-room>span{font-size:10px;letter-spacing:.18em;color:var(--spatia-highlight)}
+body[data-page] .journey-room h2{color:#FFFFFF;font-size:clamp(24px,3vw,40px);line-height:1.4;font-weight:450;margin:14px 0}
+.journey-room p{color:#FFFFFFd9;font-size:12px;line-height:1.9;margin:0 0 20px}
+body[data-page] .journey-room .primary{background:var(--spatia-highlight);border-color:var(--spatia-highlight);color:#133215;font-weight:650;font-size:12px;display:inline-flex;gap:25px;align-items:center}
+.spatia-hero[data-motion=inside] .journey-room{pointer-events:auto}
+.spatia-hero[data-motion=inside] .spatia-hero-copy{visibility:hidden}
+.spatia-hero[data-motion=inside] .journey-location,.spatia-hero[data-motion=entering] .journey-location{background:#133215e8;padding:9px 12px;color:#FFFFFF}
+.spatia-hero[data-motion=inside] .journey-hud,.spatia-hero[data-motion=entering] .journey-hud{padding:14px 20px;background:#133215e8;border-top:1px solid #FFFFFF66;bottom:20px}
+.journey-hud{position:absolute;z-index:4;bottom:32px;left:var(--spatia-gutter);right:var(--spatia-gutter);display:flex;align-items:end;justify-content:space-between;gap:24px;pointer-events:none}
+.journey-hud .journey-caption .spatia-kicker{font-size:8px;margin-bottom:7px}
+.journey-caption p{color:#FFFFFF;font-size:16px;letter-spacing:-.025em;line-height:1.6;margin:0 0 7px}
+.journey-caption small{display:block;color:#FFFFFFb3;font-size:9px;line-height:1.8;letter-spacing:.015em}
+.journey-stages{display:flex;align-items:center;gap:24px;margin-bottom:8px}
+.journey-step{font-size:10px;color:#FFFFFF85;letter-spacing:.02em;white-space:nowrap}
+.journey-step b{font-size:9px;font-weight:400;color:inherit;margin-right:6px}
+.journey-step[aria-current]{color:var(--spatia-highlight)}
+body[data-page] .journey-hud .spatia-scroll{pointer-events:auto;gap:20px;font-size:9px;color:#FFFFFF;letter-spacing:.12em;margin-bottom:6px}
+.journey-progress{position:absolute;bottom:0;left:0;right:0;z-index:5;height:3px;background:#FFFFFF12}
+.journey-progress i{display:block;width:var(--journey-progress,0%);height:100%;background:var(--spatia-highlight)}
+@media(max-width:1100px){.journey-stages{gap:15px}.journey-location{top:26px}.journey-caption p{font-size:14px}.journey-hud .spatia-scroll{font-size:8px!important}}
+@media(max-width:900px){
+ body[data-page] .spatia-journey .spatia-hero-copy{top:30px;width:70%;max-width:500px}
+ body[data-page] .spatia-journey h1{font-size:clamp(34px,5vw,47px);margin-bottom:16px}
+ body[data-page] .spatia-journey .spatia-kicker{font-size:9px;margin-bottom:16px}
+ body[data-page] .spatia-journey .spatia-hero-copy>p:not(.spatia-kicker){font-size:12px;line-height:1.85;margin-bottom:10px}
+ body[data-page] .spatia-journey .spatia-hero-building{width:85%;height:52%;top:auto;bottom:13%;right:2%}
+ .journey-location{top:28px;font-size:8px}.journey-location>span:last-child{display:none}
+ .journey-room{width:45%;max-width:360px;top:8%;padding:20px}
+ .journey-stages{display:none}.journey-hud{bottom:25px}.journey-hud .journey-caption .spatia-kicker{display:none}
+ body[data-page] .spatia-journey .spatia-hero[data-layout=wide] .spatia-hero-copy{width:42%}
+ body[data-page] .spatia-journey .spatia-hero[data-layout=wide] h1{font-size:34px}
+}
+@media(max-width:600px){
+ .spatia-journey{height:330svh}
+ body[data-page] .spatia-journey .spatia-hero{min-height:600px}
+ body[data-page] .spatia-journey .spatia-hero-copy{top:28px;left:24px;right:24px;width:auto;max-width:none}
+ body[data-page] .spatia-journey h1{font-size:36px;line-height:1.2;margin-bottom:16px}
+ body[data-page] .spatia-journey .spatia-kicker{font-size:8px;letter-spacing:.2em;margin-bottom:14px}
+ body[data-page] .spatia-journey .spatia-hero-link{font-size:11px;padding:8px 0}
+ body[data-page] .spatia-journey .spatia-hero-building{width:94%;height:44%;right:3%;bottom:13%}
+ .journey-location{display:none}
+ .journey-room{top:24px;left:24px;right:24px;width:auto;padding:18px 20px;max-width:none}
+ body[data-page] .journey-room h2{font-size:27px;margin:10px 0}.journey-room p{font-size:11px;margin-bottom:14px}.journey-room>span{font-size:9px}
+ .journey-hud{left:24px;right:24px;bottom:20px;gap:15px}.journey-caption p{font-size:13px;margin-bottom:3px}.journey-caption small{font-size:8px}
+ .spatia-hero[data-motion=inside] .journey-hud,.spatia-hero[data-motion=entering] .journey-hud{padding:12px 15px}
+ body[data-page] .journey-hud .spatia-scroll{font-size:0!important;gap:0;margin:0}.journey-hud .spatia-scroll span{font-size:26px}
+}
+@media(prefers-reduced-motion:reduce){
+ .spatia-journey{height:auto}
+ body[data-page] .spatia-journey .spatia-hero{position:relative;top:0;height:max(700px,calc(100svh - var(--site-header-height)))}
+ .journey-progress,.journey-stages{display:none}
+}

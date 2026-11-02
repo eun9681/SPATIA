@@ -1,0 +1,38 @@
+/* Minimal presentation. Parked controls retain their handlers and can be restored
+   by removing these scoped rules. Main analysis and workflow controls stay visible. */
+body[data-page] :is(.side-feature,.role-note,.operations-label,.link-nav,.account,.avatar),
+body[data-page=geo] :is(#dataButton,#methodButton,.intro p,.panel-heading>div>p,.scene-caption),
+body[data-page=management] :is(.heading p,.rolebar>span,.rail-bottom .old-link,.help,.card-head>div>p),
+body[data-page] :is(.stat-icon,.stat>i,.stat>small),
+body[data-page] .spatia-site-footer>div:first-child{display:none!important}
+body[data-page] .stats{gap:0;margin:16px 0 24px;border-block:1px solid #13321520}
+body[data-page] .stat{padding:15px 18px!important;border:0!important;border-right:1px solid #13321514!important;background:transparent!important;border-radius:0!important}
+body[data-page] .stat:last-child{border-right:0!important}
+body[data-page] .stat label{font-size:12px}
+body[data-page] .stat strong{font-size:25px;margin:4px 0 0;line-height:1.4}
+body[data-page] .stat strong small{font-size:12px}
+body[data-page=geo] .intro{margin-bottom:18px}
+body[data-page=geo] .scene-bottom>span{display:none}
+body[data-page=geo] .scene-bottom{justify-content:flex-end}
+body[data-page=management] .lower-grid{grid-template-columns:minmax(0,1fr)}
+body[data-page=management] .heading h1{font-size:26px;margin:0}
+body[data-page=management] .rolebar{margin-bottom:18px}
+body[data-page=management] main>header{display:none}
+body[data-page] .spatia-site-footer{padding-block:18px;min-height:0;justify-content:flex-end;border-top:1px solid #13321518}
+body[data-page] .spatia-site-footer p{margin:6px 0 0;font-size:11px}
+body[data-page] .minimal-details{padding:18px 22px}
+body[data-page] .minimal-details summary{cursor:pointer;font-size:14px}
+body[data-page=landing] .spatia-journey{height:250svh}
+body[data-page=landing] .spatia-hero-copy h1{margin-bottom:28px}
+body[data-page=geo] #navigation .nav{align-items:flex-start;white-space:normal}
+body[data-page=geo] #navigation .nav span{min-width:0;word-break:keep-all;overflow-wrap:break-word;line-height:1.65}
+/* Center the headline and entry action vertically alongside the building. */
+body[data-page=landing] .spatia-journey .spatia-hero-copy{top:50%;transform:translateY(calc(-50% + var(--journey-copy-shift,0px)))}
+@media(max-width:900px){body[data-page=landing] .spatia-journey .spatia-hero-copy{top:35%}}
+@media(max-width:600px){
+ body[data-page] .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+ body[data-page] .stat{padding:12px!important}
+ body[data-page] .stat strong{font-size:23px}
+ body[data-page=management] .heading h1{font-size:23px}
+}
+@media(prefers-reduced-motion:reduce){body[data-page=landing] .spatia-journey{height:auto;min-height:calc(100svh - var(--site-header-height))}}

@@ -1,0 +1,13 @@
+const assert=require('node:assert/strict'),A=require('./dist/auth-header.js');
+const link={dataset:{},setAttribute(k,v){this[k]=v}};let listener;
+const auth={app:{options:{projectId:'test-project'}}};
+const stop=A.observe(auth,(_auth,callback)=>{assert.equal(_auth,auth);listener=callback;return()=>true},(signedIn,id)=>{assert.equal(id,'test-project');A.paint(link,signedIn)});
+listener(null);assert.equal(link.textContent,'로그인');assert.equal(link.href,'login.html');
+listener({uid:'test-user'});assert.equal(link.textContent,'내 워크스페이스');assert.equal(link.dataset.authState,'signed-in');assert.equal(link.href,'management.html');
+listener(null);assert.equal(link.textContent,'로그인');assert.equal(stop(),true);
+const source={},frames=[{contentWindow:source}],event={origin:'https://spatia.example',source,data:{type:'spatia:auth-state',signedIn:true}};
+assert.equal(A.trustedMessage(event,event.origin,frames),true);
+assert.equal(A.trustedMessage({...event,origin:'https://other.example'},event.origin,frames),false);
+assert.equal(A.trustedMessage({...event,source:{}},event.origin,frames),false);
+assert.equal(A.trustedMessage({...event,data:{type:'spatia:auth-state',signedIn:'true'}},event.origin,frames),false);
+console.log('PASS: Firebase observer sign-in and sign-out presentation; login destination; workspace destination; wrong-origin and unknown-frame messages rejected. No real account or cloud writes performed.');
