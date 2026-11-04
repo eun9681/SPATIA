@@ -251,3 +251,6 @@ body[data-page=management] .view-all-button{display:inline-flex;align-items:cent
 @media(max-width:900px){body[data-page=geo] .intro{display:flex;flex-direction:column;gap:18px;margin-bottom:20px}body[data-page=geo] .intro-actions{position:static;align-self:stretch;justify-content:flex-start;width:100%;gap:10px}body[data-page=geo] .intro-actions button{flex:0 1 auto;min-width:0;font-size:13px}body[data-page=geo] #analysisContent>.analysis-controls{row-gap:12px}body[data-page=geo] .vellum-selection .vellum-gauge{width:144px;height:128px;margin:0 auto}body[data-page=management] .view-all-button{padding:10px 14px;font-size:13px}}
 body[data-page] .icon-text-button{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:10px 18px;min-height:44px;white-space:nowrap;flex-shrink:0;font-size:13px;line-height:1.4}
 .icon-text-button svg{display:block;width:16px;height:16px;flex:none}
+/* Anchor twin controls above the floating service dock, regardless of scene height. */
+body[data-page=geo][data-analysis-tab=twin] .scene-controls{position:fixed;top:auto;bottom:calc(88px + env(safe-area-inset-bottom,0px));left:calc(50% - 150px);z-index:44;background:var(--glass-fill-strong)}
+@media(max-width:900px){body[data-page=geo][data-analysis-tab=twin] .scene-controls{left:50%;bottom:calc(88px + env(safe-area-inset-bottom,0px))}}
